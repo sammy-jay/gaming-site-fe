@@ -14,7 +14,7 @@ const Navbar = () => {
   const access_token = storedData?.access_token || "";
   const router = useRouter();
 
-  const { status, data } = useQuery("profile", async () => {
+  const { data } = useQuery("profile", async () => {
     const options = {
       method: "GET",
       headers: {
