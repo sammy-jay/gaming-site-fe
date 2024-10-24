@@ -33,7 +33,7 @@ const Navbar = () => {
 
   const pathname = usePathname();
 
-  if (status === "loading" || status === "error") {
+  if (status === "loading" || status === "error" || !data) {
     return (
       <nav className="z-10 fixed top-0 left-0 right-0 w-full text-lg py-4 px-6 lg:px-16 bg-[#212129] flex flex-row justify-between items-center">
         <Link href="/" className="font-bold text-2xl text-white">
