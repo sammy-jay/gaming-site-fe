@@ -2,26 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+#hero-section {
+  background-image: url("/images/banner-index.png");
+  background-position: center;
+  background-size: cover;
+}
+#play-hero-section {
+  background-image: url("/images/call-action-bg.png");
+  background-position: center;
+  background-size: cover;
+}
+#player-hero-section {
+  background-image: url("/images/account-banner-bg.png");
+  background-position: center;
+  background-size: cover;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+#auth-section {
+  background-image: url("/images/auth-bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+*::-webkit-scrollbar {
+  width: 9px;
+  
+  height: 6px;
+  border-radius: 55px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+*::-webkit-scrollbar-track {
+  background: #181820;
+  padding: 10px 0px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #5c5c7b;
+  border-radius: 50px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #7878a3;
+}
+
+@layer base {
+  * {
+    @apply tracking-wider;
   }
 }
