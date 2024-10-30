@@ -1,410 +1,977 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <main className="w-full max-w-[1440px] mx-auto">
-      {/* Hero section */}
+    <main>
+      <a href="#" className="scrollToTop">
+        <i className="las la-angle-up"></i>
+      </a>
+      {/* <div className="overlay" />
+      <div className="preloader">
+        <div className="loader">
+          <span>
+            <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+          </span>
+        </div>
+      </div> */}
+
+      <header className="header-section">
+        <div className="header-top bg--section">
+          <div className="container">
+            <ul className="header-top-area">
+              <li className="me-auto"></li>
+              <li className="links">
+                <a href="https://www.cryptoplustrader.com/user/login">
+                  Sign in
+                </a>
+              </li>
+              <li className="links b-left">
+                <a href="https://www.cryptoplustrader.com/user/register">
+                  Sign Up
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="header-bottom">
+          <div className="container">
+            <div className="header-wrapper">
+              <div className="logo">
+                <a href="https://www.cryptoplustrader.com">
+                  <img
+                    src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png"
+                    alt="image"
+                  />
+                </a>
+              </div>
+              <ul className="menu">
+                <li>
+                  <a className="active" href="https://www.cryptoplustrader.com">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a className="" href="https://www.cryptoplustrader.com/faq">
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className=""
+                    href="https://www.cryptoplustrader.com/services"
+                  >
+                    Services
+                  </a>
+                </li>
+                <li>
+                  <a className="" href="https://www.cryptoplustrader.com/about">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.cryptoplustrader.com/blog" className="">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.cryptoplustrader.com/contact"
+                    className=""
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+              <div className="header-bar m-0">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <section
-        className="min-h-[100vh] max-w-[1440px] overflow-x-hidden bg-[#0F0C21] flex relative justify-center items-center"
-        id="hero-section"
+        className="banner-section bg--overlay bg_img"
+        data-background="https://www.cryptoplustrader.com/assets/images/frontend/banner/608919b35c94e1619597747.jpg"
       >
-        {/* <Image
-          src="/images/banner-2.png"
-          width={600}
-          height={600}
-          className="absolute -left-[300px] top-0 bottom-0 object-fill"
-          alt="banner-1"
-        />
-        <Image
-          src="/images/banner-1.png"
-          width={700}
-          height={1050}
-          className="absolute -right-[250px] top-0 bottom-0"
-          alt="banner-1"
-        /> */}
-        <div className="flex flex-col items-center gap-y-4 lg:gap-y-0">
-          <h1 className="font-bold text-[32px] lg:text-[64px] text-white text-center">
-            Play Games
-          </h1>
-          <h1 className="font-bold text-[32px] lg:text-[64px] text-[#FFCC00] text-center">
-            Win Cash
-          </h1>
-          <p className="text-white max-w-[400px] text-center text-[16px] lg:text-[20px]">
-            Compete game tournaments for cash prizes or play head to head for
-            real money.
-          </p>
-          <button className="bg-[#FFCC00] mt-4 w-max py-2 px-4 rounded-md text-black">
-            Play Now
-          </button>
+        <div className="container">
+          <div className="banner-wrapper">
+            <div className="banner-content mt-xl-5">
+              <h2 className="banner-title">
+                Get up to 100% payout on as little as 0.1 pip
+              </h2>
+              <p className="banner-text">
+                A platform that makes crypto trading as easy and profitable as
+                possible.
+              </p>
+              <a href="user/register" className="cmn--btn">
+                Get Started
+              </a>
+            </div>
+            <div className="banner-thumb">
+              <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/608919c858e481619597768.png" />
+              <div className="banner-anime-thumbs">
+                <div className="banner-anime banner-anime1">
+                  <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/60891a3fbf2dc1619597887.png" />
+                </div>
+                <div className="banner-anime banner-anime2">
+                  <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/60891a475d57f1619597895.png" />
+                </div>
+                <div className="banner-anime banner-anime3">
+                  <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/60891a4f407e01619597903.png" />
+                </div>
+                <div className="banner-anime banner-anime4">
+                  <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/60891a5905b791619597913.png" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      <div className="bg-gradient-to-b from-[#0F0C21] to-[#191921] flex flex-row flex-wrap px-[8%] justify-around gap-3 py-12">
-        <div className="bg-[#050508] w-full md:max-w-[400px] h-[150px] justify-start space-x-6 rounded-lg flex flex-row py-6 px-8">
-          <Image
-            src="/images/counter-icon-1.png"
-            alt="counter-1"
-            height={75}
-            width={85}
-          />
-          <div className="flex flex-col justify-between">
-            <p className="text-white text-[30px] lg:text-[42px]">18,328</p>
-            <p className="text-[18px] text-[#239921]">Profile Created</p>
+      <section className="trend-trade-section pt-120 pb-120">
+        <div className="container">
+          <div className="row g-4">
+            <div className="col-12">
+              <div className="section__header ">
+                <h3 className="title">Cryptocurrency Prices</h3>
+                <p>The prices are updated in real-time.</p>
+              </div>
+              <div className="table-responsive">
+                <table className="table cmn--table">
+                  <thead>
+                    <tr>
+                      <th>S.N.</th>
+                      <th>Name</th>
+                      <th>1h%</th>
+                      <th>Price</th>
+                      <th>7d%</th>
+                      <th>Market Cap</th>
+                      <th>24h%</th>
+                      <th>Volume(24h)</th>
+                      <th>Circulating Supply</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <div className="author-info d-flex align-items-center">
+                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef3902367b1689187216.png" />
+                          <div className="name">
+                            <span className="d-block">BTC</span>
+                            <small>Bitcoin</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="badge badge--danger">-0.19 %</span>
+                      </td>
+                      <td>62,901.09 USD</td>
+                      <td>
+                        <span className="badge badge--danger">-1.88 %</span>
+                      </td>
+                      <td>$1,243,198,029,865.10</td>
+                      <td>
+                        <span className="badge badge--success">1.02 %</span>
+                      </td>
+                      <td>$24,181,185,956.65</td>
+                      <td>0.00 BTC</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>
+                        <div className="author-info d-flex align-items-center">
+                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef3b100fb31689187249.png" />
+                          <div className="name">
+                            <span className="d-block">ETH</span>
+                            <small>Ethereum</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="badge badge--danger">-0.06 %</span>
+                      </td>
+                      <td>2,466.56 USD</td>
+                      <td>
+                        <span className="badge badge--danger">-6.40 %</span>
+                      </td>
+                      <td>$296,922,464,550.20</td>
+                      <td>
+                        <span className="badge badge--success">1.48 %</span>
+                      </td>
+                      <td>$13,299,005,375.88</td>
+                      <td>0.00 ETH</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>
+                        <div className="author-info d-flex align-items-center">
+                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef3e8710701689187304.png" />
+                          <div className="name">
+                            <span className="d-block">USDT</span>
+                            <small>Tether</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="badge badge--danger">0.00 %</span>
+                      </td>
+                      <td>1.00 USD</td>
+                      <td>
+                        <span className="badge badge--danger">-0.03 %</span>
+                      </td>
+                      <td>$119,629,760,853.70</td>
+                      <td>
+                        <span className="badge badge--danger">-0.04 %</span>
+                      </td>
+                      <td>$47,808,399,966.31</td>
+                      <td>0.00 USDT</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>
+                        <div className="author-info d-flex align-items-center">
+                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef50fb4ee81689187599.png" />
+                          <div className="name">
+                            <span className="d-block">BNB</span>
+                            <small>BNB</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="badge badge--success">0.10 %</span>
+                      </td>
+                      <td>571.47 USD</td>
+                      <td>
+                        <span className="badge badge--danger">-0.95 %</span>
+                      </td>
+                      <td>$83,395,794,702.71</td>
+                      <td>
+                        <span className="badge badge--success">1.42 %</span>
+                      </td>
+                      <td>$1,568,734,435.24</td>
+                      <td>0.00 BNB</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>
+                        <div className="author-info d-flex align-items-center">
+                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef5449155b1689187652.png" />
+                          <div className="name">
+                            <span className="d-block">USDC</span>
+                            <small>USD Coin</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="badge badge--danger">0.00 %</span>
+                      </td>
+                      <td>1.00 USD</td>
+                      <td>
+                        <span className="badge badge--danger">-0.01 %</span>
+                      </td>
+                      <td>$35,485,054,117.79</td>
+                      <td>
+                        <span className="badge badge--danger">-0.03 %</span>
+                      </td>
+                      <td>$4,600,452,276.75</td>
+                      <td>0.00 USDC</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>
+                        <div className="author-info d-flex align-items-center">
+                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef57d94dbc1689187709.png" />
+                          <div className="name">
+                            <span className="d-block">BUSD</span>
+                            <small>Binance USD</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="badge badge--success">0.00 %</span>
+                      </td>
+                      <td>1.00 USD</td>
+                      <td>
+                        <span className="badge badge--danger">-0.07 %</span>
+                      </td>
+                      <td>$69,500,780.04</td>
+                      <td>
+                        <span className="badge badge--danger">-0.01 %</span>
+                      </td>
+                      <td>$5,475,838.20</td>
+                      <td>0.00 BUSD</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="bg-[#050508] w-full md:max-w-[400px] h-[150px] justify-start space-x-6 rounded-lg flex flex-row py-6 px-8">
-          <Image
-            src="/images/counter-icon-2.png"
-            alt="counter-1"
-            height={75}
-            width={85}
-          />
-          <div className="flex flex-col justify-between">
-            <p className="text-white text-[30px] lg:text-[42px]">343</p>
-            <p className="text-[18px] text-[#239921]">Upcoming Tournaments</p>
+      </section>
+
+      <section className="predict-type-section pb-120 pt-120 bg--section">
+        <div className="container">
+          <div className="row gy-5">
+            <div className="section__header">
+              <h3 className="title">
+                Trading with us comes with different services
+              </h3>
+              <p>There are various services we offer:</p>
+            </div>
+          </div>
+          <div className="row g-xl-2 g-lg-4 g-md-2 g-3">
+            <div className="col-xl-2 col-md-3 col-sm-6 ">
+              <div
+                className="predict-type-item predictModelShow"
+                data-predict='{"title":"Price Prediction","description":"We offer price prediction for complicated trades to help users analyze the feasibility of an intended trade.","icon":"\u003Ci className=\u0022fas fa-network-wired\u0022\u003E\u003C\/i\u003E","button_name":"Try Demo","button_url":"user\/register"}'
+              >
+                <div className="icon">
+                  {" "}
+                  <i className="fas fa-network-wired"></i>{" "}
+                </div>
+                <span className="title">Price Prediction</span>
+              </div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-sm-6 ">
+              <div
+                className="predict-type-item predictModelShow"
+                data-predict='{"title":"Demo Trade","description":"You can also practice trade to familiarize yourself with the system.","icon":"\u003Ci className=\u0022lar la-grin-squint-tears\u0022\u003E\u003C\/i\u003E","button_name":"Get Started","button_url":"login"}'
+              >
+                <div className="icon">
+                  {" "}
+                  <i className="lar la-grin-squint-tears"></i>{" "}
+                </div>
+                <span className="title">Demo Trade</span>
+              </div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-sm-6 ">
+              <div
+                className="predict-type-item predictModelShow"
+                data-predict='{"title":"Trade","description":"You are presented with a variety of cryptocurrencies to trade with and your results are displayed on real-time.","icon":"\u003Ci className=\u0022lab la-grav\u0022\u003E\u003C\/i\u003E","button_name":"Try Quick Demo","button_url":"login"}'
+              >
+                <div className="icon">
+                  {" "}
+                  <i className="lab la-grav"></i>{" "}
+                </div>
+                <span className="title">Trade</span>
+              </div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-sm-6 ">
+              <div
+                className="predict-type-item predictModelShow"
+                data-predict='{"title":"High\/Low Options","description":"Shorting are absolutely allowed; you can also stake high or stake low.","icon":"\u003Ci className=\u0022las la-life-ring\u0022\u003E\u003C\/i\u003E","button_name":"Try Quick Demo","button_url":"login"}'
+              >
+                <div className="icon">
+                  {" "}
+                  <i className="las la-life-ring"></i>{" "}
+                </div>
+                <span className="title">High/Low Options</span>
+              </div>
+            </div>
+            <div className="col-xl-2 col-md-3 col-sm-6 ">
+              <div
+                className="predict-type-item predictModelShow"
+                data-predict='{"title":"Turbo Spread","description":"Calculations are lights-speed fast and done on real-time basis.","icon":"\u003Ci className=\u0022las la-helicopter\u0022\u003E\u003C\/i\u003E","button_name":"Try Quick Demo","button_url":"login"}'
+              >
+                <div className="icon">
+                  {" "}
+                  <i className="las la-helicopter"></i>{" "}
+                </div>
+                <span className="title">Turbo Spread</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="bg-[#050508] w-full md:max-w-[400px] h-[150px] justify-start space-x-6 rounded-lg flex flex-row py-6 px-8">
-          <Image
-            src="/images/counter-icon-3.png"
-            alt="counter-1"
-            height={75}
-            width={85}
-          />
-          <div className="flex flex-col justify-between">
-            <p className="text-white text-[30px] lg:text-[42px]">$69,216</p>
-            <p className="text-[18px] text-[#239921]">Distributed</p>
+      </section>
+
+      <div className="modal fade custom--modal" id="predictModel">
+        <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable modal-fullscreen-lg-down">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h6 className="modal-title"></h6>
+              <span
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <i className="las la-times"></i>
+              </span>
+            </div>
+            <div className="modal-body">
+              <div className="predict-type-content">
+                <p className="text-white description"></p>
+                <div className="pt-2 d-flex flex-wrap couple--buttons">
+                  <a
+                    href="https://www.cryptoplustrader.com/user/register"
+                    className="cmn--btn btn-name"
+                  ></a>
+                  <a
+                    href="https://www.cryptoplustrader.com/user/register"
+                    className="cmn--outline--btn"
+                  >
+                    Sign Up Now
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <section className="bg-gradient-to-t from-[#060518] to-[#191921]  pt-[70px] px-[8%] pb-[100px]">
-        <div className="flex flex-row">
-          <h1 className="font-bold text-[24px] lg:text-[43px] pb-4 text-left lg:text-center text-white">
-            Browse Games
-          </h1>
-        </div>
-        <div className="flex flex-row gap-4 overflow-x-auto">
-          <div className="flex flex-col gap-y-2 min-w-[240px]">
-            <Image
-              src="/images/browse-game-img-1.png"
-              width={215}
-              height={260}
-              alt="game-1"
-              className="rounded-md border-[1px] border-blue-800"
-            />
-            <p className="text-white text-[22px] ">Headshot Master</p>
-            <p className="text-gray-300 text-[16px]">6 live matches</p>
-          </div>
-          <div className="flex flex-col gap-y-2 min-w-[240px]">
-            <Image
-              src="/images/browse-game-img-2.png"
-              width={215}
-              height={260}
-              alt="game-1"
-              className="rounded-md border-[1px] border-blue-800"
-            />
-            <p className="text-white text-[22px] ">Headshot Master</p>
-            <p className="text-gray-300 text-[16px]">6 live matches</p>
-          </div>
-          <div className="flex flex-col gap-y-2 min-w-[240px]">
-            <Image
-              src="/images/browse-game-img-3.png"
-              width={215}
-              height={260}
-              alt="game-1"
-              className="rounded-md border-[1px] border-blue-800"
-            />
-            <p className="text-white text-[22px] ">Headshot Master</p>
-            <p className="text-gray-300 text-[16px]">6 live matches</p>
-          </div>
-          <div className="flex flex-col gap-y-2 min-w-[240px]">
-            <Image
-              src="/images/browse-game-img-4.png"
-              width={215}
-              height={260}
-              alt="game-1"
-              className="rounded-md border-[1px] border-blue-800"
-            />
-            <p className="text-white text-[22px] ">Headshot Master</p>
-            <p className="text-gray-300 text-[16px]">6 live matches</p>
-          </div>
-          <div className="flex flex-col gap-y-2 min-w-[240px]">
-            <Image
-              src="/images/browse-game-img-6.png"
-              width={215}
-              height={260}
-              alt="game-1"
-              className="rounded-md border-[1px] border-blue-800"
-            />
-            <p className="text-white text-[22px] ">Headshot Master</p>
-            <p className="text-gray-300 text-[16px]">6 live matches</p>
-          </div>
-        </div>
-      </section>
 
-      <section className="bg-gradient-to-b from-[#060518] to-[#191921] px-[8%] pt-12 pb-[100px]">
-        <div className="flex flex-row justify-start lg:justify-center">
-          <h1 className="font-bold text-[24px] lg:text-[43px] pb-4 text-left lg:text-center text-white">
-            Compete In
-          </h1>
-        </div>
-        <div className="flex flex-row gap-4 overflow-x-auto">
-          <div className="flex flex-col min-w-[400px] gap-y-2 rounded-md border-[1px] border-gray-800 bg-[#1A1A22]">
-            <Image
-              src="/images/compete-img-1.png"
-              width={425}
-              height={190}
-              alt="compete-1"
-              className=""
-            />
-            <div className="p-4 flex flex-col gap-y-1">
-              <p className="text-gray-300 text-[16px]">Ends in 14H 21M 16S</p>
-              <p className="text-white text-[22px] ">Ninja Assassin</p>
-              <p className="text-gray-300 text-[16px]"></p>
-
-              <button className="bg-[#313144] mt-4 py-3 px-4 rounded-md text-white">
-                Prize Pool
-              </button>
-              <button className="bg-[#FFCC00] mt-4  py-3 px-4 font-bold rounded-md text-black">
-                Play Now
-              </button>
-              <p className="text-gray-300 text-[16px] text-center">
-                Game ID: 435
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col min-w-[400px] gap-y-2 rounded-md border-[1px] border-gray-800 bg-[#1A1A22]">
-            <Image
-              src="/images/compete-img-2.png"
-              width={425}
-              height={190}
-              alt="compete-1"
-              className=""
-            />
-            <div className="p-4 flex flex-col gap-y-1">
-              <p className="text-gray-300 text-[16px]">Ends in 14H 21M 16S</p>
-              <p className="text-white text-[22px] ">Ninja Assassin</p>
-              <p className="text-gray-300 text-[16px]"></p>
-
-              <button className="bg-[#313144] mt-4 py-3 px-4 rounded-md text-white">
-                Prize Pool
-              </button>
-              <button className="bg-[#FFCC00] mt-4  py-3 px-4 font-bold rounded-md text-black">
-                Play Now
-              </button>
-              <p className="text-gray-300 text-[16px] text-center">
-                Game ID: 435
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col min-w-[400px] gap-y-2 rounded-md border-[1px] border-gray-800 bg-[#1A1A22]">
-            <Image
-              src="/images/compete-img-3.png"
-              width={425}
-              height={190}
-              alt="compete-1"
-              className=""
-            />
-            <div className="p-4 flex flex-col gap-y-1">
-              <p className="text-gray-300 text-[16px]">Ends in 14H 21M 16S</p>
-              <p className="text-white text-[22px] ">Ninja Assassin</p>
-              <p className="text-gray-300 text-[16px]"></p>
-
-              <button className="bg-[#313144] mt-4 py-3 px-4 rounded-md text-white">
-                Prize Pool
-              </button>
-              <button className="bg-[#FFCC00] mt-4  py-3 px-4 font-bold rounded-md text-black">
-                Play Now
-              </button>
-              <p className="text-gray-300 text-[16px] text-center">
-                Game ID: 435
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#191921] w-full px-[8%] pt-12 pb-[100px]">
-        <div className="flex flex-row w-[100%] h-[320px] justify-between rounded-2xl bg-[#060417]">
-          <Image
-            src="/images/how-play-illus.png"
-            alt="illustration"
-            width={269}
-            height={294}
-            className="hidden lg:flex"
-          />
-          <div className="flex-1 mt-12 flex flex-col items-center gap-2">
-            <h1 className="text-[24px] lg:text-[43px] pb-4 text-left lg:text-center font-bold text-white">
-              How to Play
-            </h1>
-
-            <div className="w-[90%] mt-8 flex flex-row justify-center space-x-12 items-baseline">
-              <div className="flex flex-col">
-                <Image
-                  src="/images/how-play-icon-1.png"
-                  alt="illustration-1"
-                  width={80}
-                  height={80}
-                />
-                <p className="text-white font-bold text-[20px]">Register</p>
-              </div>
-              <div className="flex flex-col">
-                <Image
-                  src="/images/how-play-icon-2.png"
-                  alt="illustration-1"
-                  width={80}
-                  height={80}
-                />
-                <p className="text-white font-bold text-[20px]">Play</p>
-              </div>
-              <div className="flex flex-col">
-                <Image
-                  src="/images/how-play-icon-3.png"
-                  alt="illustration-1"
-                  width={90}
-                  height={90}
-                />
-                <p className="text-white font-bold text-[20px]">Get Paid</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Tournaments */}
-      <section className="bg-[#191921] w-full px-[8%] pt-12 pb-[100px]">
-        <div className="flex flex-row justify-center">
-          <h1 className="font-bold text-[24px] lg:text-[43px] pb-4 text-left lg:text-center text-white">
-            Featured Tournaments
-          </h1>
-        </div>
-        <div className="flex flex-row gap-4 overflow-x-auto">
-          <div className="flex flex-col gap-y-2 rounded-md border-[1px] min-w-[400px] border-gray-800 bg-[#1A1A22]">
-            <Image
-              src="/images/tournaments-img-1.png"
-              width={425}
-              height={190}
-              alt="compete-1"
-              className=""
-            />
-            <div className="p-4 flex flex-col gap-y-1">
-              <p className="text-gray-300 text-[16px]">Ends in 14H 21M 16S</p>
-              <p className="text-white text-[22px] ">Ninja Assassin</p>
-              <p className="text-gray-300 text-[16px]"></p>
-
-              <button className="bg-[#313144] mt-4 py-3 px-4 rounded-md text-white">
-                Tournament By
-              </button>
-              <button className="bg-[#FFCC00] mt-4  py-3 px-4 font-bold rounded-md text-black">
-                Join Now
-              </button>
-              <p className="text-gray-300 text-[16px] text-center">
-                Game ID: 435
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-2 rounded-md border-[1px] min-w-[400px] border-gray-800 bg-[#1A1A22]">
-            <Image
-              src="/images/tournaments-img-2.png"
-              width={425}
-              height={190}
-              alt="compete-1"
-              className=""
-            />
-            <div className="p-4 flex flex-col gap-y-1">
-              <p className="text-gray-300 text-[16px]">Ends in 14H 21M 16S</p>
-              <p className="text-white text-[22px] ">Ninja Assassin</p>
-              <p className="text-gray-300 text-[16px]"></p>
-
-              <button className="bg-[#313144] mt-4 py-3 px-4 rounded-md text-white">
-                Tournament By
-              </button>
-              <button className="bg-[#FFCC00] mt-4  py-3 px-4 font-bold rounded-md text-black">
-                Join Now
-              </button>
-              <p className="text-gray-300 text-[16px] text-center">
-                Game ID: 435
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-2 rounded-md border-[1px] min-w-[400px] border-gray-800 bg-[#1A1A22]">
-            <Image
-              src="/images/tournaments-img-3.png"
-              width={425}
-              height={190}
-              alt="compete-1"
-              className=""
-            />
-            <div className="p-4 flex flex-col gap-y-1">
-              <p className="text-gray-300 text-[16px]">Ends in 14H 21M 16S</p>
-              <p className="text-white text-[22px] ">Ninja Assassin</p>
-              <p className="text-gray-300 text-[16px]"></p>
-
-              <button className="bg-[#313144] mt-4 py-3 px-4 rounded-md text-white">
-                Tournament By
-              </button>
-              <button className="bg-[#FFCC00] mt-4  py-3 px-4 font-bold rounded-md text-black">
-                Join Now
-              </button>
-              <p className="text-gray-300 text-[16px] text-center">
-                Game ID: 435
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section className="bg-gradient-to-b from-[#191921] via-[#060518] to-[#191921] w-full px-[8%] pt-12 pb-[100px]">
-        <div className="flex flex-row justify-start">
-          <h1 className="font-bold text-[24px] lg:text-[43px] pb-4 text-left lg:text-center text-white">
-            Gamers Review
-          </h1>
-        </div>
-        <div className="w-full flex flex-row gap-4 overflow-x-auto">
-          <div className="flex flex-col gap-y-4 rounded-md border-[1px] p-6 py-8 min-w-[400px] border-gray-800 bg-[#100E21]">
-            <p className="text-gray-300 text-[18px]">100% Transparency</p>
-            <p className="text-white text-[20px] font-serif">
-              I can say the innovation behind Dooplo is nothing short of
-              incredible. You can’t beat the on-chain experience with its
+      <section className="quick-trade-section pb-120 pt-120">
+        <div className="trade__header">
+          <div className="section__header">
+            <h3 className="title">Make a Quick Trade</h3>
+            <p>
+              Unfortunately, the idea that this kind of trading is some kind of
+              &quot;get-rich-quick&quot; scheme persists. Some people trade
+              without sufficient knowledge. It is advisable to seek guidance or
+              learn the art of trading first.
             </p>
-            <div className="text-gray-300 mt-4 text-[16px] flex flex-row gap-3">
-              <Image
-                src="/images/profile-image-3.png"
-                width={40}
-                height={40}
-                alt="profile-image-3"
-                className="rounded-full object-contain"
-              />
-              <div className="flex flex-col gap-1">
-                <p className="text-white">Devon Lee</p>
-                <p className="text-[#FFCC00]">3244 followers</p>
+          </div>
+          <ul className="nav nav-tabs trade--tabs">
+            <li className="nav-item">
+              <a
+                href="#beginners"
+                data-bs-toggle="tab"
+                className="nav-link active"
+              >
+                I&#039;m a Beginner
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#expert" data-bs-toggle="tab" className="nav-link">
+                I&#039;m an Expert
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="container">
+          <div className="tab-content pt-50">
+            <div className="tab-pane fade show active" id="beginners">
+              <div className="chart-wrapper">
+                <div className="chart">
+                  <div className="card custom--card h-100">
+                    <div className="card-body">
+                      <div
+                        className="sfx-widget w-100"
+                        id="sfx-market-overview"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-y-4 rounded-md border-[1px] p-6 py-8 min-w-[400px] border-gray-800 bg-[#100E21]">
-            <p className="text-gray-300 text-[18px]">100% Transparency</p>
-            <p className="text-white text-[20px] font-serif">
-              I can say the innovation behind Dooplo is nothing short of
-              incredible. You can’t beat the on-chain experience with its
-            </p>
-            <div className="text-gray-300 mt-4 text-[16px] flex flex-row gap-3">
-              <Image
-                src="/images/profile-image-3.png"
-                width={40}
-                height={40}
-                alt="profile-image-3"
-                className="rounded-full object-contain"
-              />
-              <div className="flex flex-col gap-1">
-                <p className="text-white">Devon Lee</p>
-                <p className="text-[#FFCC00]">3244 followers</p>
+            <div className="tab-pane fade" id="expert">
+              <div className="chart-wrapper">
+                <div className="chart">
+                  <div className="card custom--card h-100">
+                    <div className="card-body">
+                      <div className="tradingview-widget-container">
+                        <div id="expert_chart"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* footer */}
+      <section className="feature-section pt-120 pb-120 bg--section">
+        <div className="container">
+          <div className="section__header">
+            <h3 className="title">Why Trade with Us</h3>
+            <p>
+              Trading with CryptoPlus Trader comes with loads of perks and
+              privileges such as:
+            </p>
+          </div>
+          <div className="row g-4">
+            <div className="col-md-6 col-lg-4">
+              <div className="feature__item">
+                <div className="feature__thumb">
+                  <i className="fas fa-bullhorn"></i>
+                </div>
+                <div className="feature__content">
+                  <h6 className="feature__title">Stay Up To Date</h6>
+                  <p>
+                    We keep you up-to-date with the latest on crypto trading to
+                    make sure you are not left behind.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="feature__item">
+                <div className="feature__thumb">
+                  <i className="fas fa-bed"></i>
+                </div>
+                <div className="feature__content">
+                  <h6 className="feature__title">Make Money In your Sleep</h6>
+                  <p>
+                    You can automate trade to go 24 hours on your behalf and
+                    make money while you sleep.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="feature__item">
+                <div className="feature__thumb">
+                  <i className="las la-journal-whills"></i>
+                </div>
+                <div className="feature__content">
+                  <h6 className="feature__title">Best Payout</h6>
+                  <p>
+                    We save you the stress of having to re-trade in order to
+                    access your funds because your winnings are paid directly
+                    into your bank account.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="feature__item">
+                <div className="feature__thumb">
+                  <i className="las la-level-up-alt"></i>
+                </div>
+                <div className="feature__content">
+                  <h6 className="feature__title">Quick Fund Access</h6>
+                  <p>
+                    Deposits and withdrawals are swift, so you are in total
+                    control of your money and what you want to do with it.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="feature__item">
+                <div className="feature__thumb">
+                  <i className="lar la-kiss-wink-heart"></i>
+                </div>
+                <div className="feature__content">
+                  <h6 className="feature__title">Best Payout</h6>
+                  <p>
+                    Trade profits rise to as much as 28.3% per win which sits at
+                    the table of some of the highest in the game.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="feature__item">
+                <div className="feature__thumb">
+                  <i className="las la-hockey-puck"></i>
+                </div>
+                <div className="feature__content">
+                  <h6 className="feature__title">Amazing Support</h6>
+                  <p>
+                    We are available 24/7 for you, to answer any questions you
+                    may have and provide answers and solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="app-section overflow-hidden pt-120 pb-120">
+        <div className="container">
+          <div className="row align-items-center justify-content-between gy-5">
+            <div className="col-lg-6 col-xl-5">
+              <div className="app-thumb rtl">
+                <img
+                  className="w-100"
+                  src="https://www.cryptoplustrader.com/assets/images/frontend/app/6056f1d0ac9261616310736.png"
+                />
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="app-content">
+                <div className="section__header section__header__left">
+                  <h3 className="title">
+                    Now It&#039;s more easy to make a trade by mobile
+                  </h3>
+                  <p>
+                    Trading has never been this easy, one click away from
+                    profit.
+                  </p>
+                </div>
+                <div className="couple--buttons">
+                  <a href="user/login" target="__blank">
+                    <img src="https://www.cryptoplustrader.com/assets/templates/basic/images/app/google-play.svg" />
+                  </a>
+                  <a href="user/login" target="__blank">
+                    <img src="https://www.cryptoplustrader.com/assets/templates/basic/images/app/app-store-btn.svg" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="blog-section bg--section pt-120 pb-120">
+        <div className="container">
+          <div className="section__header">
+            <h3 className="title">Latest News</h3>
+            <p>
+              Catch up on our recent updates, tips and happenings surrounding
+              the crypto trading world.
+            </p>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-4 col-md-6 col-sm-10">
+              <div className="post__item h-100">
+                <div className="post__thumb">
+                  <a href="https://www.cryptoplustrader.com/blog/105/trading-for-beginners">
+                    <img src="https://www.cryptoplustrader.com/assets/images/frontend/blog/thumb_63f345cd2c7101676887501.jpg" />
+                  </a>
+                </div>
+                <div className="post__content">
+                  <h6 className="post__title">
+                    <a href="https://www.cryptoplustrader.com/blog/105/trading-for-beginners">
+                      Trading for Beginners
+                    </a>
+                  </h6>
+                  <div className="meta__date">
+                    <div className="meta__item">
+                      <i className="las la-calendar"></i>
+                      20 Feb 2023
+                    </div>
+                  </div>
+                  <div className="blog-short-desc">
+                    <a href="https://www.cryptoplustrader.com/blog/105/trading-for-beginners">
+                      Trading for beginners can be exciting – and overwhelming.
+                      That’s why we’ve outlined everything you need to know for
+                      your...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-10">
+              <div className="post__item h-100">
+                <div className="post__thumb">
+                  <a href="https://www.cryptoplustrader.com/blog/104/introduction-to-cryptocurrency-trading">
+                    <img src="https://www.cryptoplustrader.com/assets/images/frontend/blog/thumb_63f342fde09701676886781.jpg" />
+                  </a>
+                </div>
+                <div className="post__content">
+                  <h6 className="post__title">
+                    <a href="https://www.cryptoplustrader.com/blog/104/introduction-to-cryptocurrency-trading">
+                      Introduction to Cryptocurrency Trading
+                    </a>
+                  </h6>
+                  <div className="meta__date">
+                    <div className="meta__item">
+                      <i className="las la-calendar"></i>
+                      20 Feb 2023
+                    </div>
+                  </div>
+                  <div className="blog-short-desc">
+                    <a href="https://www.cryptoplustrader.com/blog/104/introduction-to-cryptocurrency-trading">
+                      Cryptocurrency trading is the act of speculating on
+                      cryptocurrency price movements via a CFD trading account,
+                      or buying...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-10">
+              <div className="post__item h-100">
+                <div className="post__thumb">
+                  <a href="https://www.cryptoplustrader.com/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
+                    <img src="https://www.cryptoplustrader.com/assets/images/frontend/blog/thumb_63f34273c29a21676886643.jpg" />
+                  </a>
+                </div>
+                <div className="post__content">
+                  <h6 className="post__title">
+                    <a href="https://www.cryptoplustrader.com/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
+                      What is Algorithmic Trading and How Does it Work?
+                    </a>
+                  </h6>
+                  <div className="meta__date">
+                    <div className="meta__item">
+                      <i className="las la-calendar"></i>
+                      20 Feb 2023
+                    </div>
+                  </div>
+                  <div className="blog-short-desc">
+                    <a href="https://www.cryptoplustrader.com/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
+                      What Is Algorithmic Trading?Algorithmic trading (also
+                      called automated trading, black-box
+                      trading, or algo-trading) uses...
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="faqs-sectioin pt-120 pb-120">
+        <div className="container">
+          <div className="section__header">
+            <h3 className="title">Frequently Asked Questions</h3>
+            <p>
+              This is a compilation of common queries and their answers to
+              address recurring concerns or uncertainties.
+            </p>
+          </div>
+          <div className="faq__wrapper">
+            <div className="faq__item  open active ">
+              <div className="faq__title">
+                <h6 className="title">How Safe is my Money?</h6>
+                <span className="right__icon"></span>
+              </div>
+              <div className="faq__content">
+                <p>
+                  Cryptocurrencies are secured by an end-to-end encryption
+                  enabled by Blockchain, and this guarantees safety and
+                  seamlessness in transactions. Be rest assured that not a cent
+                  is unaccounted for.
+                </p>
+              </div>
+            </div>
+            <div className="faq__item ">
+              <div className="faq__title">
+                <h6 className="title">How Can I Contact Support?</h6>
+                <span className="right__icon"></span>
+              </div>
+              <div className="faq__content">
+                <p>
+                  We have our 24/7 support system. You can either have a Live
+                  chat with us through our live chat option or you can leave us
+                  a mail.
+                </p>
+              </div>
+            </div>
+            <div className="faq__item ">
+              <div className="faq__title">
+                <h6 className="title">How quick is withdrawal?</h6>
+                <span className="right__icon"></span>
+              </div>
+              <div className="faq__content">
+                <p>
+                  Withdrawal through Bank transfer is as swift as 1 - 3 days,
+                  depending on the receiving account.
+                </p>
+              </div>
+            </div>
+            <div className="faq__item ">
+              <div className="faq__title">
+                <h6 className="title">
+                  Asides Bitcoin, are there other coins available for trade?
+                </h6>
+                <span className="right__icon"></span>
+              </div>
+              <div className="faq__content">
+                <p>
+                  Absolutely. CPT houses as many as 13 cryptocurrencies in the
+                  trade platform, some of which are Bitcoin, Ethereum, BNB, XRP,
+                  LiteCoin, DogeCoin, Polkadot, etc. We also accept USDT
+                  (Tether), USDCoin and other stablecoin.
+                </p>
+              </div>
+            </div>
+            <div className="faq__item ">
+              <div className="faq__title">
+                <h6 className="title">How profitable is crypto trading?</h6>
+                <span className="right__icon"></span>
+              </div>
+              <div className="faq__content">
+                <p>
+                  Trading in cryptocurrency can turn your capital from thousands
+                  to millions if you play your cards right and make the right
+                  calls. There&#039;s no limit to how much anyone can earn
+                  trading in cryptocurrency.
+                </p>
+              </div>
+            </div>
+            <div className="faq__item ">
+              <div className="faq__title">
+                <h6 className="title">Can I trade as a beginner?</h6>
+                <span className="right__icon"></span>
+              </div>
+              <div className="faq__content">
+                <p>
+                  Trading with CPT is available in various difficulty levels. It
+                  doesn&#039;t matter if you know the intricacies of
+                  cryptocurrency or not.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="call-to-action bg--base pt-50 pb-50">
+        <div className="container">
+          <div className="call-to-wrapper p-0">
+            <h4 className="title text--dark">
+              Get Started Now for instant profit
+            </h4>
+            <div className="call-to-btn">
+              <a
+                href="user/register"
+                className="cmn--btn text--black bg--white border-0"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer className="footer-section">
+        <div className="footer-top pt-120 pb-120">
+          <div className="container">
+            <div className="row gy-5 justify-content-between">
+              <div className="col-lg-4 col-md-6">
+                <div className="footer__widget">
+                  <a href="https://www.cryptoplustrader.com" className="logo">
+                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                  </a>
+                  <p>
+                    Make signals become figures, figures become money and money
+                    become yours.
+                  </p>
+                  <ul className="post__share"></ul>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6">
+                <div className="footer__widget">
+                  <h5 className="title">Quick Links</h5>
+                  <ul className="widget__links">
+                    <li>
+                      <a href="https://www.cryptoplustrader.com">Home</a>
+                    </li>
+                    <li>
+                      <a href="https://www.cryptoplustrader.com/contact">
+                        Contact
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.cryptoplustrader.com/user/login">
+                        Sign In
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-2 col-md-6">
+                <div className="footer__widget">
+                  <h5 className="title">Policies</h5>
+                  <ul className="widget__links">
+                    <li>
+                      <a href="https://www.cryptoplustrader.com/policy/terms-of-use/99">
+                        Terms of Use
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.cryptoplustrader.com/policy/terms-of-service/94">
+                        Terms Of Service
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.cryptoplustrader.com/policy/privacy-policy/92">
+                        Privacy Policy
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6">
+                <div className="footer__widget">
+                  <h5 className="title">Our Newsletter</h5>
+                  <p>
+                    Subscribe our newsletter to get regular news and tips. We
+                    promise we won&#039;t harass you.
+                  </p>
+                  <form className="subscribe-form" id="subscribe-form">
+                    <input
+                      type="email"
+                      className="form-control subscribe--form--control"
+                      required
+                      name="email"
+                      placeholder="Your Email Address"
+                    />
+                    <button type="submit" className="cmn--btn">
+                      <i className="lab la-telegram-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer-middle">
+          <div className="container">
+            <div className="footer-middle-wrapper">
+              <div className="row g-0">
+                <div className="col-lg-4">
+                  <div className="footer__contact__item">
+                    <div className="footer__contact__thumb">
+                      <i className="las la-envelope-open-text"></i>
+                    </div>
+                    <div className="footer__contact__content">
+                      <h6 className="footer__contact__title">
+                        <a href="mailto:support@cryptoplustrader.com">
+                          support@cryptoplustrader.com
+                        </a>
+                      </h6>
+                      <span className="info">Email Address</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4">
+                  <div className="footer__contact__item">
+                    <div className="footer__contact__thumb">
+                      <i className="las la-phone-volume"></i>
+                    </div>
+                    <div className="footer__contact__content">
+                      <h6 className="footer__contact__title">
+                        <a href="tel:+1 (615) 769-8768">+1 (615) 769-8768</a>
+                      </h6>
+                      <span className="info">Call Us Now</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4">
+                  <div className="footer__contact__item">
+                    <div className="footer__contact__thumb">
+                      <i className="las la-map-marked-alt"></i>
+                    </div>
+                    <div className="footer__contact__content">
+                      <h6 className="footer__contact__title">
+                        <a href="javascript:void(0)">
+                          1207 Bittern Way Suisun City, California.
+                        </a>
+                      </h6>
+                      <span className="info">Our Address</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <div className="container">
+            Copyright © 2024. All Rights Reserved By
+            <a href="https://www.cryptoplustrader.com" className="text--base">
+              CryptoPlus Trader
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
