@@ -82,7 +82,7 @@ const SignInPage = () => {
                     </a>
                   </div>
                   <div className="text--white">
-                    Don&apos;t have an account ?
+                    Don&apos;t have an account?
                     <a
                       href="https://www.cryptoplustrader.com/user/register"
                       className="text--base"

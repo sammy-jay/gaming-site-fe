@@ -63,7 +63,7 @@ export default function AuthorizationPage(){
 
                     <div className="mb-3">
                       <p>
-                        If you don't get any code,
+                        If you don&apos;t get any code,
                         <a
                           href="https://www.cryptoplustrader.com/user/resend-verify/email"
                           className="text--base"
