@@ -3,10 +3,14 @@ import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
 
-export default function ProfileSettingPage() {
+export default function TransactionLogPage() {
   return (
     <main>
       <Script src="/js/index.js" />
+      <Link href="#" className="scrollToTop">
+        <i className="las la-angle-up"></i>
+      </Link>
+
       <header className="header-section">
         <TopNavBar />
         <BottomNavBar />
@@ -18,150 +22,95 @@ export default function ProfileSettingPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Profile Setting</h2>
+            <h2 className="m-0">Transactions</h2>
           </div>
         </div>
       </section>
 
       <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div className="card custom--card">
+          <div className="row justify-content-center gy-4">
+            <div className="col-12">
+              <div className="show-filter text-end">
+                <button
+                  type="button"
+                  className="cmn--btn btn-block showFilterBtn btn-sm"
+                >
+                  <i className="las la-filter"></i>Filter
+                </button>
+              </div>
+              <div className="card responsive-filter-card custom--card border-0">
                 <div className="card-body">
-                  <div className="row gy-4 justify-content-center flex-wrap-reverse">
-                    <div className="col-md-5 col-lg-4">
-                      <ul className="list-group list-group-flush bg--light h-100 p-3">
-                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">pure_smoke</span>
-                          <small className="text-muted">
-                            <i className="la la-user"></i> Userame
-                          </small>
-                        </li>
-                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">
-                            soneyetolulope4@gmail.com
-                          </span>
-                          <small className="text-muted">
-                            <i className="la la-envelope"></i> Email
-                          </small>
-                        </li>
-                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">
-                            +2348075032390
-                          </span>
-                          <small className="text-muted">
-                            <i className="la la-mobile"></i> Mobile
-                          </small>
-                        </li>
-                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">Nigeria</span>
-                          <small className="text-muted">
-                            <i className="la la-globe"></i> Country
-                          </small>
-                        </li>
-
-                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">test 1234</span>
-                          <small className="text-muted">
-                            <i className="la la-map-marked"></i> Address
-                          </small>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-md-7 col-lg-8">
-                      <form
-                        className="register py-3 pe-3 ps-3 ps-md-0"
-                        action=""
-                        method="post"
-                        encType="multipart/form-data"
-                      >
+                  <form action="">
+                    <div className="d-flex flex-wrap gap-4">
+                      <div className="flex-grow-1">
+                        <label>Transaction Number</label>
                         <input
-                          type="hidden"
-                          name="_token"
-                          value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
+                          type="text"
+                          name="search"
+                          value=""
+                          className="form-control cmn--form--control"
                         />
-                        <div className="row">
-                          <div className="col-lg-6">
-                            <div className="form-group">
-                              <label className="form-label">First Name</label>
-                              <input
-                                type="text"
-                                className="form-control cmn--form--control"
-                                name="firstname"
-                                value="Tolulope"
-                                required
-                              />
-                            </div>
-                          </div>
-
-                          <div className="col-lg-6">
-                            <div className="form-group">
-                              <label className="form-label">Last Name</label>
-                              <input
-                                type="text"
-                                className="form-control cmn--form--control"
-                                name="lastname"
-                                value="Soneye"
-                                required
-                              />
-                            </div>
-                          </div>
-
-                          <div className="col-lg-6">
-                            <div className="form-group">
-                              <label className="form-label">State</label>
-                              <input
-                                type="text"
-                                className="form-control cmn--form--control"
-                                name="state"
-                                value="Ogun"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="col-lg-6">
-                            <div className="form-group">
-                              <label className="form-label">City</label>
-                              <input
-                                type="text"
-                                className="form-control cmn--form--control"
-                                name="city"
-                                value="Sagamu"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="col-lg-6">
-                            <div className="form-group">
-                              <label className="form-label">Zip Code</label>
-                              <input
-                                type="text"
-                                className="form-control cmn--form--control"
-                                name="zip"
-                                value="121101"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-lg-6">
-                            <div className="form-group">
-                              <label className="form-label">Address</label>
-                              <input
-                                type="text"
-                                className="form-control cmn--form--control"
-                                name="address"
-                                value="test 1234"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <button type="submit" className="cmn--btn btn-block">
-                          Submit
+                      </div>
+                      <div className="flex-grow-1">
+                        <label>Type</label>
+                        <select
+                          name="trx_type"
+                          className="form-control cmn--form--control"
+                        >
+                          <option value="">All</option>
+                          <option value="+">Plus</option>
+                          <option value="-">Minus</option>
+                        </select>
+                      </div>
+                      <div className="flex-grow-1">
+                        <label>Remark</label>
+                        <select
+                          className="form-control cmn--form--control"
+                          name="remark"
+                        >
+                          <option value="">Any</option>
+                          <option value="balance_add">Balance add</option>
+                          <option value="balance_subtract">
+                            Balance subtract
+                          </option>
+                          <option value="deposit">Deposit</option>
+                          <option value="withdraw">Withdraw</option>
+                          <option value="withdraw_reject">
+                            Withdraw reject
+                          </option>
+                        </select>
+                      </div>
+                      <div className="flex-grow-1 align-self-end">
+                        <button className="cmn--btn btn-block h-100">
+                          <i className="las la-filter"></i> Filter
                         </button>
-                      </form>
+                      </div>
                     </div>
-                  </div>
+                  </form>
                 </div>
+              </div>
+            </div>
+            <div className="col-12">
+              <div className="table-responsive">
+                <table className="table cmn--table">
+                  <thead>
+                    <tr>
+                      <th>Trx</th>
+                      <th>Transacted</th>
+                      <th>Amount</th>
+                      <th>Post Balance</th>
+                      <th>Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-muted text-center" colSpan={5}>
+                        Data not found
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

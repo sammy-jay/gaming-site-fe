@@ -1,139 +1,20 @@
+import BottomNavBar from "@/components/navigation/user/BottomNavBar";
+import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function PasswordChangePage() {
   return (
     <main>
+      <Script src="/js/index.js" />
       <header className="header-section">
-        <div className="header-top bg--section">
-          <div className="container">
-            <ul className="header-top-area">
-              <li className="me-auto"></li>
-              <li className="dashboard-dashboard-icon">
-                <div className="avatar">
-                  <span>PU</span>
-                </div>
-                <ul className="dashboard-menu">
-                  <li>
-                    <Link href="/ticket">Support Ticket</Link>
-                  </li>
-                  <li>
-                    <Link href="/user/profile-setting">Profile Setting</Link>
-                  </li>
-                  <li>
-                    <Link href="/user/change-password">Change Password</Link>
-                  </li>
-                  <li>
-                    <Link href="/user/twofactor">2FA Security</Link>
-                  </li>
-                  <li>
-                    <Link href="/user/logout">Logout</Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="header-bottom">
-          <div className="container">
-            <div className="header-wrapper">
-              <div className="logo">
-                <Link href="/">
-                  <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-                </Link>
-              </div>
-              <ul className="menu">
-                <li>
-                  <Link href="/user/dashboard" className="">
-                    Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="">
-                    Practice
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="/user/practice/trade">Practice Now</Link>
-                    </li>
-                    <li>
-                      <Link href="/user/practice/trade/log">Practice Log</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="#" className="">
-                    Trade
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="/user/trade">Trade Now</Link>
-                    </li>
-                    <li>
-                      <Link href="/user/trade/log">Trade Log</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="#" className="">
-                    Deposit
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="/user/deposit">Deposit Money</Link>
-                    </li>
-                    <li>
-                      <Link href="/user/deposit/history">Deposit History</Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="#" className="">
-                    Withdraw
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="/user/withdraw">Withdraw Money</Link>
-                    </li>
-                    <li>
-                      <Link href="/user/withdraw/history">
-                        Withdraw History
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="#" className="">
-                    Referral
-                  </Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link href="/user/referral/log">Referral Log</Link>
-                    </li>
-
-                    <li>
-                      <Link href="/user/commissions/history">
-                        Commission Log
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/user/transactions">Transaction Log</Link>
-                </li>
-              </ul>
-              <div className="header-bar m-0">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <TopNavBar />
+        <BottomNavBar />
       </header>
 
       <section
         className="hero-section bg--overlay bg_img bg_fixed"
-        data-background="https://www.cryptoplustrader.com/assets/images/frontend/breadcrumb/605ed645dc0fa1616827973.jpg"
+        id="user-hero-section"
       >
         <div className="container">
           <div className="hero-content text-center">

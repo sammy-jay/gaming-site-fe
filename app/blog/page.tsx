@@ -64,7 +64,7 @@ export default function BlogHomePage() {
 
       <section
         className="hero-section bg--overlay bg_img bg_fixed"
-        data-background="https://www.cryptoplustrader.com/assets/images/frontend/breadcrumb/605ed645dc0fa1616827973.jpg"
+        id="user-hero-section"
       >
         <div className="container">
           <div className="hero-content text-center">

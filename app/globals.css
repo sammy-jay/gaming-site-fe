@@ -17961,3 +17961,10 @@ animation-delay:0.75s;
     @apply tracking-wider;
   }
 }
+
+#user-hero-section{
+    background-image: url("https://www.cryptoplustrader.com/assets/images/frontend/breadcrumb/605ed645dc0fa1616827973.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

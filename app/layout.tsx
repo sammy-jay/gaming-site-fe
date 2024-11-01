@@ -50,6 +50,8 @@ export default function RootLayout({
 
         <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/sfx-widget.js" />
         <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/tv.js" />
+
+        <Script src="/js/index.js"/>
       </body>
     </html>
   );

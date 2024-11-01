@@ -49,51 +49,83 @@ const SigninForm = () => {
       const data = await response.json();
       localStorage.setItem("auth-info", JSON.stringify(data));
       setLoading(false);
-      router.replace("/");
+      router.replace("/user/dashboard");
     } catch (error) {
       setLoading(false);
       console.log(error);
     }
   }
   return (
-    <div className="flex-1 mt-36  text-white">
-      <form onSubmit={form.handleSubmit(OnSubmit)} className="space-y-3 ">
-        <div className="bg-[#313144] rounded-lg p-8 flex items-center flex-col gap-4` w-[500px] mx-auto">
-          <h2 className="font-bold text-[32px]">Welcome Back</h2>
-          <p className="text-[16px] mb-8">
-            Dont have an account?{" "}
-            <Link href="/sign-up" className="text-[#FFCC00]">
-              Sign Up
-            </Link>
-          </p>
-
+    <form
+      className="account-form verify-gcaptcha"
+      onSubmit={form.handleSubmit(OnSubmit)}
+    >
+      <div className="cmn--form--group form-group">
+        <label htmlFor="email" className="cmn--label text--white">
+          Email Address
+        </label>
+        <div className="input-group">
+          <span className="input-group-text">
+            <i className="las la-user"></i>
+          </span>
           <input
             type="email"
-            placeholder="Email"
+            id="email"
+            className="form-control cmn--form--control"
+            required
             {...form.register("email")}
-            className="outline-none border-[1px] bg-[#3C3C54] border-[#3C3C54] w-full mt-4 rounded-md text-[16px] py-3 px-4"
           />
+        </div>
+      </div>
+      <div className="cmn--form--group form-group">
+        <label htmlFor="password" className="cmn--label text--white">
+          Password
+        </label>
+        <div className="input-group">
+          <span className="input-group-text">
+            <i className="las la-key"></i>
+          </span>
           <input
             type="password"
+            id="password"
+            className="form-control cmn--form--control"
             {...form.register("password")}
-            placeholder="Password"
-            className="outline-none border-[1px] bg-[#3C3C54] border-[#3C3C54] w-full mt-4 rounded-md text-[16px] py-3 px-4"
+            required
           />
-          <div className="flex flex-row justify-start w-full my-2">
-            <input type="checkbox" className="mr-2" />
-            <p className="text-[16px] my-2 text-start ">Remember me</p>
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-[#FFCC00] leading-[8px] w-full rounded-md  text-black font-semibold py-4 mt-4"
-          >
-            Sign in
-          </button>
         </div>
-      </form>
-    </div>
+      </div>
+      <div className="cmn--form--group form-group">
+        <input
+          className="form-check-input"
+          type="checkbox"
+          name="remember"
+          id="remember"
+        />
+        <label className="form-check-label" htmlFor="remember">
+          Remember Me
+        </label>
+      </div>
+      <div className="cmn--form--group form-group">
+        <button type="submit" disabled={loading} className="cmn--btn btn-block">
+          Sign In
+        </button>
+      </div>
+      <div className="cmn--form--group form-group">
+        <div className="d-flex flex-wrap justify-content-between">
+          <div className=" text--white d-flex align-items-center">
+            <Link href="/user/password/reset" className="text--base">
+              Forget Password?
+            </Link>
+          </div>
+          <div className="text--white">
+            Don&apos;t have an account?
+            <Link href="/auth/sign-up" className="text--base">
+              Signup
+            </Link>
+          </div>
+        </div>
+      </div>
+    </form>
   );
 };
 
