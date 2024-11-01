@@ -1,22 +1,34 @@
 import Link from "next/link";
 
-export default function ContactPage() {
+export default function PasswordChangePage() {
   return (
     <main>
-      <Link href="#" className="scrollToTop">
-        <i className="las la-angle-up"></i>
-      </Link>
-
       <header className="header-section">
         <div className="header-top bg--section">
           <div className="container">
             <ul className="header-top-area">
               <li className="me-auto"></li>
-              <li className="links">
-                <Link href="/auth/sign-in">Sign in</Link>
-              </li>
-              <li className="links b-left">
-                <Link href="/auth/sign-up">Sign Up</Link>
+              <li className="dashboard-dashboard-icon">
+                <div className="avatar">
+                  <span>PU</span>
+                </div>
+                <ul className="dashboard-menu">
+                  <li>
+                    <Link href="/ticket">Support Ticket</Link>
+                  </li>
+                  <li>
+                    <Link href="/user/profile-setting">Profile Setting</Link>
+                  </li>
+                  <li>
+                    <Link href="/user/change-password">Change Password</Link>
+                  </li>
+                  <li>
+                    <Link href="/user/twofactor">2FA Security</Link>
+                  </li>
+                  <li>
+                    <Link href="/user/logout">Logout</Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -26,34 +38,87 @@ export default function ContactPage() {
             <div className="header-wrapper">
               <div className="logo">
                 <Link href="/">
-                  <img
-                    src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png"
-                    alt="image"
-                  />
+                  <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
                 </Link>
               </div>
               <ul className="menu">
                 <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/faq">FAQ</Link>
-                </li>
-                <li>
-                  <Link href="/services">Services</Link>
-                </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="">
-                    Blog
+                  <Link href="/user/dashboard" className="">
+                    Dashboard
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="active">
-                    Contact
+                  <Link href="#" className="">
+                    Practice
                   </Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/user/practice/trade">Practice Now</Link>
+                    </li>
+                    <li>
+                      <Link href="/user/practice/trade/log">Practice Log</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link href="#" className="">
+                    Trade
+                  </Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/user/trade">Trade Now</Link>
+                    </li>
+                    <li>
+                      <Link href="/user/trade/log">Trade Log</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link href="#" className="">
+                    Deposit
+                  </Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/user/deposit">Deposit Money</Link>
+                    </li>
+                    <li>
+                      <Link href="/user/deposit/history">Deposit History</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link href="#" className="">
+                    Withdraw
+                  </Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/user/withdraw">Withdraw Money</Link>
+                    </li>
+                    <li>
+                      <Link href="/user/withdraw/history">
+                        Withdraw History
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link href="#" className="">
+                    Referral
+                  </Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/user/referral/log">Referral Log</Link>
+                    </li>
+
+                    <li>
+                      <Link href="/user/commissions/history">
+                        Commission Log
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link href="/user/transactions">Transaction Log</Link>
                 </li>
               </ul>
               <div className="header-bar m-0">
@@ -72,119 +137,66 @@ export default function ContactPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Contact Us</h2>
+            <h2 className="m-0">Change Password</h2>
           </div>
         </div>
       </section>
 
-      <div className="contact-section pt-120 pb-80 move--top">
+      <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
-          <div className="account-wrapper mw-100 bg--glass">
-            <form className="verify-gcaptcha row" method="post" action="">
-              <input
-                type="hidden"
-                name="_token"
-                value="4nZek9oER2Of1dsJXS3jX9K4M401hIHBj7IqWBFw"
-              />{" "}
-              <div className="cmn--form--group form-group col-md-6">
-                <label htmlFor="name" className="cmn--label text--white w-100">
-                  Full Name
-                </label>
-                <div className="input-group">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text h-100">
-                      <i className="las la-user"></i>
-                    </span>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control cmn--form--control"
-                    name="name"
-                    required
-                  />
+          <div className="row justify-content-center">
+            <div className="col-md-8">
+              <div className="card custom--card">
+                <div className="card-body">
+                  <form action="" method="post">
+                    <input
+                      type="hidden"
+                      name="_token"
+                      value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
+                    />
+                    <div className="form-group">
+                      <label className="form-label">Current Password</label>
+                      <input
+                        type="password"
+                        className="form-control cmn--form--control"
+                        name="current_password"
+                        required
+                        autoComplete="current-password"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Password</label>
+                      <input
+                        type="password"
+                        className="form-control cmn--form--control"
+                        name="password"
+                        required
+                        autoComplete="current-password"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Confirm Password</label>
+                      <input
+                        type="password"
+                        className="form-control cmn--form--control"
+                        name="password_confirmation"
+                        required
+                        autoComplete="current-password"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <button type="submit" className="cmn--btn btn-block">
+                        Submit
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
-              <div className="cmn--form--group form-group col-md-6">
-                <label htmlFor="email" className="cmn--label text--white w-100">
-                  E-Mail Address
-                </label>
-                <div className="input-group">
-                  <div className="input-group-prepend">
-                    <span className="input-group-text h-100">
-                      <i className="las la-envelope"></i>
-                    </span>
-                  </div>
-                  <input
-                    type="email"
-                    className="form-control cmn--form--control"
-                    name="email"
-                    value=""
-                    required
-                  />
-                </div>
-              </div>
-              <div className="cmn--form--group form-group col-md-12">
-                <div className="input-group">
-                  <label className="cmn--label text--white w-100">
-                    Subject
-                  </label>
-                  <div className="input-group-prepend">
-                    <span className="input-group-text h-100">
-                      <i className="las la-language"></i>
-                    </span>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control cmn--form--control"
-                    name="subject"
-                    value=""
-                    required
-                  />
-                </div>
-              </div>
-              <div className="cmn--form--group form-group col-md-12">
-                <div className="input-group">
-                  <label
-                    htmlFor="message"
-                    className="cmn--label text--white w-100"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    className="form-control cmn--form--control"
-                    id="message"
-                    name="message"
-                    required
-                  ></textarea>
-                </div>
-              </div>
-              <div className="cmn--form--group form-group col-md-12 text-end mb-0">
-                <button type="submit" className="cmn--btn btn-block">
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div className="call-to-action bg--base pt-50 pb-50">
-        <div className="container">
-          <div className="call-to-wrapper p-0">
-            <h4 className="title text--dark">
-              Get Started Now for instant profit
-            </h4>
-            <div className="call-to-btn">
-              <Link
-                href="user/register"
-                className="cmn--btn text--black bg--white border-0"
-              >
-                Get Started
-              </Link>
             </div>
           </div>
         </div>
       </div>
+
       <footer className="footer-section">
         <div className="footer-top pt-120 pb-120">
           <div className="container">
@@ -195,7 +207,6 @@ export default function ContactPage() {
                     <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
                   </Link>
                   <p>
-                    {" "}
                     Make signals become figures, figures become money and money
                     become yours.
                   </p>
@@ -213,7 +224,7 @@ export default function ContactPage() {
                       <Link href="/contact">Contact</Link>
                     </li>
                     <li>
-                      <Link href="/auth/sign-in">Sign In</Link>
+                      <Link href="/user/dashboard">Dashboard</Link>
                     </li>
                   </ul>
                 </div>
@@ -317,7 +328,7 @@ export default function ContactPage() {
         </div>
         <div className="footer-bottom">
           <div className="container">
-            Copyright © 2024. All Rights Reserved By{" "}
+            Copyright © 2024. All Rights Reserved By
             <Link href="/" className="text--base">
               CryptoPlus Trader
             </Link>

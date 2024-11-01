@@ -1,11 +1,12 @@
 import React from "react";
+import Link from "next/link";
 
 const SignUpPage = () => {
   return (
     <main>
-      <a href="javascript:void(0)" className="scrollToTop">
+      <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
-      </a>
+      </Link>
 
       <div className="account-section pt-120 pb-120">
         <div className="container">
@@ -13,13 +14,13 @@ const SignUpPage = () => {
             <div className="col-lg-8">
               <div className="account-wrapper bg--section mw-100">
                 <div className="account-logo">
-                  <a href="https://www.cryptoplustrader.com">
+                  <Link href="/">
                     <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-                  </a>
+                  </Link>
                 </div>
                 <h4 className="text-center p-2">Sign Up</h4>
                 <form
-                  action="https://www.cryptoplustrader.com/user/register"
+                  action="https://www.cryptoplustrader.com/auth/sign-up"
                   method="POST"
                   className="verify-gcaptcha account-form"
                 >
@@ -1818,28 +1819,25 @@ const SignUpPage = () => {
                   </div>
                   <div className="form-group">
                     <input type="checkbox" id="agree" name="agree" required />
-                    <label for="agree">I agree with</label>
+                    <label htmlFor="agree">I agree with</label>
                     <span>
-                      <a
-                        className="text--base"
-                        href="https://www.cryptoplustrader.com/policy/terms-of-use/99"
-                      >
+                      <Link className="text--base" href="/policy/terms-of-use/99">
                         Terms of Use
-                      </a>
+                      </Link>
                       ,
-                      <a
+                      <Link
                         className="text--base"
-                        href="https://www.cryptoplustrader.com/policy/terms-of-service/94"
+                        href="/policy/terms-of-service/94"
                       >
                         Terms Of Service
-                      </a>
+                      </Link>
                       ,
-                      <a
+                      <Link
                         className="text--base"
-                        href="https://www.cryptoplustrader.com/policy/privacy-policy/92"
+                        href="/policy/privacy-policy/92"
                       >
                         Privacy Policy
-                      </a>
+                      </Link>
                     </span>
                   </div>
                   <div className="form-group">
@@ -1853,12 +1851,9 @@ const SignUpPage = () => {
                   </div>
                   <p className="mb-0">
                     Already have an account?
-                    <a
-                      className="text--base"
-                      href="https://www.cryptoplustrader.com/user/login"
-                    >
+                    <Link className="text--base" href="/auth/sign-in">
                       Login
-                    </a>
+                    </Link>
                   </p>
                 </form>
               </div>
@@ -1900,12 +1895,9 @@ const SignUpPage = () => {
               >
                 Close
               </button>
-              <a
-                href="https://www.cryptoplustrader.com/user/login"
-                className="btn btn--base btn-sm"
-              >
+              <Link href="/auth/sign-in" className="btn btn--base btn-sm">
                 Login
-              </a>
+              </Link>
             </div>
           </div>
         </div>

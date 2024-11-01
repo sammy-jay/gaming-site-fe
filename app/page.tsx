@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main>
-      <a href="#" className="scrollToTop">
+      <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
-      </a>
+      </Link>
       {/* <div className="overlay" />
       <div className="preloader">
         <div className="loader">
@@ -19,14 +21,10 @@ export default function Home() {
             <ul className="header-top-area">
               <li className="me-auto"></li>
               <li className="links">
-                <a href="https://www.cryptoplustrader.com/user/login">
-                  Sign in
-                </a>
+                <Link href="/auth/sign-in">Sign in</Link>
               </li>
               <li className="links b-left">
-                <a href="https://www.cryptoplustrader.com/user/register">
-                  Sign Up
-                </a>
+                <Link href="/auth/sign-up">Sign Up</Link>
               </li>
             </ul>
           </div>
@@ -35,49 +33,37 @@ export default function Home() {
           <div className="container">
             <div className="header-wrapper">
               <div className="logo">
-                <a href="https://www.cryptoplustrader.com">
+                <Link href="/">
                   <img
                     src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png"
                     alt="image"
                   />
-                </a>
+                </Link>
               </div>
               <ul className="menu">
                 <li>
-                  <a className="active" href="https://www.cryptoplustrader.com">
+                  <Link className="active" href="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="" href="https://www.cryptoplustrader.com/faq">
-                    FAQ
-                  </a>
+                  <Link href="/faq">FAQ</Link>
                 </li>
                 <li>
-                  <a
-                    className=""
-                    href="https://www.cryptoplustrader.com/services"
-                  >
-                    Services
-                  </a>
+                  <Link href="/services">Services</Link>
                 </li>
                 <li>
-                  <a className="" href="https://www.cryptoplustrader.com/about">
-                    About
-                  </a>
+                  <Link href="/about">About</Link>
                 </li>
                 <li>
-                  <a href="https://www.cryptoplustrader.com/blog" className="">
+                  <Link href="/blog" className="">
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://www.cryptoplustrader.com/contact"
-                    className=""
-                  >
+                  <Link href="/contact" className="">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <div className="header-bar m-0">
@@ -104,9 +90,9 @@ export default function Home() {
                 A platform that makes crypto trading as easy and profitable as
                 possible.
               </p>
-              <a href="user/register" className="cmn--btn">
+              <Link href="user/register" className="cmn--btn">
                 Get Started
-              </a>
+              </Link>
             </div>
             <div className="banner-thumb">
               <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/608919c858e481619597768.png" />
@@ -391,7 +377,6 @@ export default function Home() {
             <div className="modal-header">
               <h6 className="modal-title"></h6>
               <span
-                type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
@@ -403,16 +388,13 @@ export default function Home() {
               <div className="predict-type-content">
                 <p className="text-white description"></p>
                 <div className="pt-2 d-flex flex-wrap couple--buttons">
-                  <a
-                    href="https://www.cryptoplustrader.com/user/register"
+                  <Link
+                    href="/auth/sign-up"
                     className="cmn--btn btn-name"
-                  ></a>
-                  <a
-                    href="https://www.cryptoplustrader.com/user/register"
-                    className="cmn--outline--btn"
-                  >
+                  ></Link>
+                  <Link href="/auth/sign-up" className="cmn--outline--btn">
                     Sign Up Now
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -433,18 +415,18 @@ export default function Home() {
           </div>
           <ul className="nav nav-tabs trade--tabs">
             <li className="nav-item">
-              <a
+              <Link
                 href="#beginners"
                 data-bs-toggle="tab"
                 className="nav-link active"
               >
                 I&#039;m a Beginner
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#expert" data-bs-toggle="tab" className="nav-link">
+              <Link href="#expert" data-bs-toggle="tab" className="nav-link">
                 I&#039;m an Expert
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -603,12 +585,12 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="couple--buttons">
-                  <a href="user/login" target="__blank">
+                  <Link href="user/login" target="__blank">
                     <img src="https://www.cryptoplustrader.com/assets/templates/basic/images/app/google-play.svg" />
-                  </a>
-                  <a href="user/login" target="__blank">
+                  </Link>
+                  <Link href="user/login" target="__blank">
                     <img src="https://www.cryptoplustrader.com/assets/templates/basic/images/app/app-store-btn.svg" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -628,15 +610,15 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 col-sm-10">
               <div className="post__item h-100">
                 <div className="post__thumb">
-                  <a href="https://www.cryptoplustrader.com/blog/105/trading-for-beginners">
+                  <Link href="/blog/105/trading-for-beginners">
                     <img src="https://www.cryptoplustrader.com/assets/images/frontend/blog/thumb_63f345cd2c7101676887501.jpg" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="post__content">
                   <h6 className="post__title">
-                    <a href="https://www.cryptoplustrader.com/blog/105/trading-for-beginners">
+                    <Link href="/blog/105/trading-for-beginners">
                       Trading for Beginners
-                    </a>
+                    </Link>
                   </h6>
                   <div className="meta__date">
                     <div className="meta__item">
@@ -645,11 +627,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="blog-short-desc">
-                    <a href="https://www.cryptoplustrader.com/blog/105/trading-for-beginners">
+                    <Link href="/blog/105/trading-for-beginners">
                       Trading for beginners can be exciting – and overwhelming.
                       That’s why we’ve outlined everything you need to know for
                       your...
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -657,15 +639,15 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 col-sm-10">
               <div className="post__item h-100">
                 <div className="post__thumb">
-                  <a href="https://www.cryptoplustrader.com/blog/104/introduction-to-cryptocurrency-trading">
+                  <Link href="/blog/104/introduction-to-cryptocurrency-trading">
                     <img src="https://www.cryptoplustrader.com/assets/images/frontend/blog/thumb_63f342fde09701676886781.jpg" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="post__content">
                   <h6 className="post__title">
-                    <a href="https://www.cryptoplustrader.com/blog/104/introduction-to-cryptocurrency-trading">
+                    <Link href="/blog/104/introduction-to-cryptocurrency-trading">
                       Introduction to Cryptocurrency Trading
-                    </a>
+                    </Link>
                   </h6>
                   <div className="meta__date">
                     <div className="meta__item">
@@ -674,11 +656,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="blog-short-desc">
-                    <a href="https://www.cryptoplustrader.com/blog/104/introduction-to-cryptocurrency-trading">
+                    <Link href="/blog/104/introduction-to-cryptocurrency-trading">
                       Cryptocurrency trading is the act of speculating on
                       cryptocurrency price movements via a CFD trading account,
                       or buying...
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -686,15 +668,15 @@ export default function Home() {
             <div className="col-lg-4 col-md-6 col-sm-10">
               <div className="post__item h-100">
                 <div className="post__thumb">
-                  <a href="https://www.cryptoplustrader.com/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
+                  <Link href="/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
                     <img src="https://www.cryptoplustrader.com/assets/images/frontend/blog/thumb_63f34273c29a21676886643.jpg" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="post__content">
                   <h6 className="post__title">
-                    <a href="https://www.cryptoplustrader.com/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
+                    <Link href="/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
                       What is Algorithmic Trading and How Does it Work?
-                    </a>
+                    </Link>
                   </h6>
                   <div className="meta__date">
                     <div className="meta__item">
@@ -703,11 +685,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="blog-short-desc">
-                    <a href="https://www.cryptoplustrader.com/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
+                    <Link href="/blog/103/what-is-algorithmic-trading-and-how-does-it-work">
                       What Is Algorithmic Trading?Algorithmic trading (also
                       called automated trading, black-box
                       trading, or algo-trading) uses...
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -819,12 +801,12 @@ export default function Home() {
               Get Started Now for instant profit
             </h4>
             <div className="call-to-btn">
-              <a
+              <Link
                 href="user/register"
                 className="cmn--btn text--black bg--white border-0"
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -836,9 +818,9 @@ export default function Home() {
             <div className="row gy-5 justify-content-between">
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
-                  <a href="https://www.cryptoplustrader.com" className="logo">
+                  <Link href="/" className="logo">
                     <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-                  </a>
+                  </Link>
                   <p>
                     Make signals become figures, figures become money and money
                     become yours.
@@ -851,17 +833,13 @@ export default function Home() {
                   <h5 className="title">Quick Links</h5>
                   <ul className="widget__links">
                     <li>
-                      <a href="https://www.cryptoplustrader.com">Home</a>
+                      <Link href="/">Home</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/contact">
-                        Contact
-                      </a>
+                      <Link href="/contact">Contact</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/login">
-                        Sign In
-                      </a>
+                      <Link href="/auth/sign-in">Sign In</Link>
                     </li>
                   </ul>
                 </div>
@@ -871,19 +849,17 @@ export default function Home() {
                   <h5 className="title">Policies</h5>
                   <ul className="widget__links">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/terms-of-use/99">
-                        Terms of Use
-                      </a>
+                      <Link href="/policy/terms-of-use/99">Terms of Use</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/terms-of-service/94">
+                      <Link href="/policy/terms-of-service/94">
                         Terms Of Service
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/privacy-policy/92">
+                      <Link href="/policy/privacy-policy/92">
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -923,9 +899,9 @@ export default function Home() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="mailto:support@cryptoplustrader.com">
+                        <Link href="mailto:support@cryptoplustrader.com">
                           support@cryptoplustrader.com
-                        </a>
+                        </Link>
                       </h6>
                       <span className="info">Email Address</span>
                     </div>
@@ -938,7 +914,9 @@ export default function Home() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="tel:+1 (615) 769-8768">+1 (615) 769-8768</a>
+                        <Link href="tel:+1 (615) 769-8768">
+                          +1 (615) 769-8768
+                        </Link>
                       </h6>
                       <span className="info">Call Us Now</span>
                     </div>
@@ -951,9 +929,9 @@ export default function Home() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="javascript:void(0)">
+                        <Link href="#">
                           1207 Bittern Way Suisun City, California.
-                        </a>
+                        </Link>
                       </h6>
                       <span className="info">Our Address</span>
                     </div>
@@ -966,9 +944,9 @@ export default function Home() {
         <div className="footer-bottom">
           <div className="container">
             Copyright © 2024. All Rights Reserved By
-            <a href="https://www.cryptoplustrader.com" className="text--base">
+            <Link href="/" className="text--base">
               CryptoPlus Trader
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

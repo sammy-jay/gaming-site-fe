@@ -1,25 +1,26 @@
 import React from "react";
+import Link from "next/link";
 
 const SignInPage = () => {
   return (
     <main>
-      <a href="javascript:void(0)" className="scrollToTop">
+      <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
-      </a>
+      </Link>
 
       <div className="account-section pt-120 pb-120">
         <div className="container">
           <div className="account-wrapper bg--section">
             <div className="account-logo">
-              <a href="https://www.cryptoplustrader.com">
+              <Link href="/">
                 <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-              </a>
+              </Link>
             </div>
             <h4 className="text-center p-2">Sign In</h4>
             <form
               className="account-form verify-gcaptcha"
               method="POST"
-              action="https://www.cryptoplustrader.com/user/login"
+              action="https://www.cryptoplustrader.com/auth/sign-in"
             >
               <input
                 type="hidden"
@@ -74,21 +75,15 @@ const SignInPage = () => {
               <div className="cmn--form--group form-group">
                 <div className="d-flex flex-wrap justify-content-between">
                   <div className=" text--white d-flex align-items-center">
-                    <a
-                      href="https://www.cryptoplustrader.com/user/password/reset"
-                      className="text--base"
-                    >
+                    <Link href="/user/password/reset" className="text--base">
                       Forget Password?
-                    </a>
+                    </Link>
                   </div>
                   <div className="text--white">
                     Don&apos;t have an account?
-                    <a
-                      href="https://www.cryptoplustrader.com/user/register"
-                      className="text--base"
-                    >
+                    <Link href="/auth/sign-up" className="text--base">
                       Signup
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

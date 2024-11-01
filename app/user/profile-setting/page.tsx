@@ -1,13 +1,8 @@
 import Link from "next/link";
 
-export default function TicketPage() {
+export default function ProfileSettingPage() {
   return (
     <main>
-      <Link href="#" className="scrollToTop">
-        <i className="las la-angle-up"></i>
-      </Link>
-      <div className="overlay"></div>
-
       <header className="header-section">
         <div className="header-top bg--section">
           <div className="container">
@@ -142,41 +137,148 @@ export default function TicketPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Support Tickets</h2>
+            <h2 className="m-0">Profile Setting</h2>
           </div>
         </div>
       </section>
 
       <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
-          <div className="row justify-content-center gy-4">
-            <div className="col-12 text-end">
-              <Link href="/ticket/new" className="btn btn--base-outline btn-sm">
-                <i className="las la-plus"></i> New Ticket
-              </Link>
-            </div>
-            <div className="col-12">
-              <div className="card custom--card border-0">
-                <div className="card-body p-0">
-                  <div className="table-responsive">
-                    <table className="table cmn--table">
-                      <thead>
-                        <tr>
-                          <th>Subject</th>
-                          <th>Status</th>
-                          <th>Priority</th>
-                          <th>Last Reply</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td colSpan={7} className="text-center">
-                            Data not found
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+          <div className="row justify-content-center">
+            <div className="col-lg-10">
+              <div className="card custom--card">
+                <div className="card-body">
+                  <div className="row gy-4 justify-content-center flex-wrap-reverse">
+                    <div className="col-md-5 col-lg-4">
+                      <ul className="list-group list-group-flush bg--light h-100 p-3">
+                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
+                          <span className="fw-bold text-muted">pure_smoke</span>
+                          <small className="text-muted">
+                            <i className="la la-user"></i> Userame
+                          </small>
+                        </li>
+                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
+                          <span className="fw-bold text-muted">
+                            soneyetolulope4@gmail.com
+                          </span>
+                          <small className="text-muted">
+                            <i className="la la-envelope"></i> Email
+                          </small>
+                        </li>
+                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
+                          <span className="fw-bold text-muted">
+                            +2348075032390
+                          </span>
+                          <small className="text-muted">
+                            <i className="la la-mobile"></i> Mobile
+                          </small>
+                        </li>
+                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
+                          <span className="fw-bold text-muted">Nigeria</span>
+                          <small className="text-muted">
+                            <i className="la la-globe"></i> Country
+                          </small>
+                        </li>
+
+                        <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
+                          <span className="fw-bold text-muted">test 1234</span>
+                          <small className="text-muted">
+                            <i className="la la-map-marked"></i> Address
+                          </small>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col-md-7 col-lg-8">
+                      <form
+                        className="register py-3 pe-3 ps-3 ps-md-0"
+                        action=""
+                        method="post"
+                        encType="multipart/form-data"
+                      >
+                        <input
+                          type="hidden"
+                          name="_token"
+                          value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
+                        />
+                        <div className="row">
+                          <div className="col-lg-6">
+                            <div className="form-group">
+                              <label className="form-label">First Name</label>
+                              <input
+                                type="text"
+                                className="form-control cmn--form--control"
+                                name="firstname"
+                                value="Tolulope"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div className="col-lg-6">
+                            <div className="form-group">
+                              <label className="form-label">Last Name</label>
+                              <input
+                                type="text"
+                                className="form-control cmn--form--control"
+                                name="lastname"
+                                value="Soneye"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <div className="col-lg-6">
+                            <div className="form-group">
+                              <label className="form-label">State</label>
+                              <input
+                                type="text"
+                                className="form-control cmn--form--control"
+                                name="state"
+                                value="Ogun"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="col-lg-6">
+                            <div className="form-group">
+                              <label className="form-label">City</label>
+                              <input
+                                type="text"
+                                className="form-control cmn--form--control"
+                                name="city"
+                                value="Sagamu"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="col-lg-6">
+                            <div className="form-group">
+                              <label className="form-label">Zip Code</label>
+                              <input
+                                type="text"
+                                className="form-control cmn--form--control"
+                                name="zip"
+                                value="121101"
+                              />
+                            </div>
+                          </div>
+                          <div className="col-lg-6">
+                            <div className="form-group">
+                              <label className="form-label">Address</label>
+                              <input
+                                type="text"
+                                className="form-control cmn--form--control"
+                                name="address"
+                                value="test 1234"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" className="cmn--btn btn-block">
+                          Submit
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>

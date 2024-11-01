@@ -1,12 +1,11 @@
 import Link from "next/link";
 
-export default function TicketPage() {
+export default function DashboardPage() {
   return (
     <main>
       <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
       </Link>
-      <div className="overlay"></div>
 
       <header className="header-section">
         <div className="header-top bg--section">
@@ -48,7 +47,7 @@ export default function TicketPage() {
               </div>
               <ul className="menu">
                 <li>
-                  <Link href="/user/dashboard" className="">
+                  <Link href="/user/dashboard" className="active">
                     Dashboard
                   </Link>
                 </li>
@@ -100,9 +99,7 @@ export default function TicketPage() {
                       <Link href="/user/withdraw">Withdraw Money</Link>
                     </li>
                     <li>
-                      <Link href="/user/withdraw/history">
-                        Withdraw History
-                      </Link>
+                      <Link href="/user/withdraw/history">Withdraw History</Link>
                     </li>
                   </ul>
                 </li>
@@ -116,9 +113,7 @@ export default function TicketPage() {
                     </li>
 
                     <li>
-                      <Link href="/user/commissions/history">
-                        Commission Log
-                      </Link>
+                      <Link href="/user/commissions/history">Commission Log</Link>
                     </li>
                   </ul>
                 </li>
@@ -142,7 +137,7 @@ export default function TicketPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Support Tickets</h2>
+            <h2 className="m-0">Dashboard</h2>
           </div>
         </div>
       </section>
@@ -150,35 +145,199 @@ export default function TicketPage() {
       <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
           <div className="row justify-content-center gy-4">
-            <div className="col-12 text-end">
-              <Link href="/ticket/new" className="btn btn--base-outline btn-sm">
-                <i className="las la-plus"></i> New Ticket
-              </Link>
+            <div className="col-12">
+              <div className="alert bg--body mb-0">
+                <h4 className="alert-heading text--danger">
+                  KYC Verification Required
+                </h4>
+                <hr />
+                <p className="mb-0">
+                  Dear User, we need your KYC documents to verify the
+                  authenticity of your information and to help you recover your
+                  account in the event that you lose it. After verification,
+                  your data is automatically deleted from our system and thus
+                  removes the risk of any form of re-use.
+                  <Link href="/user/kyc-form" className="text--base fw-bold">
+                    Click Here to Verify
+                  </Link>
+                </p>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-dollar-sign"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">$0.00</h4>
+                  <span className="subtitle d-block">Current Balance</span>
+                  <Link
+                    href="/user/transactions"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-wallet"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">$0.00</h4>
+                  <span className="subtitle d-block">Total Deposit</span>
+                  <Link
+                    href="/user/deposit/history"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-credit-card"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">$0.00</h4>
+                  <span className="subtitle d-block">Total Withdraw</span>
+                  <Link
+                    href="/user/withdraw/history"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-money-bill"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">0</h4>
+                  <span className="subtitle d-block">Total Transactions</span>
+                  <Link
+                    href="/user/transactions"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-gamepad"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">0</h4>
+                  <span className="subtitle d-block">Total Trade</span>
+                  <Link href="/user/trade/log" className="btn btn--sm btn--base">
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-trophy"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">0</h4>
+                  <span className="subtitle d-block">Total Wining Trade</span>
+                  <Link
+                    href="/user/trade/wining/log"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-slash"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">0</h4>
+                  <span className="subtitle d-block">Total Losing Trade</span>
+                  <Link
+                    href="/user/trade/losing/log"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <div className="dashboard__item">
+                <div className="dashboard__thumb">
+                  <i className="las la-pencil-ruler"></i>
+                </div>
+                <div className="dashboard__content">
+                  <h4 className="dashboard__title">0</h4>
+                  <span className="subtitle d-block">Total Draw Trade</span>
+                  <Link
+                    href="/user/trade/draw/log"
+                    className="btn btn--sm btn--base"
+                  >
+                    View All
+                  </Link>
+                </div>
+              </div>
             </div>
             <div className="col-12">
-              <div className="card custom--card border-0">
-                <div className="card-body p-0">
-                  <div className="table-responsive">
-                    <table className="table cmn--table">
-                      <thead>
-                        <tr>
-                          <th>Subject</th>
-                          <th>Status</th>
-                          <th>Priority</th>
-                          <th>Last Reply</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td colSpan={7} className="text-center">
-                            Data not found
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+              <div className="input-group">
+                <span className="input-group-text bg--base text-white border-0">
+                  My Referral Link
+                </span>
+                <input
+                  type="text"
+                  name="key"
+                  value="https://www.cryptoplustrader.com?reference=pure_smoke"
+                  className="form-control cmn--form--control bg--section referralURL"
+                  readOnly
+                />
+                <span
+                  className="input-group-text bg--base cursor-pointer text-white border-0"
+                  id="copyBoard"
+                >
+                  <i className="lar la-copy"></i>
+                </span>
+              </div>
+            </div>
+            <div className="col-12">
+              <div className="table-responsive">
+                <table className="table cmn--table">
+                  <thead>
+                    <tr>
+                      <th>S.N.</th>
+                      <th>Crypto</th>
+                      <th>Amount</th>
+                      <th>High/Low</th>
+                      <th>Result</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colSpan={7} className="text-center text-muted">
+                        Data not found
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -225,14 +384,10 @@ export default function TicketPage() {
                       <Link href="/policy/terms-of-use/99">Terms of Use</Link>
                     </li>
                     <li>
-                      <Link href="/policy/terms-of-service/94">
-                        Terms Of Service
-                      </Link>
+                      <Link href="/policy/terms-of-service/94">Terms Of Service</Link>
                     </li>
                     <li>
-                      <Link href="/policy/privacy-policy/92">
-                        Privacy Policy
-                      </Link>
+                      <Link href="/policy/privacy-policy/92">Privacy Policy</Link>
                     </li>
                   </ul>
                 </div>
@@ -287,9 +442,7 @@ export default function TicketPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <Link href="tel:+1 (615) 769-8768">
-                          +1 (615) 769-8768
-                        </Link>
+                        <Link href="tel:+1 (615) 769-8768">+1 (615) 769-8768</Link>
                       </h6>
                       <span className="info">Call Us Now</span>
                     </div>

@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function KYCFormPage() {
   return (
     <main>
-      <a href="javascript:void(0)" className="scrollToTop">
+      <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
-      </a>
+      </Link>
 
       <header className="header-section">
         <div className="header-top bg--section">
@@ -16,29 +18,19 @@ export default function KYCFormPage() {
                 </div>
                 <ul className="dashboard-menu">
                   <li>
-                    <a href="https://www.cryptoplustrader.com/ticket">
-                      Support Ticket
-                    </a>
+                    <Link href="/ticket">Support Ticket</Link>
                   </li>
                   <li>
-                    <a href="https://www.cryptoplustrader.com/user/profile-setting">
-                      Profile Setting
-                    </a>
+                    <Link href="/user/profile-setting">Profile Setting</Link>
                   </li>
                   <li>
-                    <a href="https://www.cryptoplustrader.com/user/change-password">
-                      Change Password
-                    </a>
+                    <Link href="/user/change-password">Change Password</Link>
                   </li>
                   <li>
-                    <a href="https://www.cryptoplustrader.com/user/twofactor">
-                      2FA Security
-                    </a>
+                    <Link href="/user/twofactor">2FA Security</Link>
                   </li>
                   <li>
-                    <a href="https://www.cryptoplustrader.com/user/logout">
-                      Logout
-                    </a>
+                    <Link href="/user/logout">Logout</Link>
                   </li>
                 </ul>
               </li>
@@ -49,112 +41,88 @@ export default function KYCFormPage() {
           <div className="container">
             <div className="header-wrapper">
               <div className="logo">
-                <a href="https://www.cryptoplustrader.com">
+                <Link href="/">
                   <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-                </a>
+                </Link>
               </div>
               <ul className="menu">
                 <li>
-                  <a
-                    href="https://www.cryptoplustrader.com/user/dashboard"
-                    className=""
-                  >
+                  <Link href="/user/dashboard" className="">
                     Dashboard
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" className="">
+                  <Link href="#" className="">
                     Practice
-                  </a>
+                  </Link>
                   <ul className="submenu">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/practice/trade">
-                        Practice Now
-                      </a>
+                      <Link href="/user/practice/trade">Practice Now</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/practice/trade/log">
-                        Practice Log
-                      </a>
+                      <Link href="/user/practice/trade/log">Practice Log</Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" className="">
+                  <Link href="#" className="">
                     Trade
-                  </a>
+                  </Link>
                   <ul className="submenu">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/trade">
-                        Trade Now
-                      </a>
+                      <Link href="/user/trade">Trade Now</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/trade/log">
-                        Trade Log
-                      </a>
+                      <Link href="/user/trade/log">Trade Log</Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" className="">
+                  <Link href="#" className="">
                     Deposit
-                  </a>
+                  </Link>
                   <ul className="submenu">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/deposit">
-                        Deposit Money
-                      </a>
+                      <Link href="/user/deposit">Deposit Money</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/deposit/history">
-                        Deposit History
-                      </a>
+                      <Link href="/user/deposit/history">Deposit History</Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" className="">
+                  <Link href="#" className="">
                     Withdraw
-                  </a>
+                  </Link>
                   <ul className="submenu">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/withdraw">
-                        Withdraw Money
-                      </a>
+                      <Link href="/user/withdraw">Withdraw Money</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/withdraw/history">
+                      <Link href="/user/withdraw/history">
                         Withdraw History
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:void(0)" className="">
+                  <Link href="#" className="">
                     Referral
-                  </a>
+                  </Link>
                   <ul className="submenu">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/referral/log">
-                        Referral Log
-                      </a>
+                      <Link href="/user/referral/log">Referral Log</Link>
                     </li>
 
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/commissions/history">
+                      <Link href="/user/commissions/history">
                         Commission Log
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a
-                    className=""
-                    href="https://www.cryptoplustrader.com/user/transactions"
-                  >
-                    Transaction Log
-                  </a>
+                  <Link href="/user/transactions">Transaction Log</Link>
                 </li>
               </ul>
               <div className="header-bar m-0">
@@ -187,7 +155,7 @@ export default function KYCFormPage() {
                   <form
                     action="https://www.cryptoplustrader.com/user/kyc-submit"
                     method="post"
-                    enctype="multipart/form-data"
+                    encType="multipart/form-data"
                   >
                     <input
                       type="hidden"
@@ -282,9 +250,9 @@ export default function KYCFormPage() {
             <div className="row gy-5 justify-content-between">
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
-                  <a href="https://www.cryptoplustrader.com" className="logo">
+                  <Link href="/" className="logo">
                     <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-                  </a>
+                  </Link>
                   <p>
                     Make signals become figures, figures become money and money
                     become yours.
@@ -297,17 +265,13 @@ export default function KYCFormPage() {
                   <h5 className="title">Quick Links</h5>
                   <ul className="widget__links">
                     <li>
-                      <a href="https://www.cryptoplustrader.com">Home</a>
+                      <Link href="/">Home</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/contact">
-                        Contact
-                      </a>
+                      <Link href="/contact">Contact</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/dashboard">
-                        Dashboard
-                      </a>
+                      <Link href="/user/dashboard">Dashboard</Link>
                     </li>
                   </ul>
                 </div>
@@ -317,19 +281,17 @@ export default function KYCFormPage() {
                   <h5 className="title">Policies</h5>
                   <ul className="widget__links">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/terms-of-use/99">
-                        Terms of Use
-                      </a>
+                      <Link href="/policy/terms-of-use/99">Terms of Use</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/terms-of-service/94">
+                      <Link href="/policy/terms-of-service/94">
                         Terms Of Service
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/privacy-policy/92">
+                      <Link href="/policy/privacy-policy/92">
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -369,9 +331,9 @@ export default function KYCFormPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="mailto:support@cryptoplustrader.com">
+                        <Link href="mailto:support@cryptoplustrader.com">
                           support@cryptoplustrader.com
-                        </a>
+                        </Link>
                       </h6>
                       <span className="info">Email Address</span>
                     </div>
@@ -384,7 +346,9 @@ export default function KYCFormPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="tel:+1 (615) 769-8768">+1 (615) 769-8768</a>
+                        <Link href="tel:+1 (615) 769-8768">
+                          +1 (615) 769-8768
+                        </Link>
                       </h6>
                       <span className="info">Call Us Now</span>
                     </div>
@@ -397,9 +361,9 @@ export default function KYCFormPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="javascript:void(0)">
+                        <Link href="#">
                           1207 Bittern Way Suisun City, California.
-                        </a>
+                        </Link>
                       </h6>
                       <span className="info">Our Address</span>
                     </div>
@@ -412,9 +376,9 @@ export default function KYCFormPage() {
         <div className="footer-bottom">
           <div className="container">
             Copyright © 2024. All Rights Reserved By
-            <a href="https://www.cryptoplustrader.com" className="text--base">
+            <Link href="/" className="text--base">
               CryptoPlus Trader
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

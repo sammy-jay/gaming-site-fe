@@ -1,9 +1,9 @@
 "use client";
 import "./globals.css";
+import Script from "next/script";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
-
 
 export default function RootLayout({
   children,
@@ -38,6 +38,18 @@ export default function RootLayout({
         <QueryClientProvider client={queryClient}>
           {children}
         </QueryClientProvider>
+
+        <Script src="https://www.cryptoplustrader.com/assets/global/js/jquery-3.6.0.min.js" />
+        <Script src="https://www.cryptoplustrader.com/assets/global/js/bootstrap.bundle.min.js" />
+
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/lightbox.min.js" />
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/raf-scroll.js" />
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/rafcounter.min.js" />
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/owl.min.js" />
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/main.js" />
+
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/sfx-widget.js" />
+        <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/tv.js" />
       </body>
     </html>
   );

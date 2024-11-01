@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function FAQPage() {
   return (
     <main>
-      <a href="javascript:void(0)" className="scrollToTop">
+      <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
-      </a>
+      </Link>
 
       <header className="header-section">
         <div className="header-top bg--section">
@@ -11,14 +13,10 @@ export default function FAQPage() {
             <ul className="header-top-area">
               <li className="me-auto"></li>
               <li className="links">
-                <a href="https://www.cryptoplustrader.com/user/login">
-                  Sign in
-                </a>
+                <Link href="/auth/sign-in">Sign in</Link>
               </li>
               <li className="links b-left">
-                <a href="https://www.cryptoplustrader.com/user/register">
-                  Sign Up
-                </a>
+                <Link href="/auth/sign-up">Sign Up</Link>
               </li>
             </ul>
           </div>
@@ -27,52 +25,37 @@ export default function FAQPage() {
           <div className="container">
             <div className="header-wrapper">
               <div className="logo">
-                <a href="https://www.cryptoplustrader.com">
+                <Link href="/">
                   <img
                     src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png"
                     alt="image"
                   />
-                </a>
+                </Link>
               </div>
               <ul className="menu">
                 <li>
-                  <a className="" href="https://www.cryptoplustrader.com">
-                    Home
-                  </a>
+                  <Link href="/">Home</Link>
                 </li>
                 <li>
-                  <a
-                    className="active"
-                    href="https://www.cryptoplustrader.com/faq"
-                  >
+                  <Link className="active" href="/faq">
                     FAQ
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    className=""
-                    href="https://www.cryptoplustrader.com/services"
-                  >
-                    Services
-                  </a>
+                  <Link href="/services">Services</Link>
                 </li>
                 <li>
-                  <a className="" href="https://www.cryptoplustrader.com/about">
-                    About
-                  </a>
+                  <Link href="/about">About</Link>
                 </li>
                 <li>
-                  <a href="https://www.cryptoplustrader.com/blog" className="">
+                  <Link href="/blog" className="">
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://www.cryptoplustrader.com/contact"
-                    className=""
-                  >
+                  <Link href="/contact" className="">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <div className="header-bar m-0">
@@ -199,12 +182,12 @@ export default function FAQPage() {
               Get Started Now for instant profit
             </h4>
             <div className="call-to-btn">
-              <a
+              <Link
                 href="user/register"
                 className="cmn--btn text--black bg--white border-0"
               >
                 Get Started
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -216,9 +199,9 @@ export default function FAQPage() {
             <div className="row gy-5 justify-content-between">
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
-                  <a href="https://www.cryptoplustrader.com" className="logo">
+                  <Link href="/" className="logo">
                     <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
-                  </a>
+                  </Link>
                   <p>
                     Make signals become figures, figures become money and money
                     become yours.
@@ -231,17 +214,13 @@ export default function FAQPage() {
                   <h5 className="title">Quick Links</h5>
                   <ul className="widget__links">
                     <li>
-                      <a href="https://www.cryptoplustrader.com">Home</a>
+                      <Link href="/">Home</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/contact">
-                        Contact
-                      </a>
+                      <Link href="/contact">Contact</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/user/login">
-                        Sign In
-                      </a>
+                      <Link href="/auth/sign-in">Sign In</Link>
                     </li>
                   </ul>
                 </div>
@@ -251,19 +230,17 @@ export default function FAQPage() {
                   <h5 className="title">Policies</h5>
                   <ul className="widget__links">
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/terms-of-use/99">
-                        Terms of Use
-                      </a>
+                      <Link href="/policy/terms-of-use/99">Terms of Use</Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/terms-of-service/94">
+                      <Link href="/policy/terms-of-service/94">
                         Terms Of Service
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="https://www.cryptoplustrader.com/policy/privacy-policy/92">
+                      <Link href="/policy/privacy-policy/92">
                         Privacy Policy
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -303,9 +280,9 @@ export default function FAQPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="mailto:support@cryptoplustrader.com">
+                        <Link href="mailto:support@cryptoplustrader.com">
                           support@cryptoplustrader.com
-                        </a>
+                        </Link>
                       </h6>
                       <span className="info">Email Address</span>
                     </div>
@@ -318,7 +295,9 @@ export default function FAQPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="tel:+1 (615) 769-8768">+1 (615) 769-8768</a>
+                        <Link href="tel:+1 (615) 769-8768">
+                          +1 (615) 769-8768
+                        </Link>
                       </h6>
                       <span className="info">Call Us Now</span>
                     </div>
@@ -331,9 +310,9 @@ export default function FAQPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <a href="javascript:void(0)">
+                        <Link href="#">
                           1207 Bittern Way Suisun City, California.
-                        </a>
+                        </Link>
                       </h6>
                       <span className="info">Our Address</span>
                     </div>
@@ -346,9 +325,9 @@ export default function FAQPage() {
         <div className="footer-bottom">
           <div className="container">
             Copyright © 2024. All Rights Reserved By
-            <a href="https://www.cryptoplustrader.com" className="text--base">
+            <Link href="/" className="text--base">
               CryptoPlus Trader
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

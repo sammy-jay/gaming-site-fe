@@ -1,12 +1,11 @@
 import Link from "next/link";
 
-export default function TicketPage() {
+export default function DepositPage() {
   return (
     <main>
       <Link href="#" className="scrollToTop">
         <i className="las la-angle-up"></i>
       </Link>
-      <div className="overlay"></div>
 
       <header className="header-section">
         <div className="header-top bg--section">
@@ -79,7 +78,7 @@ export default function TicketPage() {
                   </ul>
                 </li>
                 <li>
-                  <Link href="#" className="">
+                  <Link href="#" className="active">
                     Deposit
                   </Link>
                   <ul className="submenu">
@@ -142,44 +141,107 @@ export default function TicketPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Support Tickets</h2>
+            <h2 className="m-0">Deposit Methods</h2>
           </div>
         </div>
       </section>
 
       <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
-          <div className="row justify-content-center gy-4">
-            <div className="col-12 text-end">
-              <Link href="/ticket/new" className="btn btn--base-outline btn-sm">
-                <i className="las la-plus"></i> New Ticket
-              </Link>
-            </div>
-            <div className="col-12">
-              <div className="card custom--card border-0">
-                <div className="card-body p-0">
-                  <div className="table-responsive">
-                    <table className="table cmn--table">
-                      <thead>
-                        <tr>
-                          <th>Subject</th>
-                          <th>Status</th>
-                          <th>Priority</th>
-                          <th>Last Reply</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td colSpan={7} className="text-center">
-                            Data not found
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+          <div className="row justify-content-center">
+            <div className="col-lg-6">
+              <form
+                action="https://www.cryptoplustrader.com/user/deposit/insert"
+                method="post"
+              >
+                <input
+                  type="hidden"
+                  name="_token"
+                  value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
+                />
+                <input type="hidden" name="method_code" />
+                <input type="hidden" name="currency" />
+                <div className="card custom--card">
+                  <div className="card-header">
+                    <h5 className="card-title">Deposit</h5>
+                  </div>
+                  <div className="card-body">
+                    <div className="form-group">
+                      <label className="form-label">Select Gateway</label>
+                      <select
+                        className="form-control cmn--form--control"
+                        name="gateway"
+                        required
+                      >
+                        <option value="" selected disabled>
+                          Select One
+                        </option>
+                        <option
+                          value="1000"
+                          data-gateway='{"id":1,"name":"Bitcoin Deposit","currency":"BTC","symbol":"","method_code":"1000","gateway_alias":"bitcoin_deposit","min_amount":"100.00000000","max_amount":"1000000.00000000","percent_charge":"0.03","fixed_charge":"0.50000000","rate":"0.00001500","image":null,"gateway_parameter":null,"created_at":"2023-07-14T23:46:38.000000Z","updated_at":"2024-05-30T22:02:03.000000Z","method":{"id":58,"form_id":"8","code":"1000","name":"Bitcoin Deposit","alias":"bitcoin_deposit","status":"1","gateway_parameters":"[]","supported_currencies":[],"crypto":"0","extra":null,"description":"&lt;br&gt;\r\n&lt;p style=\"background-color: yellow; text-align: center; color:black;\"&gt;bc1q3vcmx5alu3w2u5ra4mxdaeulpr48vggfn3257u368lq2fv9dxklq9mndd8&amp;nbsp;&lt;br&gt;(Copy to Wallet)&lt;\/p&gt;\r\n&lt;p style=\"text-align: center;\"&gt;&lt;img src=\"https:\/\/cryptoplustrader.com\/qr.jpeg\" width=\"30%\" height=\"30%&amp;quot;\/\"&gt;\r\n&lt;br&gt;(Scan QR Code)&lt;\/p&gt;","created_at":"2023-07-14T23:46:38.000000Z","updated_at":"2024-05-30T22:02:03.000000Z"}}'
+                        >
+                          Bitcoin Deposit
+                        </option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Amount</label>
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          step="any"
+                          name="amount"
+                          className="form-control cmn--form--control"
+                          value=""
+                          autoComplete="off"
+                          required
+                        />
+                        <span className="input-group-text">USD</span>
+                      </div>
+                    </div>
+                    <div className="mt-3 preview-details d-none">
+                      <ul className="list-group list-group-flush mb-3">
+                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
+                          <span>Limit</span>
+                          <span>
+                            <span className="min fw-bold">0</span> USD -
+                            <span className="max fw-bold">0</span> USD
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
+                          <span>Charge</span>
+                          <span>
+                            <span className="charge fw-bold">0</span> USD
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
+                          <span>Payable</span>
+                          <span>
+                            <span className="payable fw-bold"> 0</span> USD
+                          </span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none rate-element"></li>
+                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none in-site-cur">
+                          <span>
+                            In <span className="method_currency"></span>
+                          </span>
+                          <span className="final_amo fw-bold">0</span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input crypto_currency d-none">
+                          <span>
+                            Conversion with
+                            <span className="method_currency"></span> and final
+                            value will Show on next step
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <button type="submit" className="cmn--btn btn-block">
+                      Submit
+                    </button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
