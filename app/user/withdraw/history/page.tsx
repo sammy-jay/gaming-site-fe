@@ -3,7 +3,7 @@ import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
 
-export default function DepositPage() {
+export default function WithdrawHistoryPage() {
   return (
     <main>
       <Script src="/js/index.js" />
@@ -22,91 +22,78 @@ export default function DepositPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Deposit Methods</h2>
+            <h2 className="m-0">Withdraw Log</h2>
           </div>
         </div>
       </section>
 
       <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6">
-              <form>
-                <div className="card custom--card">
-                  <div className="card-header">
-                    <h5 className="card-title">Deposit</h5>
-                  </div>
-                  <div className="card-body">
-                    <div className="form-group">
-                      <label className="form-label">Select Gateway</label>
-                      <select
-                        className="form-control cmn--form--control"
-                        name="gateway"
-                        required
-                      >
-                        <option value="" selected disabled>
-                          Select One
-                        </option>
-                        <option>Bitcoin Deposit</option>
-                        <option>Ethereum Deposit</option>
-                        <option>USDT Deposit</option>
-                      </select>
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label">Amount</label>
-                      <div className="input-group">
-                        <input
-                          type="number"
-                          className="form-control cmn--form--control"
-                          autoComplete="off"
-                          required
-                        />
-                        <span className="input-group-text">USD</span>
-                      </div>
-                    </div>
-                    <div className="mt-3 preview-details d-none">
-                      <ul className="list-group list-group-flush mb-3">
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
-                          <span>Limit</span>
-                          <span>
-                            <span className="min fw-bold">0</span> USD -
-                            <span className="max fw-bold">0</span> USD
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
-                          <span>Charge</span>
-                          <span>
-                            <span className="charge fw-bold">0</span> USD
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
-                          <span>Payable</span>
-                          <span>
-                            <span className="payable fw-bold"> 0</span> USD
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none rate-element"></li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none in-site-cur">
-                          <span>
-                            In <span className="method_currency"></span>
-                          </span>
-                          <span className="final_amo fw-bold">0</span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input crypto_currency d-none">
-                          <span>
-                            Conversion with
-                            <span className="method_currency"></span> and final
-                            value will Show on next step
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <Link href="/user/deposit/manual" className="cmn--btn btn-block">
-                      Submit
-                    </Link>
-                  </div>
+          <div className="row justify-content-end gy-4">
+            <div className="col-4">
+              <form action="">
+                <div className="input-group">
+                  <input
+                    type="text"
+                    name="search"
+                    className="form-control cmn--form--control"
+                    value=""
+                    placeholder="Search By Transactions"
+                  />
+                  <button className="input-group-text bg--base text-white border-0">
+                    <i className="las la-search"></i>
+                  </button>
                 </div>
               </form>
+            </div>
+            <div className="col-12">
+              <div className="table-responsive">
+                <table className="table cmn--table">
+                  <thead>
+                    <tr>
+                      <th>Gateway | Transaction</th>
+                      <th>Initiated</th>
+                      <th>Amount</th>
+                      <th>Conversion</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="text-muted text-center" colSpan={6}>
+                        Data not found
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="detailModal"
+          className="modal fade custom--modal"
+          tabIndex={-1}
+          role="dialog"
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Details</h5>
+                <span
+                  className="close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <i className="las la-times"></i>
+                </span>
+              </div>
+              <div className="modal-body">
+                <ul className="list-group userData list-group-flush"></ul>
+                <div className="feedback"></div>
+              </div>
             </div>
           </div>
         </div>

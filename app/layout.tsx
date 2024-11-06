@@ -2,8 +2,16 @@
 import "./globals.css";
 import Script from "next/script";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Rajdhani } from "next/font/google";
 
 const queryClient = new QueryClient();
+const rajdhani = Rajdhani({
+   weight: ['400','500', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+  display: 'swap',
+});
+
 
 export default function RootLayout({
   children,
@@ -34,7 +42,7 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={`w-full relative`}>
+      <body className={`w-full relative ${rajdhani.className}`}>
         <QueryClientProvider client={queryClient}>
           {children}
         </QueryClientProvider>
@@ -50,6 +58,8 @@ export default function RootLayout({
 
         <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/sfx-widget.js" />
         <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/tv.js" />
+
+
 
         <Script src="/js/index.js"/>
       </body>

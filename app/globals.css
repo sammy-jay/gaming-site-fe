@@ -69,7 +69,6 @@
 
 body {
     margin: 0;
-    font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
     font-weight: var(--bs-body-font-weight);
     line-height: var(--bs-body-line-height);
@@ -235,7 +234,6 @@ a:not([href]):not([class]),a:not([href]):not([class]):hover {
 }
 
 code,kbd,pre,samp {
-    font-family: var(--bs-font-monospace);
     font-size: 1em;
     direction: ltr;
     unicode-bidi: bidi-override
@@ -14084,7 +14082,6 @@ body {
     color: #ddd;
     line-height: 26px;
     overflow-x: hidden;
-    font-family: "Roboto", sans-serif;
     background: #172027;
 }
 
@@ -14719,7 +14716,6 @@ body *::-webkit-scrollbar-thumb {
 
 .footer__widget .useful__links li a::before {
     content: "\f101";
-    font-family: "Line Awesome Free";
     font-weight: 600;
     position: absolute;
     left: 0;

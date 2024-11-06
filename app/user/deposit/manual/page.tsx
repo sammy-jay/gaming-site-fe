@@ -3,7 +3,7 @@ import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
 
-export default function DepositPage() {
+export default function ConfirmDepositPage() {
   return (
     <main>
       <Script src="/js/index.js" />
@@ -18,11 +18,11 @@ export default function DepositPage() {
 
       <section
         className="hero-section bg--overlay bg_img bg_fixed"
-        id="user-hero-section"
+        data-background="https://www.cryptoplustrader.com/assets/images/frontend/breadcrumb/605ed645dc0fa1616827973.jpg"
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Deposit Methods</h2>
+            <h2 className="m-0">Deposit Confirm</h2>
           </div>
         </div>
       </section>
@@ -30,83 +30,66 @@ export default function DepositPage() {
       <div className="dashboard-section pt-120 pb-120 bg--section">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-6">
-              <form>
-                <div className="card custom--card">
-                  <div className="card-header">
-                    <h5 className="card-title">Deposit</h5>
-                  </div>
-                  <div className="card-body">
-                    <div className="form-group">
-                      <label className="form-label">Select Gateway</label>
-                      <select
-                        className="form-control cmn--form--control"
-                        name="gateway"
-                        required
-                      >
-                        <option value="" selected disabled>
-                          Select One
-                        </option>
-                        <option>Bitcoin Deposit</option>
-                        <option>Ethereum Deposit</option>
-                        <option>USDT Deposit</option>
-                      </select>
+            <div className="col-md-8">
+              <div className="card custom--card">
+                <div className="card-header card-header-bg">
+                  <h5 className="card-title">Deposit Confirm</h5>
+                </div>
+                <div className="card-body ">
+                  <form>
+                    <div className="col-md-12 text-center">
+                      <p className="text-center mt-2">
+                        You have requested{" "}
+                        <b className="text--success">120.00 USD</b> , Please pay{" "}
+                        <b className="text--success">0.00 BTC </b> for
+                        successful payment{" "}
+                      </p>
+                      <h4 className="text-center mb-4">
+                        Please follow the instruction below
+                      </h4>
+                      <p className="my-4 text-center">
+                        <br />
+                        <p>
+                          bc1q3vcmx5alu3w2u5ra4mxdaeulpr48vggfn3257u368lq2fv9dxklq9mndd8&nbsp;
+                          <br />
+                          (Copy to Wallet)
+                        </p>
+                        <p>
+                          <img
+                            src="https://cryptoplustrader.com/qr.jpeg"
+                            width="30%"
+                            height='30%"/'
+                          />
+                          <br />
+                          (Scan QR Code)
+                        </p>
+                      </p>
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Amount</label>
-                      <div className="input-group">
-                        <input
-                          type="number"
-                          className="form-control cmn--form--control"
-                          autoComplete="off"
-                          required
-                        />
-                        <span className="input-group-text">USD</span>
+                      <label className="form-label">
+                        Proof of Payment Screenshot{" "}
+                      </label>
+                      <input
+                        type="file"
+                        className="form-control form--control"
+                        name="proof_of_payment_(screenshot)"
+                        required
+                        accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
+                      />
+                      <pre className="text--base mt-1">
+                        Supported mimes: jpg,jpeg,png,pdf,doc,docx
+                      </pre>
+                    </div>
+                    <div className="col-md-12">
+                      <div className="form-group">
+                        <Link href="/user/deposit/history"  className="cmn--btn btn-block">
+                          Pay Now
+                        </Link>
                       </div>
                     </div>
-                    <div className="mt-3 preview-details d-none">
-                      <ul className="list-group list-group-flush mb-3">
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
-                          <span>Limit</span>
-                          <span>
-                            <span className="min fw-bold">0</span> USD -
-                            <span className="max fw-bold">0</span> USD
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
-                          <span>Charge</span>
-                          <span>
-                            <span className="charge fw-bold">0</span> USD
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
-                          <span>Payable</span>
-                          <span>
-                            <span className="payable fw-bold"> 0</span> USD
-                          </span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none rate-element"></li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none in-site-cur">
-                          <span>
-                            In <span className="method_currency"></span>
-                          </span>
-                          <span className="final_amo fw-bold">0</span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input crypto_currency d-none">
-                          <span>
-                            Conversion with
-                            <span className="method_currency"></span> and final
-                            value will Show on next step
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <Link href="/user/deposit/manual" className="cmn--btn btn-block">
-                      Submit
-                    </Link>
-                  </div>
+                  </form>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

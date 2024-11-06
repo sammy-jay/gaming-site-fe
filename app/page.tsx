@@ -438,9 +438,14 @@ export default function Home() {
                   <div className="card custom--card h-100">
                     <div className="card-body">
                       <div
-                        className="sfx-widget w-100"
                         id="sfx-market-overview"
-                      ></div>
+                        className="sfx-widget w-100 w-[290px] h-[450px]"
+                      >
+                        <iframe
+                          src="https://widgets.simplefx.com/marketOverview/index.html?containerId%3Dsfx-market-overview%26language%3Dauto%26width%3D290px%26height%3D350px%26symbols%3DBTCUSD%2CNINTENDO.JP%2CAAPL.US%2CVOLV.SE%2CGOOG.US%2CLHA.DE%2CXAUEUR%2CBAY.DE%2CTOYOTA.JP%2CAUDCAD%2CUSDSEK%26theme%3Ddark%26customElements%3Dheader%2CchartGridLines%26categoriesOrder%3DCrypto%2CEquities%20JP%2CEquities%20US%2CEquities%20SE%2CEquities%20DE%2CPrecious%20Metals%2CForex%26webPageUrl%3Dhttps%3A%2F%2Fwww.cryptoplustrader.com%2F"
+                          className="border-0 w-full h-full"
+                        ></iframe>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -452,7 +457,22 @@ export default function Home() {
                   <div className="card custom--card h-100">
                     <div className="card-body">
                       <div className="tradingview-widget-container">
-                        <div id="expert_chart"></div>
+                        <div id="expert_chart">
+                          <div
+                            id="tradingview_0632e-wrapper"
+                            className="relative w-[980px] h-[610px] m-0 p-0 box-content"
+                          >
+                            <div className="w-[980px] h-[610px] bg-transparent p-0">
+                              <iframe
+                                id="tradingview_0632e"
+                                src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_0632e&amp;symbol=BTCUSD&amp;interval=D&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=f1f3f6&amp;studies=%5B%5D&amp;theme=dark&amp;style=1rem;timezone=Etc%2FUTC&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en&amp;utm_source=www.cryptoplustrader.com&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=BTCUSD"
+                                className="w-full h-full m-0 p-0"
+                                allowTransparency
+                                allowFullScreen
+                              ></iframe>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
