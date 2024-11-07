@@ -122,7 +122,7 @@ const BottomNavBar = () => {
                       side="bottom"
                       className="flex flex-col gap-2 rounded-none m-0 p-0 bg-[#1E272E] border-0 outline-0 lg:w-[200px]"
                     >
-                      <Link href="/user/withdraw" className="menu-nav-link">
+                      <Link href="/user/kyc-form" className="menu-nav-link">
                         Withdraw Money
                       </Link>
                       <div className="border-[0.5px] border-gray-700" />

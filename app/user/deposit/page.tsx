@@ -1,9 +1,39 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import useStore from "@/lib/store";
+
 
 export default function DepositPage() {
+  const [depositData, setDepositData] = useState({
+    gateway: "",
+    amount: 0,
+  });
+  const router = useRouter();
+
+  const updateDepositData = useStore((state) => state.updateDepositData);
+
+  async function OnSubmit(){
+    try {
+      updateDepositData({
+        gateway: depositData.gateway,
+        amount: depositData.amount,
+        charge: depositData.amount * 0.02 ,
+        payable: depositData.amount + (depositData.amount * 0.02),
+        finalAmount: depositData.amount + (depositData.amount * 0.02),
+      });
+
+      router.push("/user/deposit/manual");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -41,15 +71,20 @@ export default function DepositPage() {
                       <label className="form-label">Select Gateway</label>
                       <select
                         className="form-control cmn--form--control"
-                        name="gateway"
+                        value={depositData.gateway}
+                        onChange={(e) =>
+                          setDepositData({
+                            ...depositData,
+                            gateway: e.target.value,
+                          })
+                        }
                         required
                       >
                         <option value="" selected disabled>
                           Select One
                         </option>
-                        <option>Bitcoin Deposit</option>
-                        <option>Ethereum Deposit</option>
-                        <option>USDT Deposit</option>
+                        {/* <option value="Bitcoin Deposit">Bitcoin Deposit</option> */}
+                        <option value="USDT Deposit">USDT Deposit</option>
                       </select>
                     </div>
                     <div className="form-group">
@@ -57,32 +92,44 @@ export default function DepositPage() {
                       <div className="input-group">
                         <input
                           type="number"
+                          value={depositData.amount}
+                          onChange={(e) =>
+                            setDepositData({
+                              ...depositData,
+                              amount: parseFloat(e.target.value),
+                            })
+                          }
                           className="form-control cmn--form--control"
-                          autoComplete="off"
                           required
                         />
                         <span className="input-group-text">USD</span>
                       </div>
                     </div>
-                    <div className="mt-3 preview-details d-none">
+                    <div className="mt-3 preview-details">
                       <ul className="list-group list-group-flush mb-3">
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
                           <span>Limit</span>
                           <span>
-                            <span className="min fw-bold">0</span> USD -
-                            <span className="max fw-bold">0</span> USD
+                            <span className="min fw-bold">100</span> USD -
+                            <span className="max fw-bold">1000000</span> USD
                           </span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
                           <span>Charge</span>
                           <span>
-                            <span className="charge fw-bold">0</span> USD
+                            <span className="charge fw-bold">
+                              {0.02 * depositData.amount}{" "}
+                            </span>
+                            USD
                           </span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
                           <span>Payable</span>
                           <span>
-                            <span className="payable fw-bold"> 0</span> USD
+                            <span className="payable fw-bold">
+                              {depositData.amount + 0.02 * depositData.amount}{" "}
+                            </span>
+                            USD
                           </span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none rate-element"></li>
@@ -94,16 +141,16 @@ export default function DepositPage() {
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input crypto_currency d-none">
                           <span>
-                            Conversion with
+                            Conversion with{" "}
                             <span className="method_currency"></span> and final
                             value will Show on next step
                           </span>
                         </li>
                       </ul>
                     </div>
-                    <Link href="/user/deposit/manual" className="cmn--btn btn-block">
+                    <button onClick={OnSubmit} type="button" className="cmn--btn btn-block">
                       Submit
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </form>

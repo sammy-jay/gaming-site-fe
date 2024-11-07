@@ -1,12 +1,11 @@
 "use client";
-import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 
-function TradePage() {
-  const container = useRef(null);
+function TradeNowPage() {
+  // const container = useRef(null);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -47,15 +46,35 @@ function TradePage() {
 
       <header className="header-section">
         <TopNavBar />
-        <BottomNavBar />
       </header>
-      <div
-        className=" w-full h-full"
-        ref={container}
-      >
+      <div className="chart-wrapper">
+        <div className="chart">
+          <div className="card custom--card h-100">
+            <div className="card-body">
+              <div className="tradingview-widget-container">
+                <div id="expert_chart">
+                  <div
+                    id="tradingview_0632e-wrapper"
+                    className="relative w-full h-[90vh] m-0 mt-[10vh] p-0 box-content"
+                  >
+                    <div className="w-full h-full bg-transparent p-0">
+                      <iframe
+                        id="tradingview_0632e"
+                        src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_0632e&amp;symbol=BTCUSD&amp;interval=D&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=f1f3f6&amp;studies=%5B%5D&amp;theme=dark&amp;style=1rem;timezone=Etc%2FUTC&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en&amp;utm_source=www.cryptoplustrader.com&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=BTCUSD"
+                        className="w-full h-full m-0 p-0"
+                        allowTransparency
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
 }
 
-export default TradePage;
+export default TradeNowPage;

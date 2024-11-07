@@ -1,9 +1,14 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
+import useStore from "@/lib/store";
 import Link from "next/link";
 import Script from "next/script";
 
 export default function ConfirmDepositPage() {
+    const depositData = useStore((state) => state.depositData);
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -22,7 +27,7 @@ export default function ConfirmDepositPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Deposit Confirm</h2>
+            <h2 className="m-0">Deposit Confirmation</h2>
           </div>
         </div>
       </section>
@@ -33,39 +38,52 @@ export default function ConfirmDepositPage() {
             <div className="col-md-8">
               <div className="card custom--card">
                 <div className="card-header card-header-bg">
-                  <h5 className="card-title">Deposit Confirm</h5>
+                  <h5 className="card-title">
+                    {depositData.gateway} Deposit Confirmation
+                  </h5>
                 </div>
                 <div className="card-body ">
                   <form>
                     <div className="col-md-12 text-center">
                       <p className="text-center mt-2">
                         You have requested{" "}
-                        <b className="text--success">120.00 USD</b> , Please pay{" "}
-                        <b className="text--success">0.00 BTC </b> for
-                        successful payment{" "}
+                        <b className="text--success">
+                          {depositData.amount} USD
+                        </b>{" "}
+                        , Please pay{" "}
+                        <b className="text--success">
+                          {depositData.finalAmount} USDT{" "}
+                        </b>{" "}
+                        for successful payment{" "}
                       </p>
-                      <h4 className="text-center mb-4">
-                        Please follow the instruction below
-                      </h4>
-                      <p className="my-4 text-center">
+                      <div className="my-4 text-center">
                         <br />
                         <p>
-                          bc1q3vcmx5alu3w2u5ra4mxdaeulpr48vggfn3257u368lq2fv9dxklq9mndd8&nbsp;
+                          <span>Wallet Address</span>
                           <br />
-                          (Copy to Wallet)
+                          <span className="font-semibold text-[18px] text--success">
+                            TPBzjYtuegTJEfq57c5auHoqoS3mpxzEBi&nbsp;
+                          </span>
+                          <br />
                         </p>
                         <p>
-                          <img
-                            src="https://cryptoplustrader.com/qr.jpeg"
-                            width="30%"
-                            height='30%"/'
-                          />
+                          <span>Network</span>
                           <br />
-                          (Scan QR Code)
+                          <span className="font-semibold text-[18px] text--success">
+                            TRC20
+                          </span>
                         </p>
-                      </p>
+                        <p className="w-full flex flex-col items-center">
+                          <img
+                            src="/wallet/usdt-trc20.png"
+                            width="30%"
+                            height="30%"
+                          />
+                          <span>(Scan QR Code)</span>
+                        </p>
+                      </div>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group mt-8">
                       <label className="form-label">
                         Proof of Payment Screenshot{" "}
                       </label>
@@ -82,7 +100,10 @@ export default function ConfirmDepositPage() {
                     </div>
                     <div className="col-md-12">
                       <div className="form-group">
-                        <Link href="/user/deposit/history"  className="cmn--btn btn-block">
+                        <Link
+                          href="/user/deposit/history"
+                          className="cmn--btn btn-block"
+                        >
                           Pay Now
                         </Link>
                       </div>
