@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Mizuk | Online Multiplayer Gaming App</title>
+        <title>TetraCryptoPlus</title>
         <meta
           name="description"
           content="It is an online multi-player gaming app. Have fun here!"

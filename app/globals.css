@@ -14838,7 +14838,7 @@ div[class*="col"]:nth-child(2) .footer__contact__item .footer__contact__content 
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.1);
     font-size: 14px;
-    color: #fff;
+    color: #000;
 }
 
 .subscribe--form--control:focus {
@@ -15806,7 +15806,7 @@ header {
 }
 
 .account-logo {
-    max-width: 280px;
+    width: 200px;
     margin: 0 auto 50px;
 }
 
@@ -15816,7 +15816,8 @@ header {
 
 .account-logo img {
     width: 100%;
-    max-height: 250px;
+    /* max-height: 250px; */
+    object-fit: cover;
 }
 
 .cmn--form--group {
@@ -17668,12 +17669,12 @@ animation-delay:0.75s;
     z-index: 999999999;
 }
 .form-control:focus{
-    color: #fff;
+    color: #000;
 }
 .cmn--form--control[type="file"]::file-selector-button {
    
     background-color: #485460 !important;
-    color: #fff;
+    color: #000;
    
 }
 .b-left{

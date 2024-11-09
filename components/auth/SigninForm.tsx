@@ -28,6 +28,7 @@ const SigninForm = () => {
   const router = useRouter();
 
   async function OnSubmit({ email, password }: z.infer<typeof formSchema>) {
+    console.log("first")
     setLoading(true);
     const options = {
       method: "POST",

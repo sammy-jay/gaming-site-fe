@@ -1,9 +1,103 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { getLocalStorageItem } from "@/utils/localStorage";
+
+const formSchema = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  address: z.string(),
+  city: z.string(),
+  state: z.string(),
+  country: z.string(),
+  zipCode: z.string(),
+});
+
+const defaultValues = {
+  firstName: "",
+  lastName: "",
+  address: "",
+  city: "",
+  state: "",
+  country: "",
+  zipCode: "",
+};
 
 export default function UserDataPage() {
+  const [loading, setLoading] = useState(false);
+  const [authInfo, setAuthInfo] = useState({
+    user: { username: "", id: "" },
+  });
+
+  useEffect(() => {
+    setAuthInfo(getLocalStorageItem("auth-info"));
+  }, []);
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues,
+  });
+  const router = useRouter();
+
+  async function OnSubmit({
+    firstName,
+    lastName,
+    address,
+    city,
+    state,
+    country,
+    zipCode,
+  }: z.infer<typeof formSchema>) {
+    setLoading(true);
+
+    const mutations = [
+      {
+        patch: {
+          query: "*[_type == 'userProfile' && userId == $userId]",
+          params: {
+            userId: authInfo?.user?.id,
+          },
+          set: {
+            firstName,
+            lastName,
+            address,
+            city,
+            state,
+            country,
+            zipCode,
+          },
+        },
+      },
+    ];
+
+    fetch(
+      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2024-01-01/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`,
+        },
+        body: JSON.stringify({ mutations }),
+      }
+    )
+      .then((response) => console.log(response))
+      .then((result) => {
+        console.log(result);
+        setLoading(false);
+        router.replace("/user/dashboard");
+      })
+      .catch((error) => console.error(error));
+  }
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -37,22 +131,16 @@ export default function UserDataPage() {
                     </p>
                   </div>
                   <form
-                    method="POST"
-                    action="https://www.cryptoplustrader.com/user/user-data-submit"
+                    className="account-form verify-gcaptcha"
+                    onSubmit={form.handleSubmit(OnSubmit)}
                   >
-                    <input
-                      type="hidden"
-                      name="_token"
-                      value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
-                    />
                     <div className="row">
                       <div className="form-group col-sm-6">
                         <label className="form-label">First Name</label>
                         <input
                           type="text"
                           className="form-control cmn--form--control"
-                          name="firstname"
-                          value=""
+                          {...form.register("firstName")}
                           required
                         />
                       </div>
@@ -62,8 +150,7 @@ export default function UserDataPage() {
                         <input
                           type="text"
                           className="form-control cmn--form--control"
-                          name="lastname"
-                          value=""
+                          {...form.register("lastName")}
                           required
                         />
                       </div>
@@ -72,8 +159,15 @@ export default function UserDataPage() {
                         <input
                           type="text"
                           className="form-control cmn--form--control"
-                          name="address"
-                          value=""
+                          {...form.register("address")}
+                        />
+                      </div>
+                      <div className="form-group col-sm-6">
+                        <label className="form-label">City</label>
+                        <input
+                          type="text"
+                          className="form-control cmn--form--control"
+                          {...form.register("city")}
                         />
                       </div>
                       <div className="form-group col-sm-6">
@@ -81,8 +175,7 @@ export default function UserDataPage() {
                         <input
                           type="text"
                           className="form-control cmn--form--control"
-                          name="state"
-                          value=""
+                          {...form.register("state")}
                         />
                       </div>
                       <div className="form-group col-sm-6">
@@ -90,23 +183,24 @@ export default function UserDataPage() {
                         <input
                           type="text"
                           className="form-control cmn--form--control"
-                          name="zip"
-                          value=""
+                          {...form.register("zipCode")}
                         />
                       </div>
-
                       <div className="form-group col-sm-6">
-                        <label className="form-label">City</label>
+                        <label className="form-label">Country</label>
                         <input
                           type="text"
                           className="form-control cmn--form--control"
-                          name="city"
-                          value=""
+                          {...form.register("country")}
                         />
                       </div>
                     </div>
                     <div className="form-group">
-                      <button type="submit" className="cmn--btn btn-block">
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="cmn--btn btn-block"
+                      >
                         Submit
                       </button>
                     </div>
