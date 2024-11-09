@@ -79,6 +79,7 @@ const SignupForm = () => {
             email,
             username,
             deposit: 0,
+            withdraw: 0,
             interest: 0,
             totalBalance: 0
           },

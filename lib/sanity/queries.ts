@@ -1,10 +1,9 @@
-// import { client } from "@/sanity/client";
-// import { type SanityDocument } from "next-sanity";
-// const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, {});
-
-export const POSTS_QUERY = `*[
+export const USER_PROFILE_QUERY = `*[
   _type == "userProfile"
-  && defined(slug.current)
-]{_id, title, slug, publishedAt}`;
+  && userId == $userId
+]{email, username,userId, firstName, lastName, mobile, address, city, state, zipCode, country}`;
 
-export const POST_QUERY = `*[_type == "userProfile" && userId.current == $userId][0]`;
+export const ACCOUNT_QUERY = `*[
+  _type == "account"
+  && userId == $userId
+]{email, username,userId, deposit, withdraw, interest, totalBalance}`;

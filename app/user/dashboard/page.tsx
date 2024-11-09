@@ -1,9 +1,47 @@
+"use client";
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
-import Link from "next/link";
 import Script from "next/script";
+import { ACCOUNT_QUERY } from "@/lib/sanity/queries";
+import { getLocalStorageItem } from "@/utils/localStorage";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity/client";
 
 export default function DashboardPage() {
+    const [authInfo, setAuthInfo] = useState({
+      user: { username: "", id: "" },
+    });
+
+    const [account, setAccount] = useState({
+      username: "",
+      userId: "",
+      email: "",
+      deposit: 0,
+      withdraw: 0,
+      interest: 0,
+      totalBalance: 0,
+    });
+
+    useEffect(() => {
+      setAuthInfo(getLocalStorageItem("auth-info"));
+    }, []);
+
+    useEffect(() => {
+      function loadData() {
+        client
+          .fetch(ACCOUNT_QUERY, { userId: authInfo.user.id }, {})
+          .then((data) => {
+            if (data.length > 0) {
+              setAccount(data[0]);
+            }
+          });
+      }
+
+      loadData();
+    }, [authInfo.user.id]);
+
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -54,7 +92,7 @@ export default function DashboardPage() {
                   <i className="las la-dollar-sign"></i>
                 </div>
                 <div className="dashboard__content">
-                  <h4 className="dashboard__title">$0.00</h4>
+                  <h4 className="dashboard__title">${account?.totalBalance}</h4>
                   <span className="subtitle d-block">Current Balance</span>
                   <Link
                     href="/user/transactions"
@@ -71,7 +109,7 @@ export default function DashboardPage() {
                   <i className="las la-wallet"></i>
                 </div>
                 <div className="dashboard__content">
-                  <h4 className="dashboard__title">$0.00</h4>
+                  <h4 className="dashboard__title">${account?.deposit}</h4>
                   <span className="subtitle d-block">Total Deposit</span>
                   <Link
                     href="/user/deposit/history"
@@ -88,7 +126,7 @@ export default function DashboardPage() {
                   <i className="las la-credit-card"></i>
                 </div>
                 <div className="dashboard__content">
-                  <h4 className="dashboard__title">$0.00</h4>
+                  <h4 className="dashboard__title">${account?.withdraw}</h4>
                   <span className="subtitle d-block">Total Withdraw</span>
                   <Link
                     href="/user/withdraw/history"

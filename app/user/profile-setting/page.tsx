@@ -1,9 +1,51 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
+import { USER_PROFILE_QUERY } from "@/lib/sanity/queries";
+import { getLocalStorageItem } from "@/utils/localStorage";
 import Link from "next/link";
 import Script from "next/script";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity/client";
 
 export default function ProfileSettingPage() {
+  const [authInfo, setAuthInfo] = useState({
+    user: { username: "", id: "" },
+  });
+
+  const [userProfile, setUserProfile] = useState({
+    username: "",
+    firstName: "",
+    address: "",
+    city: "",
+    email: "",
+    userId: "",
+    lastName: "",
+    mobile: "",
+    state: "",
+    zipCode: "",
+    country: "",
+  });
+
+  useEffect(() => {
+    setAuthInfo(getLocalStorageItem("auth-info"));
+  }, []);
+
+  useEffect(() => {
+    function loadData() {
+      client
+        .fetch(USER_PROFILE_QUERY, { userId: authInfo.user.id }, {})
+        .then((data) => {
+          if (data.length > 0) {
+            setUserProfile(data[0]);
+          }
+        });
+    }
+
+    loadData();
+  }, [authInfo.user.id]);
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -33,14 +75,16 @@ export default function ProfileSettingPage() {
                     <div className="col-md-5 col-lg-4">
                       <ul className="list-group list-group-flush bg--light h-100 p-3">
                         <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">pure_smoke</span>
+                          <span className="fw-bold text-muted">
+                            {userProfile?.username}
+                          </span>
                           <small className="text-muted">
                             <i className="la la-user"></i> Userame
                           </small>
                         </li>
                         <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
                           <span className="fw-bold text-muted">
-                            soneyetolulope4@gmail.com
+                            {userProfile?.email}
                           </span>
                           <small className="text-muted">
                             <i className="la la-envelope"></i> Email
@@ -48,21 +92,25 @@ export default function ProfileSettingPage() {
                         </li>
                         <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
                           <span className="fw-bold text-muted">
-                            +2348075032390
+                            {userProfile?.mobile}
                           </span>
                           <small className="text-muted">
                             <i className="la la-mobile"></i> Mobile
                           </small>
                         </li>
                         <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">Nigeria</span>
+                          <span className="fw-bold text-muted">
+                            {userProfile?.country}
+                          </span>
                           <small className="text-muted">
                             <i className="la la-globe"></i> Country
                           </small>
                         </li>
 
                         <li className="list-group-item d-flex flex-column justify-content-between border-0 bg-transparent">
-                          <span className="fw-bold text-muted">test 1234</span>
+                          <span className="fw-bold text-muted">
+                            {userProfile?.address}
+                          </span>
                           <small className="text-muted">
                             <i className="la la-map-marked"></i> Address
                           </small>
@@ -70,17 +118,7 @@ export default function ProfileSettingPage() {
                       </ul>
                     </div>
                     <div className="col-md-7 col-lg-8">
-                      <form
-                        className="register py-3 pe-3 ps-3 ps-md-0"
-                        action=""
-                        method="post"
-                        encType="multipart/form-data"
-                      >
-                        <input
-                          type="hidden"
-                          name="_token"
-                          value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
-                        />
+                      <form className="register py-3 pe-3 ps-3 ps-md-0">
                         <div className="row">
                           <div className="col-lg-6">
                             <div className="form-group">
@@ -88,9 +126,8 @@ export default function ProfileSettingPage() {
                               <input
                                 type="text"
                                 className="form-control cmn--form--control"
-                                name="firstname"
-                                value="Tolulope"
-                                required
+                                readOnly={true}
+                                defaultValue={userProfile?.firstName}
                               />
                             </div>
                           </div>
@@ -101,9 +138,8 @@ export default function ProfileSettingPage() {
                               <input
                                 type="text"
                                 className="form-control cmn--form--control"
-                                name="lastname"
-                                value="Soneye"
-                                required
+                                readOnly={true}
+                                defaultValue={userProfile?.lastName}
                               />
                             </div>
                           </div>
@@ -114,8 +150,8 @@ export default function ProfileSettingPage() {
                               <input
                                 type="text"
                                 className="form-control cmn--form--control"
-                                name="state"
-                                value="Ogun"
+                                readOnly={true}
+                                defaultValue={userProfile?.state}
                               />
                             </div>
                           </div>
@@ -126,8 +162,8 @@ export default function ProfileSettingPage() {
                               <input
                                 type="text"
                                 className="form-control cmn--form--control"
-                                name="city"
-                                value="Sagamu"
+                                readOnly={true}
+                                defaultValue={userProfile?.city}
                               />
                             </div>
                           </div>
@@ -138,8 +174,8 @@ export default function ProfileSettingPage() {
                               <input
                                 type="text"
                                 className="form-control cmn--form--control"
-                                name="zip"
-                                value="121101"
+                                readOnly={true}
+                                defaultValue={userProfile?.zipCode}
                               />
                             </div>
                           </div>
@@ -149,13 +185,13 @@ export default function ProfileSettingPage() {
                               <input
                                 type="text"
                                 className="form-control cmn--form--control"
-                                name="address"
-                                value="test 1234"
+                                readOnly={true}
+                                defaultValue={userProfile?.address}
                               />
                             </div>
                           </div>
                         </div>
-                        <button type="submit" className="cmn--btn btn-block">
+                        <button type="button" className="cmn--btn btn-block">
                           Submit
                         </button>
                       </form>
@@ -231,7 +267,6 @@ export default function ProfileSettingPage() {
                     <input
                       type="email"
                       className="form-control subscribe--form--control"
-                      required
                       name="email"
                       placeholder="Your Email Address"
                     />
