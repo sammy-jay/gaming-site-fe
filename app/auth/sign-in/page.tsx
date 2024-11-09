@@ -14,11 +14,11 @@ const SignInPage = () => {
           <div className="account-wrapper bg--section">
             <div className="account-logo">
               <Link href="/">
-                <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                <img src="/images/logo.png" />
               </Link>
             </div>
             <h4 className="text-center p-2">Sign In</h4>
-            <SigninForm/>
+            <SigninForm />
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function AuthorizationPage() {
               <div className="verification-area">
                 <div className="account-logo">
                   <Link href="/">
-                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                    <img src="/images/logo.png" />
                   </Link>
                 </div>
                 <h5 className="pb-3 text-center border-bottom mb-3">

@@ -34,9 +34,7 @@ export default function KYCFormPage() {
               <div className="card custom--card">
                 <div className="card-body">
                   <form
-                    action="https://www.cryptoplustrader.com/user/kyc-submit"
-                    method="post"
-                    encType="multipart/form-data"
+                   
                   >
                     <input
                       type="hidden"
@@ -49,8 +47,8 @@ export default function KYCFormPage() {
                         type="text"
                         className="form-control form--control"
                         name="full_name"
-                        value=""
-                        required
+                        
+                        
                       />
                     </div>
                     <div className="form-group">
@@ -59,8 +57,8 @@ export default function KYCFormPage() {
                         type="text"
                         className="form-control form--control"
                         name="address"
-                        value=""
-                        required
+                        
+                        
                       />
                     </div>
                     <div className="form-group">
@@ -68,9 +66,9 @@ export default function KYCFormPage() {
                       <select
                         className="form-control form--control"
                         name="gender"
-                        required
+                        
                       >
-                        <option value="">Select One</option>
+                        <option >Select One</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Custom">Custom</option>
@@ -82,8 +80,8 @@ export default function KYCFormPage() {
                         type="text"
                         className="form-control form--control"
                         name="ssn_number"
-                        value=""
-                        required
+                        
+                        
                       />
                     </div>
                     <div className="form-group">
@@ -92,7 +90,7 @@ export default function KYCFormPage() {
                         type="file"
                         className="form-control form--control"
                         name="id_photo_(front)"
-                        required
+                        
                         accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
                       />
                       <pre className="text--base mt-1">
@@ -105,7 +103,7 @@ export default function KYCFormPage() {
                         type="file"
                         className="form-control form--control"
                         name="id_photo_(back)"
-                        required
+                        
                         accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
                       />
                       <pre className="text--base mt-1">
@@ -132,7 +130,7 @@ export default function KYCFormPage() {
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
                   <Link href="/" className="logo">
-                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                    <img src="/images/logo.png" />
                   </Link>
                   <p>
                     Make signals become figures, figures become money and money
@@ -188,7 +186,7 @@ export default function KYCFormPage() {
                     <input
                       type="email"
                       className="form-control subscribe--form--control"
-                      required
+                      
                       name="email"
                       placeholder="Your Email Address"
                     />

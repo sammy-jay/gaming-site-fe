@@ -26,10 +26,7 @@ export default function ContactPage() {
             <div className="header-wrapper">
               <div className="logo">
                 <Link href="/">
-                  <img
-                    src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png"
-                    alt="image"
-                  />
+                  <img src="/images/logo.png" alt="image" />
                 </Link>
               </div>
               <ul className="menu">
@@ -192,7 +189,7 @@ export default function ContactPage() {
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
                   <Link href="/" className="logo">
-                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                    <img src="/images/logo.png" />
                   </Link>
                   <p>
                     {" "}

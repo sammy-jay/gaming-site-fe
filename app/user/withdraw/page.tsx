@@ -9,7 +9,7 @@ export default function WithdrawPage() {
       <Script src="/js/index.js" />
       <header className="header-section">
         <TopNavBar />
-        <BottomNavBar/>
+        <BottomNavBar />
       </header>
 
       {/* content here */}
@@ -21,7 +21,7 @@ export default function WithdrawPage() {
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
                   <Link href="/" className="logo">
-                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                    <img src="/images/logo.png" />
                   </Link>
                   <p>
                     Make signals become figures, figures become money and money

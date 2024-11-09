@@ -10,7 +10,7 @@ export default function Home() {
       <div className="preloader">
         <div className="loader">
           <span>
-            <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+            <img src="/images/logo.png" />
           </span>
         </div>
       </div> */}
@@ -34,10 +34,7 @@ export default function Home() {
             <div className="header-wrapper">
               <div className="logo">
                 <Link href="/">
-                  <img
-                    src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png"
-                    alt="image"
-                  />
+                  <img src="/images/logo.png" alt="image" />
                 </Link>
               </div>
               <ul className="menu">
@@ -839,7 +836,7 @@ export default function Home() {
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
                   <Link href="/" className="logo">
-                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                    <img src="/images/logo.png" />
                   </Link>
                   <p>
                     Make signals become figures, figures become money and money

@@ -15,7 +15,7 @@ const BottomNavBar = () => {
         <div className="header-wrapper">
           <div className="logo">
             <Link href="/">
-              <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+              <img src="/images/logo.png" />
             </Link>
           </div>
           <div className="hidden lg:block">

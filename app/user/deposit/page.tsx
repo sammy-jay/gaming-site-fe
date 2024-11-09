@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import useStore from "@/lib/store";
 
-
 export default function DepositPage() {
   const [depositData, setDepositData] = useState({
     gateway: "",
@@ -18,14 +17,14 @@ export default function DepositPage() {
 
   const updateDepositData = useStore((state) => state.updateDepositData);
 
-  async function OnSubmit(){
+  async function OnSubmit() {
     try {
       updateDepositData({
         gateway: depositData.gateway,
         amount: depositData.amount,
-        charge: depositData.amount * 0.02 ,
-        payable: depositData.amount + (depositData.amount * 0.02),
-        finalAmount: depositData.amount + (depositData.amount * 0.02),
+        charge: depositData.amount * 0.02,
+        payable: depositData.amount + depositData.amount * 0.02,
+        finalAmount: depositData.amount + depositData.amount * 0.02,
       });
 
       router.push("/user/deposit/manual");
@@ -148,7 +147,11 @@ export default function DepositPage() {
                         </li>
                       </ul>
                     </div>
-                    <button onClick={OnSubmit} type="button" className="cmn--btn btn-block">
+                    <button
+                      onClick={OnSubmit}
+                      type="button"
+                      className="cmn--btn btn-block"
+                    >
                       Submit
                     </button>
                   </div>
@@ -166,7 +169,7 @@ export default function DepositPage() {
               <div className="col-lg-4 col-md-6">
                 <div className="footer__widget">
                   <Link href="/" className="logo">
-                    <img src="https://www.cryptoplustrader.com/assets/images/logoIcon/logo.png" />
+                    <img src="/images/logo.png" />
                   </Link>
                   <p>
                     Make signals become figures, figures become money and money
