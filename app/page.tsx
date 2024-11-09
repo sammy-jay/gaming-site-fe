@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/navigation/BottomNavBar";
 import Link from "next/link";
 
 export default function Home() {
@@ -29,48 +30,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="header-bottom">
-          <div className="container">
-            <div className="header-wrapper">
-              <div className="logo">
-                <Link href="/">
-                  <img src="/images/logo.png" alt="image" />
-                </Link>
-              </div>
-              <ul className="menu">
-                <li>
-                  <Link className="active" href="/">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/faq">FAQ</Link>
-                </li>
-                <li>
-                  <Link href="/services">Services</Link>
-                </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-              <div className="header-bar m-0">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BottomNavBar />
       </header>
 
       <section
@@ -80,7 +40,7 @@ export default function Home() {
         <div className="container">
           <div className="banner-wrapper">
             <div className="banner-content mt-xl-5">
-              <h2 className="banner-title">
+              <h2 className="mb-[30px] tracking-normal text-[36px] lg:text-[48px]">
                 Get up to 100% payout on as little as 0.1 pip
               </h2>
               <p className="banner-text">
@@ -485,7 +445,7 @@ export default function Home() {
           <div className="section__header">
             <h3 className="title">Why Trade with Us</h3>
             <p>
-              Trading with CryptoPlus Trader comes with loads of perks and
+              Trading with TetraCryptoPlus comes with loads of perks and
               privileges such as:
             </p>
           </div>
@@ -916,8 +876,8 @@ export default function Home() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <Link href="mailto:support@cryptoplustrader.com">
-                          support@cryptoplustrader.com
+                        <Link href="mailto:support@tetracryptoplus.com">
+                          support@tetracryptoplus.com
                         </Link>
                       </h6>
                       <span className="info">Email Address</span>
@@ -962,7 +922,7 @@ export default function Home() {
           <div className="container">
             Copyright © 2024. All Rights Reserved By
             <Link href="/" className="text--base">
-              CryptoPlus Trader
+              TetraCryptoPlus
             </Link>
           </div>
         </div>

@@ -9,38 +9,37 @@ import { useEffect, useState } from "react";
 import { client } from "@/lib/sanity/client";
 
 export default function DashboardPage() {
-    const [authInfo, setAuthInfo] = useState({
-      user: { username: "", id: "" },
-    });
+  const [authInfo, setAuthInfo] = useState({
+    user: { username: "", id: "" },
+  });
 
-    const [account, setAccount] = useState({
-      username: "",
-      userId: "",
-      email: "",
-      deposit: 0,
-      withdraw: 0,
-      interest: 0,
-      totalBalance: 0,
-    });
+  const [account, setAccount] = useState({
+    username: "",
+    userId: "",
+    email: "",
+    deposit: 0,
+    withdraw: 0,
+    interest: 0,
+    totalBalance: 0,
+  });
 
-    useEffect(() => {
-      setAuthInfo(getLocalStorageItem("auth-info"));
-    }, []);
+  useEffect(() => {
+    setAuthInfo(getLocalStorageItem("auth-info"));
+  }, []);
 
-    useEffect(() => {
-      function loadData() {
-        client
-          .fetch(ACCOUNT_QUERY, { userId: authInfo.user.id }, {})
-          .then((data) => {
-            if (data.length > 0) {
-              setAccount(data[0]);
-            }
-          });
-      }
+  useEffect(() => {
+    function loadData() {
+      client
+        .fetch(ACCOUNT_QUERY, { userId: authInfo.user.id }, {})
+        .then((data) => {
+          if (data.length > 0) {
+            setAccount(data[0]);
+          }
+        });
+    }
 
-      loadData();
-    }, [authInfo.user.id]);
-
+    loadData();
+  }, [authInfo.user.id]);
 
   return (
     <main>
@@ -357,8 +356,8 @@ export default function DashboardPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <Link href="mailto:support@cryptoplustrader.com">
-                          support@cryptoplustrader.com
+                        <Link href="mailto:support@tetracryptoplus.com">
+                          support@tetracryptoplus.com
                         </Link>
                       </h6>
                       <span className="info">Email Address</span>
@@ -403,7 +402,7 @@ export default function DashboardPage() {
           <div className="container">
             Copyright © 2024. All Rights Reserved By
             <Link href="/" className="text--base">
-              CryptoPlus Trader
+              TetraCryptoPlus
             </Link>
           </div>
         </div>

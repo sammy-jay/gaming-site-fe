@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -9,6 +11,8 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 
 const BottomNavBar = () => {
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <div className="header-bottom">
       <div className="container">
@@ -171,13 +175,62 @@ const BottomNavBar = () => {
             </ul>
           </div>
 
-          <div className="header-bar m-0">
+          <div
+            className="header-bar m-0"
+            onClick={() => setShowNav((showNav) => !showNav)}
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
       </div>
+      <ul
+        className={`text-white md:hidden  ${
+          showNav ? "flex flex-col" : "hidden"
+        }`}
+      >
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/dashboard">
+            Dashboard
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/practice/trade">
+            Practice
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/trade">
+            Trade
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/deposit">
+            Deposit Money
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/withdraw">
+            Withdraw Money
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/referral/log">
+            Referral Log
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/commission/log">
+            Commission Log
+          </Link>
+        </li>
+        <li className="mobile-li">
+          <Link className="w-full text-white no-underline" href="/user/transaction">
+            Transaction Log
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 };

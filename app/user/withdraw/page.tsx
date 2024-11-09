@@ -101,8 +101,8 @@ export default function WithdrawPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <Link href="mailto:support@cryptoplustrader.com">
-                          support@cryptoplustrader.com
+                        <Link href="mailto:support@tetracryptoplus.com">
+                          support@tetracryptoplus.com
                         </Link>
                       </h6>
                       <span className="info">Email Address</span>
@@ -147,7 +147,7 @@ export default function WithdrawPage() {
           <div className="container">
             Copyright © 2024. All Rights Reserved By
             <Link href="/" className="text--base">
-              CryptoPlus Trader
+              TetraCryptoPlus
             </Link>
           </div>
         </div>

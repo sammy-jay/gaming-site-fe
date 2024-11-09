@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/navigation/BottomNavBar";
 import Link from "next/link";
 
 export default function ServicesPage() {
@@ -17,48 +18,7 @@ export default function ServicesPage() {
             </ul>
           </div>
         </div>
-        <div className="header-bottom">
-          <div className="container">
-            <div className="header-wrapper">
-              <div className="logo">
-                <Link href="/">
-                  <img src="/images/logo.png" alt="image" />
-                </Link>
-              </div>
-              <ul className="menu">
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/faq">FAQ</Link>
-                </li>
-                <li>
-                  <Link className="active" href="/services">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-              <div className="header-bar m-0">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BottomNavBar />
       </header>
 
       <section
@@ -77,7 +37,7 @@ export default function ServicesPage() {
           <div className="section__header">
             <h3 className="title">Why Trade with Us</h3>
             <p>
-              Trading with CryptoPlus Trader comes with loads of perks and
+              Trading with TetraCryptoPlus comes with loads of perks and
               privileges such as:
             </p>
           </div>
@@ -377,8 +337,8 @@ export default function ServicesPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <Link href="mailto:support@cryptoplustrader.com">
-                          support@cryptoplustrader.com
+                        <Link href="mailto:support@tetracryptoplus.com">
+                          support@tetracryptoplus.com
                         </Link>
                       </h6>
                       <span className="info">Email Address</span>
@@ -423,7 +383,7 @@ export default function ServicesPage() {
           <div className="container">
             Copyright © 2024. All Rights Reserved By
             <Link href="/" className="text--base">
-              CryptoPlus Trader
+              TetraCryptoPlus
             </Link>
           </div>
         </div>

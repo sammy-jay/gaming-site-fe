@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/navigation/BottomNavBar";
 import Link from "next/link";
 
 export default function ContactPage() {
@@ -21,46 +22,7 @@ export default function ContactPage() {
             </ul>
           </div>
         </div>
-        <div className="header-bottom">
-          <div className="container">
-            <div className="header-wrapper">
-              <div className="logo">
-                <Link href="/">
-                  <img src="/images/logo.png" alt="image" />
-                </Link>
-              </div>
-              <ul className="menu">
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/faq">FAQ</Link>
-                </li>
-                <li>
-                  <Link href="/services">Services</Link>
-                </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="active">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-              <div className="header-bar m-0">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <BottomNavBar />
       </header>
 
       <section
@@ -75,7 +37,7 @@ export default function ContactPage() {
       </section>
 
       <div className="contact-section pt-120 pb-80 move--top">
-        <div className="container">
+        <div className="container mt-[130px]">
           <div className="account-wrapper mw-100 bg--glass">
             <form className="verify-gcaptcha row" method="post" action="">
               <input
@@ -270,8 +232,8 @@ export default function ContactPage() {
                     </div>
                     <div className="footer__contact__content">
                       <h6 className="footer__contact__title">
-                        <Link href="mailto:support@cryptoplustrader.com">
-                          support@cryptoplustrader.com
+                        <Link href="mailto:support@tetracryptoplus.com">
+                          support@tetracryptoplus.com
                         </Link>
                       </h6>
                       <span className="info">Email Address</span>
@@ -316,7 +278,7 @@ export default function ContactPage() {
           <div className="container">
             Copyright © 2024. All Rights Reserved By{" "}
             <Link href="/" className="text--base">
-              CryptoPlus Trader
+              TetraCryptoPlus
             </Link>
           </div>
         </div>
