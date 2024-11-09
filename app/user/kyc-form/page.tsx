@@ -33,22 +33,13 @@ export default function KYCFormPage() {
             <div className="col-lg-8">
               <div className="card custom--card">
                 <div className="card-body">
-                  <form
-                   
-                  >
-                    <input
-                      type="hidden"
-                      name="_token"
-                      value="WrC7nzldwY9MDhqeq59E49GEUTmKWdBFbxBYg7KI"
-                    />
+                  <form>
                     <div className="form-group">
                       <label className="form-label">Full Name</label>
                       <input
                         type="text"
                         className="form-control form--control"
                         name="full_name"
-                        
-                        
                       />
                     </div>
                     <div className="form-group">
@@ -57,8 +48,6 @@ export default function KYCFormPage() {
                         type="text"
                         className="form-control form--control"
                         name="address"
-                        
-                        
                       />
                     </div>
                     <div className="form-group">
@@ -66,9 +55,8 @@ export default function KYCFormPage() {
                       <select
                         className="form-control form--control"
                         name="gender"
-                        
                       >
-                        <option >Select One</option>
+                        <option>Select One</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Custom">Custom</option>
@@ -80,8 +68,6 @@ export default function KYCFormPage() {
                         type="text"
                         className="form-control form--control"
                         name="ssn_number"
-                        
-                        
                       />
                     </div>
                     <div className="form-group">
@@ -90,7 +76,6 @@ export default function KYCFormPage() {
                         type="file"
                         className="form-control form--control"
                         name="id_photo_(front)"
-                        
                         accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
                       />
                       <pre className="text--base mt-1">
@@ -103,7 +88,6 @@ export default function KYCFormPage() {
                         type="file"
                         className="form-control form--control"
                         name="id_photo_(back)"
-                        
                         accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
                       />
                       <pre className="text--base mt-1">
@@ -186,7 +170,6 @@ export default function KYCFormPage() {
                     <input
                       type="email"
                       className="form-control subscribe--form--control"
-                      
                       name="email"
                       placeholder="Your Email Address"
                     />
