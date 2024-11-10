@@ -15,32 +15,34 @@ const BottomNavBar = () => {
               <img src="/images/logo.png" alt="image" />
             </Link>
           </div>
-          <ul className="menu">
-            <li>
-              <Link className="active" href="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/faq">FAQ</Link>
-            </li>
-            <li>
-              <Link href="/services">Services</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/blog" className="">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="">
-                Contact
-              </Link>
-            </li>
-          </ul>
+          <div className="hidden lg:block">
+            <ul className="menu">
+              <li>
+                <Link className="active" href="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq">FAQ</Link>
+              </li>
+              <li>
+                <Link href="/services">Services</Link>
+              </li>
+              <li>
+                <Link href="/about">About</Link>
+              </li>
+              <li>
+                <Link href="/blog" className="">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div
             className="header-bar m-0"
             onClick={() => setShowNav((showNav) => !showNav)}
