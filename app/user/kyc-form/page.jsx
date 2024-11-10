@@ -1,9 +1,75 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { useForm } from "react-hook-form";
+import {useUser} from "@clerk/nextjs";
 
 export default function KYCFormPage() {
+  const router = useRouter();
+ const {user} = useUser()
+  const { register, handleSubmit } = useForm();
+  const [file, setFile] = useState(null);
+  const [file2, setFile2] = useState(null);
+
+  const onSubmit = async ({ SSN, gender }) => {
+    if (!file || !file2) {
+      alert("Please upload both ID documents");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("idFront", file);
+    formData.append("idBack", file2);
+    const mutations = [
+      {
+        patch: {
+          query: "*[_type == 'userProfile' && userId == $userId]",
+          params: {
+            userId: user?.id,
+          },
+          set: {
+            SSN,
+            gender,
+            idFront: formData.idFront,
+            idBack: formData.idBack,
+          },
+        },
+      },
+    ];
+
+    fetch(
+      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2024-01-01/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`,
+        },
+        body: JSON.stringify({ mutations }),
+      }
+    )
+      .then((response) => console.log(response))
+      .then((result) => {
+        console.log(result);
+        router.replace("/user/dashboard");
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleFileChange = async (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
+  const handleFileChange2 = async (e) => {
+    const selectedFile = e.target.files[0];
+    setFile2(selectedFile);
+  };
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -33,7 +99,7 @@ export default function KYCFormPage() {
             <div className="col-lg-8">
               <div className="card custom--card">
                 <div className="card-body">
-                  <form>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group">
                       <label className="form-label">Full Name</label>
                       <input
@@ -47,14 +113,14 @@ export default function KYCFormPage() {
                       <input
                         type="text"
                         className="form-control form--control"
-                        name="address"
+                        {...register("address")}
                       />
                     </div>
                     <div className="form-group">
                       <label className="form-label">Gender</label>
                       <select
                         className="form-control form--control"
-                        name="gender"
+                        {...register("gender")}
                       >
                         <option>Select One</option>
                         <option value="Male">Male</option>
@@ -65,9 +131,9 @@ export default function KYCFormPage() {
                     <div className="form-group">
                       <label className="form-label">SSN Number</label>
                       <input
-                        type="text"
+                        type="number"
                         className="form-control form--control"
-                        name="ssn_number"
+                        {...register("SSN")}
                       />
                     </div>
                     <div className="form-group">
@@ -75,7 +141,7 @@ export default function KYCFormPage() {
                       <input
                         type="file"
                         className="form-control form--control"
-                        name="id_photo_(front)"
+                        onChange={handleFileChange}
                         accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
                       />
                       <pre className="text--base mt-1">
@@ -87,7 +153,7 @@ export default function KYCFormPage() {
                       <input
                         type="file"
                         className="form-control form--control"
-                        name="id_photo_(back)"
+                        onChange={handleFileChange2}
                         accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
                       />
                       <pre className="text--base mt-1">

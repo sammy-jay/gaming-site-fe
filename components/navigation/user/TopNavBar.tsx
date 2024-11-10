@@ -1,32 +1,30 @@
 "use client";
-import { getLocalStorageItem } from "@/utils/localStorage";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import { UserButton } from "@clerk/nextjs";
 
 const TopNavBar = () => {
-  const [authInfo, setAuthInfo] = useState({user: {username: "", id: ""}});
-
-  useEffect(() => {
-    setAuthInfo(getLocalStorageItem("auth-info"));
-  }, []);
-
   return (
     <div className="header-top bg--section">
       <div className="container">
-        <ul className="header-top-area">
+        <ul className="header-top-area gap-2 py-2 flex flex-row items-center">
           <li className="me-auto"></li>
+          <li>
+            <UserButton showName  />
+          </li>
           <li className="dashboard-dashboard-icon">
             <div className="avatar">
-              <span>{authInfo?.user?.username.slice(0, 2).toUpperCase()}</span>
+              <span>
+                <i className="las la-bars"></i>
+              </span>
             </div>
 
             <ul className="dashboard-menu">
               <li>
                 <Link href="/ticket">Support Ticket</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/user/profile-setting">Profile Setting</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/user/change-password">Change Password</Link>
               </li>

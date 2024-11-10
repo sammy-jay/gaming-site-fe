@@ -3,15 +3,16 @@ import "./globals.css";
 import Script from "next/script";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Rajdhani } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 const queryClient = new QueryClient();
 const rajdhani = Rajdhani({
-   weight: ['400','500', '700'],
-  style: ['normal'],
-  subsets: ['latin'],
-  display: 'swap',
+  weight: ["400", "500", "700"],
+  style: ["normal"],
+  subsets: ["latin"],
+  display: "swap",
 });
-
 
 export default function RootLayout({
   children,
@@ -43,10 +44,25 @@ export default function RootLayout({
         />
       </head>
       <body className={`w-full relative ${rajdhani.className}`}>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
-
+        <ClerkProvider
+          appearance={{
+            baseTheme: dark,
+            signIn: { baseTheme: dark },
+            signUp: { baseTheme: dark },
+            layout: {
+              logoImageUrl: "/images/logo.png",
+            },
+          }}
+          afterSignOutUrl="/"
+          signInFallbackRedirectUrl="/user/dashboard"
+          signUpFallbackRedirectUrl="/user/user-data"
+          signInForceRedirectUrl="/user/dashboard"
+          signUpForceRedirectUrl="/user/user-data"
+        >
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </ClerkProvider>
         <Script src="https://www.cryptoplustrader.com/assets/global/js/jquery-3.6.0.min.js" />
         <Script src="https://www.cryptoplustrader.com/assets/global/js/bootstrap.bundle.min.js" />
 
@@ -59,9 +75,7 @@ export default function RootLayout({
         <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/sfx-widget.js" />
         <Script src="https://www.cryptoplustrader.com/assets/templates/basic/js/tv.js" />
 
-
-
-        <Script src="/js/index.js"/>
+        <Script src="/js/index.js" />
       </body>
     </html>
   );

@@ -5,16 +5,14 @@ import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getLocalStorageItem } from "@/utils/localStorage";
+import { useUser } from "@clerk/nextjs";
 
 const formSchema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
   address: z.string(),
   city: z.string(),
   state: z.string(),
@@ -23,8 +21,6 @@ const formSchema = z.object({
 });
 
 const defaultValues = {
-  firstName: "",
-  lastName: "",
   address: "",
   city: "",
   state: "",
@@ -33,14 +29,9 @@ const defaultValues = {
 };
 
 export default function UserDataPage() {
-  const [loading, setLoading] = useState(false);
-  const [authInfo, setAuthInfo] = useState({
-    user: { username: "", id: "" },
-  });
+  const { user } = useUser();
 
-  useEffect(() => {
-    setAuthInfo(getLocalStorageItem("auth-info"));
-  }, []);
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -48,8 +39,6 @@ export default function UserDataPage() {
   const router = useRouter();
 
   async function OnSubmit({
-    firstName,
-    lastName,
     address,
     city,
     state,
@@ -60,20 +49,31 @@ export default function UserDataPage() {
 
     const mutations = [
       {
-        patch: {
-          query: "*[_type == 'userProfile' && userId == $userId]",
-          params: {
-            userId: authInfo?.user?.id,
-          },
-          set: {
-            firstName,
-            lastName,
-            address,
-            city,
-            state,
-            country,
-            zipCode,
-          },
+        create: {
+          _type: "userProfile",
+          userId: user?.id,
+          email: user?.primaryEmailAddress,
+          username: user?.username,
+          mobile: user?.primaryPhoneNumber,
+          firstName: user?.firstName,
+          lastName: user?.lastName,
+          address,
+          city,
+          state,
+          country,
+          zipCode,
+        },
+      },
+      {
+        create: {
+          _type: "account",
+          userId: user?.id,
+          email: user?.primaryEmailAddress,
+          username: user?.username,
+          deposit: 0,
+          withdraw: 0,
+          interest: 0,
+          totalBalance: 0,
         },
       },
     ];
@@ -135,25 +135,6 @@ export default function UserDataPage() {
                     onSubmit={form.handleSubmit(OnSubmit)}
                   >
                     <div className="row">
-                      <div className="form-group col-sm-6">
-                        <label className="form-label">First Name</label>
-                        <input
-                          type="text"
-                          className="form-control cmn--form--control"
-                          {...form.register("firstName")}
-                          required
-                        />
-                      </div>
-
-                      <div className="form-group col-sm-6">
-                        <label className="form-label">Last Name</label>
-                        <input
-                          type="text"
-                          className="form-control cmn--form--control"
-                          {...form.register("lastName")}
-                          required
-                        />
-                      </div>
                       <div className="form-group col-sm-6">
                         <label className="form-label">Address</label>
                         <input

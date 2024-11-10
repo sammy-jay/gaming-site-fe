@@ -48,11 +48,11 @@ export default function ConfirmDepositPage() {
                       <p className="text-center mt-2">
                         You have requested{" "}
                         <b className="text--success">
-                          {depositData.amount} USD
+                          {depositData.amount} BTC
                         </b>{" "}
                         , Please pay{" "}
                         <b className="text--success">
-                          {depositData.finalAmount} USDT{" "}
+                          {depositData.finalAmount} BTC{" "}
                         </b>{" "}
                         for successful payment{" "}
                       </p>
@@ -62,7 +62,7 @@ export default function ConfirmDepositPage() {
                           <span>Wallet Address</span>
                           <br />
                           <span className="font-semibold text-[18px] text--success">
-                            TPBzjYtuegTJEfq57c5auHoqoS3mpxzEBi&nbsp;
+                            bc1qfgw8mk22zmyymmu66vd0x2rfquhkd2za6lqk50&nbsp;
                           </span>
                           <br />
                         </p>
@@ -70,12 +70,12 @@ export default function ConfirmDepositPage() {
                           <span>Network</span>
                           <br />
                           <span className="font-semibold text-[18px] text--success">
-                            TRC20
+                            BTC
                           </span>
                         </p>
                         <p className="w-full flex flex-col items-center">
                           <img
-                            src="/wallet/usdt-trc20.png"
+                            src="/wallet/btc.png"
                             width="30%"
                             height="30%"
                           />

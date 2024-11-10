@@ -83,7 +83,7 @@ export default function DepositPage() {
                           Select One
                         </option>
                         {/* <option value="Bitcoin Deposit">Bitcoin Deposit</option> */}
-                        <option value="USDT Deposit">USDT Deposit</option>
+                        <option value="BTC Deposit">Bitcoin Deposit</option>
                       </select>
                     </div>
                     <div className="form-group">
@@ -101,7 +101,7 @@ export default function DepositPage() {
                           className="form-control cmn--form--control"
                           required
                         />
-                        <span className="input-group-text">USD</span>
+                        <span className="input-group-text">BTC</span>
                       </div>
                     </div>
                     <div className="mt-3 preview-details">
@@ -109,8 +109,8 @@ export default function DepositPage() {
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
                           <span>Limit</span>
                           <span>
-                            <span className="min fw-bold">100</span> USD -
-                            <span className="max fw-bold">1000000</span> USD
+                            <span className="min fw-bold">0.001</span> BTC -
+                            <span className="max fw-bold">1</span> BTC
                           </span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
@@ -119,7 +119,7 @@ export default function DepositPage() {
                             <span className="charge fw-bold">
                               {0.02 * depositData.amount}{" "}
                             </span>
-                            USD
+                            BTC
                           </span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input">
@@ -128,7 +128,7 @@ export default function DepositPage() {
                             <span className="payable fw-bold">
                               {depositData.amount + 0.02 * depositData.amount}{" "}
                             </span>
-                            USD
+                            BTC
                           </span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between bg-transparent text-white b-input d-none rate-element"></li>
