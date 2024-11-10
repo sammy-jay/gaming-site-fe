@@ -3,16 +3,15 @@ import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Script from "next/script";
 import { ACCOUNT_QUERY } from "@/lib/sanity/queries";
-import { getLocalStorageItem } from "@/utils/localStorage";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { client } from "@/lib/sanity/client";
+import { useUser } from "@clerk/nextjs";
 
 export default function DashboardPage() {
-  const [authInfo, setAuthInfo] = useState({
-    user: { username: "", id: "" },
-  });
+  
 
+  const {user} = useUser();
   const [account, setAccount] = useState({
     username: "",
     userId: "",
@@ -23,14 +22,12 @@ export default function DashboardPage() {
     totalBalance: 0,
   });
 
-  useEffect(() => {
-    setAuthInfo(getLocalStorageItem("auth-info"));
-  }, []);
+  
 
   useEffect(() => {
     function loadData() {
       client
-        .fetch(ACCOUNT_QUERY, { userId: authInfo.user.id }, {})
+        .fetch(ACCOUNT_QUERY, { userId: user?.id }, {})
         .then((data) => {
           if (data.length > 0) {
             setAccount(data[0]);
@@ -39,7 +36,7 @@ export default function DashboardPage() {
     }
 
     loadData();
-  }, [authInfo.user.id]);
+  }, [user]);
 
   return (
     <main>

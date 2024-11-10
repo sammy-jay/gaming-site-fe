@@ -52,7 +52,7 @@ export default function UserDataPage() {
         create: {
           _type: "userProfile",
           userId: user?.id,
-          email: user?.primaryEmailAddress,
+          email: user?.primaryEmailAddress?.emailAddress,
           username: user?.username,
           mobile: user?.primaryPhoneNumber,
           firstName: user?.firstName,
@@ -68,7 +68,7 @@ export default function UserDataPage() {
         create: {
           _type: "account",
           userId: user?.id,
-          email: user?.primaryEmailAddress,
+          email: user?.primaryEmailAddress?.emailAddress,
           username: user?.username,
           deposit: 0,
           withdraw: 0,
