@@ -31,9 +31,7 @@ const TopNavBar = () => {
               <li>
                 <Link href="/user/twofactor">2FA Security</Link>
               </li>
-              <li>
-                <Link href="/user/logout">Logout</Link>
-              </li>
+
             </ul>
           </li>
         </ul>
