@@ -23,10 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>TetraCryptoPlus</title>
-        <meta
-          name="description"
-          content="It is an online multi-player gaming app. Have fun here!"
-        />
+        <meta name="description" content="TetraCryptoPlus is a unique trading platform. You can make real-time transactions whenever and wherever you like. The platform can be accessed not only from a PC but also from a full-service mobile."/>
+        <meta name="keywords" content="forex,Trading platform,Online Trading,Cryptocurrency,Trading tools,Web-based trading,Real-time market data" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="stylesheet"
