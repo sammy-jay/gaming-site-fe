@@ -5,26 +5,27 @@ import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
 import { useRouter } from "next/navigation";
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "@clerk/nextjs";
+import {
+  GetCountries,
+  GetState,
+  GetCity,
+  GetLanguages,
+  GetRegions,
+  GetPhonecodes, //async functions
+} from "react-country-state-city";
 
 const formSchema = z.object({
   address: z.string(),
-  city: z.string(),
-  state: z.string(),
-  country: z.string(),
   zipCode: z.string(),
 });
 
 const defaultValues = {
   address: "",
-  city: "",
-  state: "",
-  country: "",
   zipCode: "",
 };
 
@@ -40,9 +41,6 @@ export default function UserDataPage() {
 
   async function OnSubmit({
     address,
-    city,
-    state,
-    country,
     zipCode,
   }: z.infer<typeof formSchema>) {
     setLoading(true);
@@ -58,9 +56,6 @@ export default function UserDataPage() {
           firstName: user?.firstName,
           lastName: user?.lastName,
           address,
-          city,
-          state,
-          country,
           zipCode,
         },
       },
@@ -97,6 +92,27 @@ export default function UserDataPage() {
       })
       .catch((error) => console.error(error));
   }
+
+  const [countryid, setCountryid] = useState(0);
+  const [stateid, setStateid] = useState(0);
+  const [cityid, setCityid] = useState(0);
+  const [phoneCode, setPhoneCode] = useState("");
+
+  const [phonecodeList, setPhonecodeList] = useState([]);
+  const [countriesList, setCountriesList] = useState([]);
+  const [stateList, setStateList] = useState([]);
+  const [cityList, setCityList] = useState([]);
+
+  useEffect(() => {
+    GetPhonecodes().then((result) => {
+      setPhonecodeList(result);
+    });
+    GetCountries().then((result) => {
+      setCountriesList(result);
+    });
+  }, []);
+
+ 
 
   return (
     <main>
@@ -136,6 +152,65 @@ export default function UserDataPage() {
                   >
                     <div className="row">
                       <div className="form-group col-sm-6">
+                        <label className="form-label">Country</label>
+                        <select
+                          className="form-control cmn--form--control"
+                          onChange={(e) => {
+                            const country = countriesList[e.target.value]; //here you will get full country object.
+                            setPhoneCode((prev) => country.phone_code);
+                            setCountryid((prev) => e.target.value);
+                            GetState(country.id).then((result) => {
+                              setStateList(result);
+                            });
+                          }}
+                          value={countryid}
+                        >
+                          {countriesList.map((item, index) => (
+                            <option key={index} value={index}>
+                              {item.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="form-group col-sm-6">
+                        <label className="form-label">State</label>
+                        <select
+                          className="form-control cmn--form--control"
+                          onChange={(e) => {
+                            const state = stateList[e.target.value]; //here you will get full state object.
+                            setStateid((prev) => e.target.value);
+                            GetCity(countryid, stateid).then((result) => {
+                              setCityList(result);
+                            });
+                          }}
+                          value={stateid}
+                        >
+                          {stateList.map((item, index) => (
+                            <option key={index} value={index}>
+                              {item.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      {/* <div className="form-group col-sm-6">
+                        <label className="form-label">City</label>
+                        <select
+                          className="form-control cmn--form--control"
+                          onChange={(e) => {
+                            const city = cityList[e.target.value]; //here you will get full city object.
+                            setCityid(city.id);
+                          }}
+                          value={cityid}
+                        >
+                          {cityList.map((item, index) => (
+                            <option key={index} value={index}>
+                              {item.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div> */}
+                      <div className="form-group col-sm-6">
                         <label className="form-label">Address</label>
                         <input
                           type="text"
@@ -144,20 +219,27 @@ export default function UserDataPage() {
                         />
                       </div>
                       <div className="form-group col-sm-6">
-                        <label className="form-label">City</label>
-                        <input
-                          type="text"
-                          className="form-control cmn--form--control"
-                          {...form.register("city")}
-                        />
-                      </div>
-                      <div className="form-group col-sm-6">
-                        <label className="form-label">State</label>
-                        <input
-                          type="text"
-                          className="form-control cmn--form--control"
-                          {...form.register("state")}
-                        />
+                        <label className="form-label">Mobile Number</label>
+                        <div className="w-full flex flex-row gap-0">
+                          <select
+                            className="form-control cmn--form--control w-min max-w-14 p-1 pr-0 mr-0"
+                            onChange={(e) => {
+                              setPhoneCode(e.target.value);
+                            }}
+                            value={phoneCode}
+                          >
+                            {countriesList.map((item, index) => (
+                              <option key={index} value={item.phone_code}>
+                                +{item.phone_code}
+                              </option>
+                            ))}
+                          </select>
+                          <input
+                            type="text"
+                            className="form-control cmn--form--control flex-1"
+                            {...form.register("mobile")}
+                          />
+                        </div>
                       </div>
                       <div className="form-group col-sm-6">
                         <label className="form-label">Zip Code</label>
@@ -165,14 +247,6 @@ export default function UserDataPage() {
                           type="text"
                           className="form-control cmn--form--control"
                           {...form.register("zipCode")}
-                        />
-                      </div>
-                      <div className="form-group col-sm-6">
-                        <label className="form-label">Country</label>
-                        <input
-                          type="text"
-                          className="form-control cmn--form--control"
-                          {...form.register("country")}
                         />
                       </div>
                     </div>
