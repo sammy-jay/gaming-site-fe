@@ -21,7 +21,7 @@ export default function Home() {
       </div> */}
 
       <header className="header-section">
-        <TopNavBar/>
+        <TopNavBar />
         <BottomNavBar />
       </header>
 
@@ -40,12 +40,10 @@ export default function Home() {
                 possible.
               </p>
               <SignedIn>
-            <li className="links">
-              <Link href="/user/dashboard">Get Started</Link>
-            </li>
-            
-          </SignedIn>
-             
+                <Link href="/user/dashboard" className="cmn--btn">
+                  Get Started
+                </Link>
+              </SignedIn>
             </div>
             <div className="banner-thumb">
               <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/608919c858e481619597768.png" />
