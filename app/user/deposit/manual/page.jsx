@@ -1,13 +1,76 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import useStore from "@/lib/store";
 import Link from "next/link";
 import Script from "next/script";
+import { useForm } from "react-hook-form";
+import { useUser } from "@clerk/nextjs";
 
 export default function ConfirmDepositPage() {
+  const router = useRouter();
+  const { user } = useUser();
+  const { handleSubmit } = useForm();
+  const [file, setFile] = useState(null);
   const depositData = useStore((state) => state.depositData);
+
+  const onSubmit = async () => {
+    if (!file) {
+      alert("Please upload both ID documents");
+      return;
+    }
+
+    const mutations = [
+      {
+        create: {
+          _type: "depositTransaction",
+          userId: user?.id,
+          email: user?.primaryEmailAddress?.emailAddress,
+          username: user?.username,
+          amountInBTC: depositData.finalAmount,
+          transactionScreenshot: file,
+          depositDate: new Date(),
+          depositStatus: "pending"
+        },
+      },
+    ];
+
+    fetch(
+      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2024-01-01/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`,
+        },
+        body: JSON.stringify({ mutations }),
+      }
+    )
+      .then((response) => console.log(response))
+      .then((result) => {
+        console.log(result);
+        router.replace("/user/deposit/history");
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleFileChange = async (e) => {
+    const selectedFile = e.target.files[0];
+    const base64 = await convertToBase64(selectedFile);
+    setFile(base64);
+  };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  };
 
   return (
     <main>
@@ -43,7 +106,7 @@ export default function ConfirmDepositPage() {
                   </h5>
                 </div>
                 <div className="card-body ">
-                  <form>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="col-md-12 text-center">
                       <p className="text-center mt-2">
                         You have requested{" "}
@@ -74,11 +137,7 @@ export default function ConfirmDepositPage() {
                           </span>
                         </p>
                         <p className="w-full flex flex-col items-center">
-                          <img
-                            src="/wallet/btc.png"
-                            width="30%"
-                            height="30%"
-                          />
+                          <img src="/wallet/btc.png" width="30%" height="30%" />
                           <span>(Scan QR Code)</span>
                         </p>
                       </div>
@@ -89,23 +148,20 @@ export default function ConfirmDepositPage() {
                       </label>
                       <input
                         type="file"
-                        className="form-control form--control"
-                        name="proof_of_payment_(screenshot)"
                         required
-                        accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
+                        className="form-control form--control"
+                        onChange={handleFileChange}
+                        accept=" .jpg,  .jpeg,  .png "
                       />
                       <pre className="text--base mt-1">
-                        Supported mimes: jpg,jpeg,png,pdf,doc,docx
+                        Supported mimes: jpg,jpeg,png
                       </pre>
                     </div>
                     <div className="col-md-12">
                       <div className="form-group">
-                        <Link
-                          href="/user/deposit/history"
-                          className="cmn--btn btn-block"
-                        >
+                        <button type="submit" className="cmn--btn btn-block">
                           Pay Now
-                        </Link>
+                        </button>
                       </div>
                     </div>
                   </form>

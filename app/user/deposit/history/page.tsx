@@ -1,9 +1,43 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { DEPOSIT_TRANSACTIONS_QUERY } from "@/lib/sanity/queries";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity/client";
+import { useUser } from "@clerk/nextjs";
 
+type depositTransaction = {
+  username: "";
+  userId: "";
+  email: "";
+  amountInBTC: 0;
+  depositDate: null;
+  depositStatus: null;
+};
 export default function DepositHistoryPage() {
+  const { user } = useUser();
+  const [depositTransactions, setDepositTransactions] = useState<
+    depositTransaction[]
+  >([]);
+
+  useEffect(() => {
+    function loadData() {
+      client
+        .fetch(DEPOSIT_TRANSACTIONS_QUERY, { userId: user?.id }, {})
+        .then((data) => {
+          if (data.length > 0) {
+            setDepositTransactions(data);
+            console.log(depositTransactions);
+          }
+        });
+    }
+
+    loadData();
+  }, [user]);
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -37,7 +71,6 @@ export default function DepositHistoryPage() {
                     type="text"
                     name="search"
                     className="form-control cmn--form--control"
-                    value=""
                     placeholder="Search By Transactions"
                   />
                   <button className="input-group-text bg--base text-white border-0">
@@ -54,17 +87,30 @@ export default function DepositHistoryPage() {
                       <th>Gateway | Transaction</th>
                       <th>Initiated</th>
                       <th>Amount</th>
-                      <th>Conversion</th>
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    {depositTransactions?.length === 0 ? (
                       <td className="text-muted text-center" colSpan={6}>
                         Data not found
                       </td>
-                    </tr>
+                    ) : (
+                      depositTransactions.map((transaction) => {
+                        return (
+                          <tr key={transaction?.depositDate}>
+                            <td>Bitcoin</td>
+                            <td>{transaction?.depositDate}</td>
+                            <td>{transaction?.amountInBTC}</td>
+                            <td className="bg-yellow-500 text-white rounded-md p-2">
+                              {transaction?.depositStatus}
+                            </td>
+                            <td></td>
+                          </tr>
+                        );
+                      })
+                    )}
                   </tbody>
                 </table>
               </div>

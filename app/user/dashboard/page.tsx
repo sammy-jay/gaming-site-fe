@@ -2,16 +2,14 @@
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Script from "next/script";
-import { ACCOUNT_QUERY } from "@/lib/sanity/queries";
+import { ACCOUNT_QUERY, USER_PROFILE_QUERY } from "@/lib/sanity/queries";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { client } from "@/lib/sanity/client";
 import { useUser } from "@clerk/nextjs";
 
 export default function DashboardPage() {
-  
-
-  const {user} = useUser();
+  const { user } = useUser();
   const [account, setAccount] = useState({
     username: "",
     userId: "",
@@ -21,16 +19,25 @@ export default function DashboardPage() {
     interest: 0,
     totalBalance: 0,
   });
-
-  
+  const [sanityUser, setSanityUser] = useState({
+    username: "",
+    userId: "",
+    email: "",
+    isUserVerified: false,
+  });
 
   useEffect(() => {
     function loadData() {
+      client.fetch(ACCOUNT_QUERY, { userId: user?.id }, {}).then((data) => {
+        if (data.length > 0) {
+          setAccount(data[0]);
+        }
+      });
       client
-        .fetch(ACCOUNT_QUERY, { userId: user?.id }, {})
+        .fetch(USER_PROFILE_QUERY, { userId: user?.id }, {})
         .then((data) => {
           if (data.length > 0) {
-            setAccount(data[0]);
+            setSanityUser(data[0]);
           }
         });
     }
@@ -65,22 +72,24 @@ export default function DashboardPage() {
         <div className="container">
           <div className="row justify-content-center gy-4">
             <div className="col-12">
-              <div className="alert bg--body mb-0">
-                <h4 className="alert-heading text--danger">
-                  KYC Verification Required
-                </h4>
-                <hr />
-                <p className="mb-0">
-                  Dear User, we need your KYC documents to verify the
-                  authenticity of your information and to help you recover your
-                  account in the event that you lose it. After verification,
-                  your data is automatically deleted from our system and thus
-                  removes the risk of any form of re-use.
-                  <Link href="/user/kyc-form" className="text--base fw-bold">
-                    Click Here to Verify
-                  </Link>
-                </p>
-              </div>
+              {!sanityUser.isUserVerified && (
+                <div className="alert bg--body mb-0">
+                  <h4 className="alert-heading text--danger">
+                    KYC Verification Required
+                  </h4>
+                  <hr />
+                  <p className="mb-0">
+                    Dear User, we need your KYC documents to verify the
+                    authenticity of your information and to help you recover
+                    your account in the event that you lose it. After
+                    verification, your data is automatically deleted from our
+                    system and thus removes the risk of any form of re-use.
+                    <Link href="/user/kyc-form" className="text--base fw-bold">
+                      Click Here to Verify
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
             <div className="col-xl-3 col-lg-4 col-sm-6">
               <div className="dashboard__item">

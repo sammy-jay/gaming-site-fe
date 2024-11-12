@@ -7,11 +7,11 @@ import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
 import { useForm } from "react-hook-form";
-import {useUser} from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 
 export default function KYCFormPage() {
   const router = useRouter();
- const {user} = useUser()
+  const { user } = useUser();
   const { register, handleSubmit } = useForm();
   const [file, setFile] = useState(null);
   const [file2, setFile2] = useState(null);
@@ -22,9 +22,8 @@ export default function KYCFormPage() {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("idFront", file);
-    formData.append("idBack", file2);
+    console.log(file, file2);
+
     const mutations = [
       {
         patch: {
@@ -35,8 +34,9 @@ export default function KYCFormPage() {
           set: {
             SSN,
             gender,
-            idFront: formData.idFront,
-            idBack: formData.idBack,
+            idFront: file,
+            idBack: file2,
+            isUserVerified: true,
           },
         },
       },
@@ -63,11 +63,22 @@ export default function KYCFormPage() {
 
   const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
-    setFile(selectedFile);
+    const base64 = await convertToBase64(selectedFile);
+    setFile(base64);
   };
   const handleFileChange2 = async (e) => {
     const selectedFile = e.target.files[0];
-    setFile2(selectedFile);
+    const base64 = await convertToBase64(selectedFile);
+    setFile2(base64);
+  };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
   };
 
   return (
@@ -142,7 +153,7 @@ export default function KYCFormPage() {
                         type="file"
                         className="form-control form--control"
                         onChange={handleFileChange}
-                        accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
+                        accept=" .jpg,  .jpeg,  .png "
                       />
                       <pre className="text--base mt-1">
                         Supported mimes: jpg,jpeg,png,pdf,doc,docx
@@ -154,7 +165,7 @@ export default function KYCFormPage() {
                         type="file"
                         className="form-control form--control"
                         onChange={handleFileChange2}
-                        accept=" .jpg,  .jpeg,  .png,  .pdf,  .doc,  .docx, "
+                        accept=" .jpg,  .jpeg,  .png"
                       />
                       <pre className="text--base mt-1">
                         Supported mimes: jpg,jpeg,png,pdf,doc,docx

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/store.js", "app/user/kyc-form/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/store.js", "app/user/kyc-form/page.jsx", "app/user/deposit/manual/page.jsx"],
   "exclude": ["node_modules"]
 }
