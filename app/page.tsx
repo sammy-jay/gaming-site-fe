@@ -36,9 +36,9 @@ export default function Home() {
                 A platform that makes crypto trading as easy and profitable as
                 possible.
               </p>
-              <Link href="user/register" className="cmn--btn">
+              <a href="https://accounts.tetracryptoplus.com/sign-up?sign_up_force_redirect_url=https%3A%2F%2Ftetracryptoplus.com%2Fuser%2Fuser-data&sign_in_force_redirect_url=https%3A%2F%2Ftetracryptoplus.com%2Fuser%2Fdashboard&redirect_url=https%3A%2F%2Ftetracryptoplus.com%2F" className="cmn--btn">
                 Get Started
-              </Link>
+              </a>
             </div>
             <div className="banner-thumb">
               <img src="https://www.cryptoplustrader.com/assets/images/frontend/banner/608919c858e481619597768.png" />
