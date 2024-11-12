@@ -171,8 +171,7 @@ export default function UserDataPage() {
                         <select
                           className="form-control cmn--form--control"
                           onChange={(e) => {
-                            const state = stateList[e.target.value]; //here you will get full state object.
-                            setStateid(e.target.value);
+                             setStateid(e.target.value);
                             
                           }}
                           value={stateid}
