@@ -12,11 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useUser } from "@clerk/nextjs";
 import {
   GetCountries,
-  GetState,
-  GetCity,
-  GetLanguages,
-  GetRegions,
-  GetPhonecodes, //async functions
+  GetState //async functions
 } from "react-country-state-city";
 
 const formSchema = z.object({
@@ -95,18 +91,15 @@ export default function UserDataPage() {
 
   const [countryid, setCountryid] = useState(0);
   const [stateid, setStateid] = useState(0);
-  const [cityid, setCityid] = useState(0);
   const [phoneCode, setPhoneCode] = useState("");
 
-  const [phonecodeList, setPhonecodeList] = useState([]);
+  
   const [countriesList, setCountriesList] = useState([]);
   const [stateList, setStateList] = useState([]);
-  const [cityList, setCityList] = useState([]);
+  
 
   useEffect(() => {
-    GetPhonecodes().then((result) => {
-      setPhonecodeList(result);
-    });
+    
     GetCountries().then((result) => {
       setCountriesList(result);
     });
@@ -157,8 +150,8 @@ export default function UserDataPage() {
                           className="form-control cmn--form--control"
                           onChange={(e) => {
                             const country = countriesList[e.target.value]; //here you will get full country object.
-                            setPhoneCode((prev) => country.phone_code);
-                            setCountryid((prev) => e.target.value);
+                            setPhoneCode(country.phone_code);
+                            setCountryid(e.target.value);
                             GetState(country.id).then((result) => {
                               setStateList(result);
                             });
@@ -179,10 +172,8 @@ export default function UserDataPage() {
                           className="form-control cmn--form--control"
                           onChange={(e) => {
                             const state = stateList[e.target.value]; //here you will get full state object.
-                            setStateid((prev) => e.target.value);
-                            GetCity(countryid, stateid).then((result) => {
-                              setCityList(result);
-                            });
+                            setStateid(e.target.value);
+                            
                           }}
                           value={stateid}
                         >
