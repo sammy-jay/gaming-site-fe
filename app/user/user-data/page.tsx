@@ -29,7 +29,7 @@ export default function UserDataPage() {
   const { user } = useUser();
 
   const [loading, setLoading] = useState(false);
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
@@ -38,7 +38,7 @@ export default function UserDataPage() {
   async function OnSubmit({
     address,
     zipCode,
-  }: z.infer<typeof formSchema>) {
+  }) {
     setLoading(true);
 
     const mutations = [
