@@ -1,9 +1,66 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useUser } from "@clerk/nextjs";
 
 export default function WithdrawPage() {
+  const router = useRouter();
+  const { user } = useUser();
+  const { handleSubmit, register } = useForm();
+
+  async function OnSubmit({amountInBTC, wallet}) {
+    const mutations = [
+      {
+        create: {
+          _type: "withdrawalTransaction",
+          userId: user?.id,
+          email: user?.primaryEmailAddress?.emailAddress,
+          username: user?.username,
+          amountInBTC,
+          wallet,
+          withdrawalDate: new Date(),
+          withdrawalStatus: "pending",
+        },
+      },
+      {
+        create: {
+          _type: "transactionHistory",
+          userId: user?.id,
+          email: user?.primaryEmailAddress?.emailAddress,
+          username: user?.username,
+          amountInBTC,
+          transactionDate: new Date(),
+          transactionStatus: "pending",
+          transactionType: "withdrawal",
+        },
+      },
+    ];
+
+    fetch(
+      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2024-01-01/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SANITY_API_TOKEN}`,
+        },
+        body: JSON.stringify({ mutations }),
+      }
+    )
+      .then((response) => console.log(response))
+      .then((result) => {
+        console.log(result);
+        router.replace("/user/withdraw/history");
+      })
+      .catch((error) => console.error(error));
+  }
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -13,6 +70,80 @@ export default function WithdrawPage() {
       </header>
 
       {/* content here */}
+
+      <section
+        className="hero-section bg--overlay bg_img bg_fixed"
+        id="user-hero-section"
+      >
+        <div className="container">
+          <div className="hero-content text-center">
+            <h2 className="m-0">Withdrawal Methods</h2>
+          </div>
+        </div>
+      </section>
+
+      <div className="dashboard-section pt-120 pb-120 bg--section">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-6">
+              <form onSubmit={handleSubmit(OnSubmit)}>
+                <div className="card custom--card">
+                  <div className="card-header">
+                    <h5 className="card-title">Withdraw</h5>
+                  </div>
+                  <div className="card-body">
+                    <div className="form-group">
+                      <label className="form-label">Select Gateway</label>
+                      <select
+                        className="form-control cmn--form--control"
+                        required
+                      >
+                        <option value="" selected disabled>
+                          Select One
+                        </option>
+                        {/* <option value="Bitcoin Deposit">Bitcoin Deposit</option> */}
+                        <option value="Crypto Wallet">
+                          Crypto Wallet Withdrawal
+                        </option>
+                      </select>
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Amount</label>
+                      <div className="input-group">
+                        <input
+                          type="number"
+                          className="form-control cmn--form--control"
+                          required
+                          min={0.001}
+                          max={1}
+                          step={0.001}
+                          {...register("amountInBTC")}
+                        />
+                        <span className="input-group-text">BTC</span>
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">BTC Wallet Address</label>
+                      <div className="input-group">
+                        <input
+                          type="text"
+                          className="form-control cmn--form--control"
+                          required
+                          {...register("wallet")}
+                        />
+                      </div>
+                    </div>
+
+                    <button type="submit" className="cmn--btn btn-block">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <footer className="footer-section">
         <div className="footer-top pt-120 pb-120">

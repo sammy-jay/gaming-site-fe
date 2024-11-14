@@ -13,6 +13,7 @@ type withdrawTransaction = {
   username: "";
   userId: "";
   email: "";
+  wallet: "";
   amountInBTC: 0;
   withdrawalDate: null;
   withdrawalStatus: null;
@@ -85,9 +86,10 @@ export default function WithdrawHistoryPage() {
                   <thead>
                     <tr>
                       <th>Gateway | Transaction</th>
-                      <th>Initiated</th>
-                      <th>Amount</th>
-                      <th>Status</th>
+                      <th>Wallet Address</th>
+                      <th>Withdrawal Date</th>
+                      <th>Amount (BTC)</th>
+                      <th>Withdrawal Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -100,7 +102,8 @@ export default function WithdrawHistoryPage() {
                       withdrawTransactions.map((transaction) => {
                         return (
                           <tr key={transaction?.withdrawalDate}>
-                            <td>Bitcoin</td>
+                            <td>Cryto Wallet</td>
+                            <td>{transaction?.wallet}</td>
                             <td>{transaction?.withdrawalDate}</td>
                             <td>{transaction?.amountInBTC}</td>
                             <td className="bg-yellow-500 text-white rounded-md p-2">

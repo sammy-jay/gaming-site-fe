@@ -16,7 +16,7 @@ export const DEPOSIT_TRANSACTIONS_QUERY = `*[
 export const WITHDRAWAL_TRANSACTIONS_QUERY = `*[
   _type == "withdrawalTransaction"
   && userId == $userId
-]{email, username,userId, amountInBTC, withdrawalDate, withdrawalStatus}`;
+]{email, username,userId, amountInBTC, withdrawalDate, withdrawalStatus, wallet}`;
 
 export const TRANSACTION_HISTORY_QUERY = `*[
   _type == "transactionHistory"

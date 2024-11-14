@@ -133,7 +133,7 @@ export default function TransactionLogPage() {
                     <tr>
                       <th>Transaction Type</th>
                       <th>Transaction Date</th>
-                      <th>Amount</th>
+                      <th>Amount (BTC)</th>
                       <th>Transaction Status</th>
                       <th>Detail</th>
                     </tr>

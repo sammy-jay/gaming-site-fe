@@ -49,10 +49,7 @@ const BottomNavBar = () => {
                         Practice Now
                       </Link>
                       <div className="border-[0.5px] border-gray-700" />
-                      <Link
-                        href="/user/practice/trade/log"
-                        className="menu-nav-link"
-                      >
+                      <Link href="/user/transaction" className="menu-nav-link">
                         Practice Log
                       </Link>
                     </TooltipContent>
@@ -77,7 +74,7 @@ const BottomNavBar = () => {
                         Trade Now
                       </Link>
                       <div className="border-[0.5px] border-gray-700" />
-                      <Link href="/user/trade/log" className="menu-nav-link">
+                      <Link href="/user/transaction" className="menu-nav-link">
                         Trade Log
                       </Link>
                     </TooltipContent>
@@ -126,7 +123,7 @@ const BottomNavBar = () => {
                       side="bottom"
                       className="flex flex-col gap-2 rounded-none m-0 p-0 bg-[#1E272E] border-0 outline-0 lg:w-[200px]"
                     >
-                      <Link href="/user/kyc-form" className="menu-nav-link">
+                      <Link href="/user/withdraw" className="menu-nav-link">
                         Withdraw Money
                       </Link>
                       <div className="border-[0.5px] border-gray-700" />
@@ -191,12 +188,18 @@ const BottomNavBar = () => {
         }`}
       >
         <li className="mobile-li">
-          <Link className="w-full text-white no-underline" href="/user/dashboard">
+          <Link
+            className="w-full text-white no-underline"
+            href="/user/dashboard"
+          >
             Dashboard
           </Link>
         </li>
         <li className="mobile-li">
-          <Link className="w-full text-white no-underline" href="/user/practice/trade">
+          <Link
+            className="w-full text-white no-underline"
+            href="/user/practice/trade"
+          >
             Practice
           </Link>
         </li>
@@ -211,22 +214,34 @@ const BottomNavBar = () => {
           </Link>
         </li>
         <li className="mobile-li">
-          <Link className="w-full text-white no-underline" href="/user/withdraw">
+          <Link
+            className="w-full text-white no-underline"
+            href="/user/withdraw"
+          >
             Withdraw Money
           </Link>
         </li>
         <li className="mobile-li">
-          <Link className="w-full text-white no-underline" href="/user/referral/log">
+          <Link
+            className="w-full text-white no-underline"
+            href="/user/referral/log"
+          >
             Referral Log
           </Link>
         </li>
         <li className="mobile-li">
-          <Link className="w-full text-white no-underline" href="/user/commission/log">
+          <Link
+            className="w-full text-white no-underline"
+            href="/user/commission/log"
+          >
             Commission Log
           </Link>
         </li>
         <li className="mobile-li">
-          <Link className="w-full text-white no-underline" href="/user/transaction">
+          <Link
+            className="w-full text-white no-underline"
+            href="/user/transaction"
+          >
             Transaction Log
           </Link>
         </li>

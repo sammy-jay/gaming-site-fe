@@ -169,7 +169,7 @@ export default function DashboardPage() {
                   <h4 className="dashboard__title">0</h4>
                   <span className="subtitle d-block">Total Trade</span>
                   <Link
-                    href="/user/trade/log"
+                    href="/user/transaction"
                     className="btn btn--sm btn--base"
                   >
                     View All
@@ -186,7 +186,7 @@ export default function DashboardPage() {
                   <h4 className="dashboard__title">0</h4>
                   <span className="subtitle d-block">Total Wining Trade</span>
                   <Link
-                    href="/user/trade/wining/log"
+                    href="/user/transaction"
                     className="btn btn--sm btn--base"
                   >
                     View All
@@ -203,7 +203,7 @@ export default function DashboardPage() {
                   <h4 className="dashboard__title">0</h4>
                   <span className="subtitle d-block">Total Losing Trade</span>
                   <Link
-                    href="/user/trade/losing/log"
+                    href="/user/transaction"
                     className="btn btn--sm btn--base"
                   >
                     View All
@@ -220,7 +220,7 @@ export default function DashboardPage() {
                   <h4 className="dashboard__title">0</h4>
                   <span className="subtitle d-block">Total Draw Trade</span>
                   <Link
-                    href="/user/trade/draw/log"
+                    href="/user/transaction"
                     className="btn btn--sm btn--base"
                   >
                     View All

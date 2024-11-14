@@ -98,6 +98,9 @@ export default function DepositPage() {
                               amount: parseFloat(e.target.value),
                             })
                           }
+                          min={0.001}
+                          max={1}
+                          step={0.001}
                           className="form-control cmn--form--control"
                           required
                         />

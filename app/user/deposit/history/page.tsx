@@ -85,9 +85,9 @@ export default function DepositHistoryPage() {
                   <thead>
                     <tr>
                       <th>Gateway | Transaction</th>
-                      <th>Initiated</th>
-                      <th>Amount</th>
-                      <th>Status</th>
+                      <th>Deposit Date</th>
+                      <th>Amount (BTC)</th>
+                      <th>Deposit Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
