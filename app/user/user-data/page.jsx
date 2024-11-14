@@ -17,12 +17,12 @@ import {
 
 const formSchema = z.object({
   address: z.string(),
-  zipCode: z.string(),
+  zipCode: z.number(),
 });
 
 const defaultValues = {
   address: "",
-  zipCode: "",
+  zipCode: 0,
 };
 
 export default function UserDataPage() {

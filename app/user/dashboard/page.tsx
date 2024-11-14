@@ -7,10 +7,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { client } from "@/lib/sanity/client";
 import { useUser } from "@clerk/nextjs";
-import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
-  const router = useRouter();
   const { user } = useUser();
   const [account, setAccount] = useState({
     username: "",
@@ -47,9 +45,7 @@ export default function DashboardPage() {
     loadData();
   }, [user]);
 
-  if (!user) {
-    router.replace("/");
-  }
+  
   return (
     <main>
       <Script src="/js/index.js" />
@@ -240,7 +236,7 @@ export default function DashboardPage() {
                 <input
                   type="text"
                   name="key"
-                  value="https://www.cryptoplustrader.com?reference=pure_smoke"
+                  value={`https://www.tetracryptoplus.com?reference=${user?.username}`}
                   className="form-control cmn--form--control bg--section referralURL"
                   readOnly
                 />

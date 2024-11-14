@@ -99,12 +99,12 @@ export default function WithdrawHistoryPage() {
                     ) : (
                       withdrawTransactions.map((transaction) => {
                         return (
-                          <tr key={transaction?.depositDate}>
+                          <tr key={transaction?.withdrawalDate}>
                             <td>Bitcoin</td>
-                            <td>{transaction?.withdrawDate}</td>
+                            <td>{transaction?.withdrawalDate}</td>
                             <td>{transaction?.amountInBTC}</td>
                             <td className="bg-yellow-500 text-white rounded-md p-2">
-                              Pending
+                              {transaction?.withdrawalStatus}
                             </td>
                             <td></td>
                           </tr>
