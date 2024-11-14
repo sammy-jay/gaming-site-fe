@@ -1,9 +1,44 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { TRANSACTION_HISTORY_QUERY } from "@/lib/sanity/queries";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity/client";
+import { useUser } from "@clerk/nextjs";
 
+type transactionHistory = {
+  username: "";
+  userId: "";
+  email: "";
+  amountInBTC: 0;
+  transactionDate: null;
+  transactionType: null;
+  transactionStatus: null;
+};
 export default function TransactionLogPage() {
+    const { user } = useUser();
+  const [transactionHistory, setTransactionHistory] = useState<
+    transactionHistory[]
+  >([]);
+
+  useEffect(() => {
+    function loadData() {
+      client
+        .fetch(TRANSACTION_HISTORY_QUERY, { userId: user?.id }, {})
+        .then((data) => {
+          if (data.length > 0) {
+            setTransactionHistory(data);
+            console.log(transactionHistory);
+          }
+        });
+    }
+
+    loadData();
+  }, [user]);
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -96,19 +131,33 @@ export default function TransactionLogPage() {
                 <table className="table cmn--table">
                   <thead>
                     <tr>
-                      <th>Trx</th>
-                      <th>Transacted</th>
+                      <th>Transaction Type</th>
+                      <th>Transaction Date</th>
                       <th>Amount</th>
-                      <th>Post Balance</th>
+                      <th>Transaction Status</th>
                       <th>Detail</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td className="text-muted text-center" colSpan={5}>
+                     {transactionHistory?.length === 0 ? (
+                      <tr>
+                        <td className="text-muted text-center" colSpan={6}>
                         Data not found
                       </td>
-                    </tr>
+                      </tr>
+                    ) : (
+                      transactionHistory.map((transaction) => {
+                        return (
+                          <tr key={transaction?.transactionDate}>
+                            <td>{transaction?.transactionType}</td>
+                            <td>{transaction?.transactionDate}</td>
+                            <td>{transaction?.amountInBTC}</td>
+                            <td>{transaction?.transactionStatus}</td>
+                            <td></td>
+                          </tr>
+                        );
+                      })
+                    )}
                   </tbody>
                 </table>
               </div>

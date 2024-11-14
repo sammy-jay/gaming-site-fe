@@ -1,9 +1,43 @@
+"use client";
+
 import BottomNavBar from "@/components/navigation/user/BottomNavBar";
 import TopNavBar from "@/components/navigation/user/TopNavBar";
 import Link from "next/link";
 import Script from "next/script";
+import { WITHDRAWAL_TRANSACTIONS_QUERY } from "@/lib/sanity/queries";
+import { useEffect, useState } from "react";
+import { client } from "@/lib/sanity/client";
+import { useUser } from "@clerk/nextjs";
 
+type withdrawTransaction = {
+  username: "";
+  userId: "";
+  email: "";
+  amountInBTC: 0;
+  withdrawalDate: null;
+  withdrawalStatus: null;
+};
 export default function WithdrawHistoryPage() {
+  const { user } = useUser();
+  const [withdrawTransactions, setWithdrawTransactions] = useState<
+    withdrawTransaction[]
+  >([]);
+
+  useEffect(() => {
+    function loadData() {
+      client
+        .fetch(WITHDRAWAL_TRANSACTIONS_QUERY, { userId: user?.id }, {})
+        .then((data) => {
+          if (data.length > 0) {
+            setWithdrawTransactions(data);
+            console.log(withdrawTransactions);
+          }
+        });
+    }
+
+    loadData();
+  }, [user]);
+
   return (
     <main>
       <Script src="/js/index.js" />
@@ -22,7 +56,7 @@ export default function WithdrawHistoryPage() {
       >
         <div className="container">
           <div className="hero-content text-center">
-            <h2 className="m-0">Withdraw Log</h2>
+            <h2 className="m-0">Withdraw History</h2>
           </div>
         </div>
       </section>
@@ -37,7 +71,6 @@ export default function WithdrawHistoryPage() {
                     type="text"
                     name="search"
                     className="form-control cmn--form--control"
-                    value=""
                     placeholder="Search By Transactions"
                   />
                   <button className="input-group-text bg--base text-white border-0">
@@ -54,17 +87,30 @@ export default function WithdrawHistoryPage() {
                       <th>Gateway | Transaction</th>
                       <th>Initiated</th>
                       <th>Amount</th>
-                      <th>Conversion</th>
                       <th>Status</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    {withdrawTransactions?.length === 0 ? (
                       <td className="text-muted text-center" colSpan={6}>
                         Data not found
                       </td>
-                    </tr>
+                    ) : (
+                      withdrawTransactions.map((transaction) => {
+                        return (
+                          <tr key={transaction?.depositDate}>
+                            <td>Bitcoin</td>
+                            <td>{transaction?.withdrawDate}</td>
+                            <td>{transaction?.amountInBTC}</td>
+                            <td className="bg-yellow-500 text-white rounded-md p-2">
+                              Pending
+                            </td>
+                            <td></td>
+                          </tr>
+                        );
+                      })
+                    )}
                   </tbody>
                 </table>
               </div>

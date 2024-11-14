@@ -74,173 +74,13 @@ export default function Home() {
                 <p>The prices are updated in real-time.</p>
               </div>
               <div className="table-responsive">
-                <table className="table cmn--table">
-                  <thead>
-                    <tr>
-                      <th>S.N.</th>
-                      <th>Name</th>
-                      <th>1h%</th>
-                      <th>Price</th>
-                      <th>7d%</th>
-                      <th>Market Cap</th>
-                      <th>24h%</th>
-                      <th>Volume(24h)</th>
-                      <th>Circulating Supply</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>
-                        <div className="author-info d-flex align-items-center">
-                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef3902367b1689187216.png" />
-                          <div className="name">
-                            <span className="d-block">BTC</span>
-                            <small>Bitcoin</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge--danger">-0.19 %</span>
-                      </td>
-                      <td>62,901.09 USD</td>
-                      <td>
-                        <span className="badge badge--danger">-1.88 %</span>
-                      </td>
-                      <td>$1,243,198,029,865.10</td>
-                      <td>
-                        <span className="badge badge--success">1.02 %</span>
-                      </td>
-                      <td>$24,181,185,956.65</td>
-                      <td>0.00 BTC</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>
-                        <div className="author-info d-flex align-items-center">
-                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef3b100fb31689187249.png" />
-                          <div className="name">
-                            <span className="d-block">ETH</span>
-                            <small>Ethereum</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge--danger">-0.06 %</span>
-                      </td>
-                      <td>2,466.56 USD</td>
-                      <td>
-                        <span className="badge badge--danger">-6.40 %</span>
-                      </td>
-                      <td>$296,922,464,550.20</td>
-                      <td>
-                        <span className="badge badge--success">1.48 %</span>
-                      </td>
-                      <td>$13,299,005,375.88</td>
-                      <td>0.00 ETH</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>
-                        <div className="author-info d-flex align-items-center">
-                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef3e8710701689187304.png" />
-                          <div className="name">
-                            <span className="d-block">USDT</span>
-                            <small>Tether</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge--danger">0.00 %</span>
-                      </td>
-                      <td>1.00 USD</td>
-                      <td>
-                        <span className="badge badge--danger">-0.03 %</span>
-                      </td>
-                      <td>$119,629,760,853.70</td>
-                      <td>
-                        <span className="badge badge--danger">-0.04 %</span>
-                      </td>
-                      <td>$47,808,399,966.31</td>
-                      <td>0.00 USDT</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>
-                        <div className="author-info d-flex align-items-center">
-                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef50fb4ee81689187599.png" />
-                          <div className="name">
-                            <span className="d-block">BNB</span>
-                            <small>BNB</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge--success">0.10 %</span>
-                      </td>
-                      <td>571.47 USD</td>
-                      <td>
-                        <span className="badge badge--danger">-0.95 %</span>
-                      </td>
-                      <td>$83,395,794,702.71</td>
-                      <td>
-                        <span className="badge badge--success">1.42 %</span>
-                      </td>
-                      <td>$1,568,734,435.24</td>
-                      <td>0.00 BNB</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>
-                        <div className="author-info d-flex align-items-center">
-                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef5449155b1689187652.png" />
-                          <div className="name">
-                            <span className="d-block">USDC</span>
-                            <small>USD Coin</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge--danger">0.00 %</span>
-                      </td>
-                      <td>1.00 USD</td>
-                      <td>
-                        <span className="badge badge--danger">-0.01 %</span>
-                      </td>
-                      <td>$35,485,054,117.79</td>
-                      <td>
-                        <span className="badge badge--danger">-0.03 %</span>
-                      </td>
-                      <td>$4,600,452,276.75</td>
-                      <td>0.00 USDC</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>
-                        <div className="author-info d-flex align-items-center">
-                          <img src="https://www.cryptoplustrader.com/assets/images/crypto_currency/64aef57d94dbc1689187709.png" />
-                          <div className="name">
-                            <span className="d-block">BUSD</span>
-                            <small>Binance USD</small>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="badge badge--success">0.00 %</span>
-                      </td>
-                      <td>1.00 USD</td>
-                      <td>
-                        <span className="badge badge--danger">-0.07 %</span>
-                      </td>
-                      <td>$69,500,780.04</td>
-                      <td>
-                        <span className="badge badge--danger">-0.01 %</span>
-                      </td>
-                      <td>$5,475,838.20</td>
-                      <td>0.00 BUSD</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <iframe
+                  allowTransparency={true}
+                  src="https://www.tradingview-widget.com/embed-widget/crypto-mkt-screener/?locale=en#%7B%22width%22%3A%22100%25%22%2C%22height%22%3A550%2C%22defaultColumn%22%3A%22overview%22%2C%22screener_type%22%3A%22crypto_mkt%22%2C%22displayCurrency%22%3A%22USD%22%2C%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Afalse%2C%22market%22%3A%22crypto%22%2C%22enableScrolling%22%3Atrue%2C%22utm_source%22%3A%22www.tradingview.com%22%2C%22utm_medium%22%3A%22widget_new%22%2C%22utm_campaign%22%3A%22cryptomktscreener%22%2C%22page-uri%22%3A%22www.tradingview.com%2Fwidget-wizard%2Fen%2Flight%2Fcrypto-mkt-screener%2F%22%7D"
+                  title="crypto mkt-screener TradingView widget"
+                  lang="en"
+                  className="h-[600px] w-full block box-border select-none"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -257,7 +97,7 @@ export default function Home() {
               <p>There are various services we offer:</p>
             </div>
           </div>
-          <div className="row g-xl-2 g-lg-4 g-md-2 g-3">
+          <div className="row g-xl-2 g-lg-4 g-md-2 g-3 flex flex-row justify-center">
             <div className="col-xl-2 col-md-3 col-sm-6 ">
               <div
                 className="predict-type-item predictModelShow"
@@ -594,7 +434,7 @@ export default function Home() {
                   <div className="meta__date">
                     <div className="meta__item">
                       <i className="las la-calendar"></i>
-                      20 Feb 2023
+                      20 Oct 2024
                     </div>
                   </div>
                   <div className="blog-short-desc">
@@ -623,7 +463,7 @@ export default function Home() {
                   <div className="meta__date">
                     <div className="meta__item">
                       <i className="las la-calendar"></i>
-                      20 Feb 2023
+                      19 Oct 2024
                     </div>
                   </div>
                   <div className="blog-short-desc">
@@ -652,7 +492,7 @@ export default function Home() {
                   <div className="meta__date">
                     <div className="meta__item">
                       <i className="las la-calendar"></i>
-                      20 Feb 2023
+                      17 Oct 2024
                     </div>
                   </div>
                   <div className="blog-short-desc">

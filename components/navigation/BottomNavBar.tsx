@@ -7,8 +7,8 @@ const BottomNavBar = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className="header-bottom">
-      <div className="container bg-[#1E272E] md:bg-transparent">
+    <div className="header-bottom w-full">
+      <div className="container bg-[#1E272E] md:bg-transparent min-w-[100vw] px-4">
         <div className="header-wrapper ">
           <div className="logo ">
             <Link href="/">

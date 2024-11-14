@@ -36,6 +36,18 @@ export default function ConfirmDepositPage() {
           depositStatus: "pending"
         },
       },
+      {
+        create: {
+          _type: "transactionHistory",
+          userId: user?.id,
+          email: user?.primaryEmailAddress?.emailAddress,
+          username: user?.username,
+          amountInBTC: depositData.finalAmount,
+          transactionDate: new Date(),
+          transactionStatus: "pending",
+          transactionType: "deposit"
+        },
+      },
     ];
 
     fetch(

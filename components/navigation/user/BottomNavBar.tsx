@@ -15,7 +15,7 @@ const BottomNavBar = () => {
 
   return (
     <div className="header-bottom">
-      <div className="container">
+      <div className="container min-w-[100vw] px-4">
         <div className="header-wrapper">
           <div className="logo">
             <Link href="/">
@@ -23,7 +23,7 @@ const BottomNavBar = () => {
             </Link>
           </div>
           <div className="hidden lg:block">
-            <ul className="menu">
+            <ul className="menu font-rajdhani">
               <li>
                 <Link href="/user/dashboard" className="active">
                   Dashboard
@@ -170,7 +170,7 @@ const BottomNavBar = () => {
               </li>
 
               <li>
-                <Link href="/user/transactions">Transaction Log</Link>
+                <Link href="/user/transaction">Transaction Log</Link>
               </li>
             </ul>
           </div>

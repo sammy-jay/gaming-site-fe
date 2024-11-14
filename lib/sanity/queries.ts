@@ -12,3 +12,13 @@ export const DEPOSIT_TRANSACTIONS_QUERY = `*[
   _type == "depositTransaction"
   && userId == $userId
 ]{email, username,userId, amountInBTC, depositDate, depositStatus}`;
+
+export const WITHDRAWAL_TRANSACTIONS_QUERY = `*[
+  _type == "withdrawalTransaction"
+  && userId == $userId
+]{email, username,userId, amountInBTC, withdrawalDate, withdrawalStatus}`;
+
+export const TRANSACTION_HISTORY_QUERY = `*[
+  _type == "transactionHistory"
+  && userId == $userId
+]{email, username,userId, amountInBTC, transactionDate, transactionType, transactionStatus}`;

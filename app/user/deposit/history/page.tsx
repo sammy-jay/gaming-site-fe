@@ -103,7 +103,7 @@ export default function DepositHistoryPage() {
                             <td>Bitcoin</td>
                             <td>{transaction?.depositDate}</td>
                             <td>{transaction?.amountInBTC}</td>
-                            <td className="bg-yellow-500 text-white rounded-md p-2">
+                            <td className="bg-gray-400 text-white rounded-md p-2">
                               Pending
                             </td>
                             <td></td>
