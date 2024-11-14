@@ -149,7 +149,7 @@ export default function ConfirmDepositPage() {
                           </span>
                         </p>
                         <p className="w-full flex flex-col items-center">
-                          <img src="/wallet/btc.png" width="30%" height="30%" />
+                          <img src="/wallet/btc.jpeg" width="30%" height="30%" />
                           <span>(Scan QR Code)</span>
                         </p>
                       </div>
